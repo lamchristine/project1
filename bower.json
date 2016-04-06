@@ -1,0 +1,22 @@
+{
+  "name": "project1",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "lamchristine <christine.lam.06@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "handlebars": "^4.0.5",
+    "jquery": "^2.2.3"
+  }
+}

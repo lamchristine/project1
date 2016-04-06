@@ -1,0 +1,70 @@
+Fast Food Model:
+- name: String
+- location: String
+
+
+
+Food Items Model
+- name: String
+- calories: Number
+- image: String
+- place: [fast food schema]
+
+
+Seed.js
+
+Food Items = [
+{
+name: Big Mac
+calories: 500 
+image: String
+place: MacDonalds
+},
+name: Fish Burger
+calories: 300 
+image: String
+place: Burger King
+},
+name: Wendy Burger
+calories: 200
+image: String
+place: Wendys
+}
+]
+
+
+
+
+Fast Food = [
+{ 
+name: MacDonalds
+location: Daly City
+},
+name: Burger King
+location: Sunset
+}, 
+name: Wendys
+location: Richmond
+}
+] 
+
+
+
+
+DO NOT USE
+Fast Food = [
+{ 
+name: MacDonalds
+location: Daly City
+items: [food items]
+},
+name: Burger King
+location: Sunset
+items: [food items]
+}, 
+name: Wendys
+location: Richmond
+items: [food items]
+}
+] 
+
