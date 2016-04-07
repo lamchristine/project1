@@ -1,2 +1,8 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/project1");
+
+mongoose.connect( process.env.MONGOLAB_URI ||
+                  process.env.MONGOHQ_URL ||
+                  "mongodb://localhost/project1");
+
+
+// module.exports.Profile = require("./profile.js");
