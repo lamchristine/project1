@@ -60,6 +60,23 @@
     <div class="row section_title">
       <p>View all posts</p>
     </div>
+    <div id="post">
+      <!-- handlebars template -->
+      <script id="post-template" type="text/x-handlebars-template">
+        {{#each post}}
+          <div class="row">
+            <div class="col-xs-5">{{name}} , {{age}}</div>
+          </div>
+          {{#each trips}}
+              <div class="col-xs-5">
+                  <li>{{country}} , {{city}}</li>
+              </div>
+          {{/each}}
+              <hr>
+        {{/each}}
+      </script>
+    </div>
+
 
   </body>
 </html>
