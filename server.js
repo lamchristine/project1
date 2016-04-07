@@ -22,6 +22,9 @@ app.use(bodyParser.urlencoded({ extended: true}));
    res.sendFile(__dirname + '/views/index.html');
  });
 
+ app.get('/post', function homepage (req, res) {
+   res.sendFile(__dirname + '/views/post.html');
+ });
 
  /*
   * JSON API Endpoints
