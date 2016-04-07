@@ -4,6 +4,7 @@ body{
   margin: 0;
   padding: 0;
   color: #595959;
+  background: #F5F7F7
 }
 
 a {
@@ -18,7 +19,6 @@ ul {
   padding-top: 25px;
   /*padding-bottom: 5px;*/
   padding-right: 20px;
-  background: white;
   vertical-align: middle;
   margin-bottom: -5px;
 }
@@ -29,6 +29,7 @@ li {
   padding: 0 15px 0 15px;
   color: #595959;
 }
+
 
 .nav_home {
   margin-left: -45px;
@@ -43,7 +44,7 @@ li {
 header {
   background: url('/images/background.jpg');
   background-size: cover;
-  height: 450px;
+  height: 550px;
   background-position: center;
   margin-top: -5px;
 }
@@ -76,4 +77,18 @@ header {
   font-size: 18px;
   color: white;
   opacity: 1;
+}
+
+/*---BODY---*/
+.search  {
+  margin-top: 50px;
+}
+
+#place {
+  width: 300px;
+  margin-right: 10px;
+}
+
+.trip {
+  background: red;
 }
