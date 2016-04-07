@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var TripSchema = new Schema ({
   country: String,
   city: String,
+  description: String,
 });
 
 var Trip = mongoose.model('Trip', TripSchema);

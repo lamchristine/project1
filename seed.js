@@ -4,16 +4,20 @@ var db = require("./models");
 var sampleTrips = [];
 
 sampleTrips.push({ country: "Germany",
-                   city: "Berlin"
+                   city: "Berlin",
+                   description: "Let's go visit all the biergardens!"
 });
 sampleTrips.push({ country: "Australia",
-                   city: "Sydney"
+                   city: "Sydney",
+                   description: "Can't wait to eat some meat pies and listen to some opera!"
 });
 sampleTrips.push({ country: "United States",
-                   city: "San Francisco"
+                   city: "San Francisco",
+                   description: "Hope it's not too foggy."
 });
 sampleTrips.push({ country: "Australia",
-                   city: "Arlie Beach"
+                   city: "Arlie Beach",
+                   description: "Relaxing and surfing on the beach!"
 });
 
 
@@ -21,25 +25,32 @@ sampleTrips.push({ country: "Australia",
 var postsList = [];
 
 postsList.push({ name: 'Jack',
-                   age: 34
+                  age: 34,
+                image: "http://lorempixel.com/image_output/animals-q-c-200-200-6.jpg"
 });
 postsList.push({ name: "Jim",
-                   age: 34
+                   age: 34,
+                   image: "http://lorempixel.com/image_output/animals-q-c-200-200-1.jpg"
 });
 postsList.push({ name: 'Henry',
-                   age: 23
+                   age: 23,
+                   image: "http://lorempixel.com/image_output/animals-q-c-200-200-2.jpg"
 });
 postsList.push({ name: 'Bill',
-                   age: 44
+                   age: 44,
+                   image: "http://lorempixel.com/image_output/animals-q-c-200-200-3.jpg"
 });
 postsList.push({ name: 'Ryan',
-                   age: 25
+                   age: 25,
+                   image: "http://lorempixel.com/image_output/animals-q-c-200-200-5.jpg"
 });
 postsList.push({ name: 'Jane',
-                   age: 63
+                   age: 63,
+                   image: "http://lorempixel.com/image_output/animals-q-c-200-200-4.jpg"
 });
 postsList.push({ name: 'Doe',
-                   age: 27
+                   age: 27,
+                   image: "http://lorempixel.com/image_output/animals-q-c-200-200-9.jpg"
 });
 
 postsList.forEach(function (post) {

@@ -64,15 +64,36 @@
       <!-- handlebars template -->
       <script id="post-template" type="text/x-handlebars-template">
         {{#each post}}
-          <div class="row">
-            <div class="col-xs-5">{{name}} , {{age}}</div>
-          </div>
-          {{#each trips}}
-              <div class="col-xs-5">
-                  <li>{{country}} , {{city}}</li>
+        <div class="container">
+          <div class="row post">
+            <div class="col-md-4">
+              <h3>Traveler: {{name}} <br> Age: {{age}} </h3>
+              <img src={{image}}>
+              <div class="row">
+                <button class='btn btn-primary'>Delete Traveler</button>
               </div>
-          {{/each}}
-              <hr>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-4">
+                  <p><h2>Upcoming trips:</h2></p>
+                </div>
+                <div class="col-md-2">
+                  <button class='btn btn-primary adTrip'><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Trip</button>
+                </div>
+              </div>
+              {{#each trips}}
+                <div class="row tripList">
+                    <button class='btn btn-primary add-song pull-right'>Edit Trip</button>
+                    <button class='btn btn-primary add-song pull-right'>Delete Trip</button>
+                    <p><h3>{{country}} , {{city}}<br></h3></p>
+                    <p>{{description}}</p>
+                    <hr>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
         {{/each}}
       </script>
     </div>
