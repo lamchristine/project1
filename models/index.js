@@ -5,4 +5,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
                   "mongodb://localhost/project1");
 
 
-// module.exports.Profile = require("./profile.js");
+module.exports.Post = require("./post");

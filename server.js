@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
   */
 
   app.get('/api', controllers.api.index);
-
+  app.get('/post', controllers.post.index);
 
 
   /**********
