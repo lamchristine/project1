@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   $.ajax({
     method:'GET',
-    url:'/post/all',
+    url:'/api/posts',
     success: onSuccess,
     error: onError,
   });

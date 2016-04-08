@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
    res.sendFile(__dirname + '/views/index.html');
  });
 
- app.get('/post', function homepage (req, res) {
+ app.get('/posts', function homepage (req, res) {
    res.sendFile(__dirname + '/views/post.html');
  });
 
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
   */
 
   app.get('/api', controllers.api.index);
-  app.get('/post/all', controllers.post.index);
+  app.get('/api/posts', controllers.post.index);
 
 
   /**********
