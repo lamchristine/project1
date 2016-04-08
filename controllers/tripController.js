@@ -19,8 +19,21 @@ function destroy(req, res) {
     });
 }
 
+function create(req, res) {
+  var postId = req.params.post_id;
+  db.Post.findById(postId)
+    .exec (function (err, foundPost) {
+      var newTrip = new db.Trip(req.body);
+      foundPost.trips.push(newTrip);
+        foundPost.save(function (err, foundPost ) {
+          console.log("new trip created", foundPost);
+          res.json(foundPost);
+        });
+    });
+}
 
 //export public methods
 module.exports = {
+  create: create,
   destroy: destroy,
 };

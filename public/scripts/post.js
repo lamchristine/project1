@@ -45,6 +45,33 @@ $post.on('click', '.delete_trip', function () {
   });
 });
 
+//create a new trip
+$post.on('click', '.add_trip', function () {
+
+  $('#trip_form input').val(''); //emptying fields everytime modal is open
+  $('#trip_form textarea').val(''); //emptying fields everytime modal is open
+  var addTripId = $(this).closest('.add_trip').data('post-Id');
+  console.log(addTripId);
+
+  $('#tripModal').attr('data-post-Id', addTripId);
+  $('#tripModal').modal('show');
+
+    $('#saveTrip').on('click', function(e){
+      e.preventDefault();
+      $('#tripModal').modal('hide');
+      var modalData = $('#trip_form').serialize();
+      console.log(modalData);
+
+        $.ajax({
+          method: 'POST',
+          url: '/api/posts/' + addTripId +  '/trips',
+          data: modalData,
+          success: tripAddSuccss,
+          error: tripAddError,
+        });
+    });
+});
+
 
 }); //closes document ready
 
@@ -96,4 +123,22 @@ function deleteTripSuccess(json) {
 
 function deleteTripError(){
   console.log("error in deleting trip");
+}
+
+function tripAddSuccss(json){
+  console.log(json);
+  var newPost = json;
+  var newPostId= newPost._id;
+
+  for(var i=0;i<allPosts.length;i++) {
+    if (allPosts[i]._id === newPostId) {
+      allPosts[i] = newPost;
+      break;
+    }
+  }
+  render();
+}
+
+function tripAddError () {
+  console.log("error in adding new trip");
 }
