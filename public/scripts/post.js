@@ -59,6 +59,7 @@ $post.on('click', '.add_trip', function () {
 
     $('#saveTrip').on('click', function(e){
       e.preventDefault();
+      $(this).off('click');
       $('#tripModal').modal('hide');
       var modalData = $('#trip_form').serialize();
       console.log(modalData);
@@ -79,7 +80,7 @@ $post.on('click', '.edit_trip', function () {
   $('#trip_form textarea').val(''); //emptying fields everytime modal is open
   var editPostId = $(this).closest('.edit_trip').data('post-Id');
   var editTripId = $(this).data('trip-Id');
-  console.log(editTripId);
+  // console.log(editTripId);
 
   // $(this).parents('.post').remove(); //removing clicked on album
   $('#tripModal').attr('data-post-Id', editTripId);
@@ -87,9 +88,11 @@ $post.on('click', '.edit_trip', function () {
 
     $('#saveTrip').on('click', function(e){
       e.preventDefault();
+      $(this).off('click');
+      console.log(editTripId, editPostId);
       $('#tripModal').modal('hide');
       var modalData = $('#trip_form').serialize();
-      console.log(modalData);
+      // console.log(modalData);
 
         $.ajax({
           method: 'PUT',
