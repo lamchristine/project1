@@ -10,12 +10,17 @@ function index(req, res) {
   });
 }
 
-// function destroy(req, res) {
-//   var deletedId = req.params.id
-// }
+function destroy(req, res) {
+  var deletedId = req.params.id;
+  console.log(deletedId);
+  db.Post.findOneAndRemove({_id:deletedId}, function (err, deletedPost){
+    res.json(deletedPost);
+    console.log(deletedPost);
+  });
+}
 
 //export public methods
 module.exports = {
   index: index,
-  // destroy: destroy,
+  destroy: destroy,
 };

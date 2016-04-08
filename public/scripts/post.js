@@ -13,7 +13,7 @@ $(document).ready(function() {
   var source = $('#post-template').html();
   template = Handlebars.compile(source);
 
-
+//shows all posts
   $.ajax({
     method:'GET',
     url:'/api/posts',
@@ -21,29 +21,49 @@ $(document).ready(function() {
     error: onError,
   });
 
+//deletes a post
   $post.on('click', '.delete_post', function (e) {
-    var deleteId = $(this).closest('.post').data('postId');
+    var deleteId = $(this).data('post-Id');
     console.log( deleteId );
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/posts/' + deleteId,
+      success: deletePostSuccess,
+      error: deletePostError,
+    });
   });
-
-
 }); //closes document ready
 
-function render(post) {
-  // $post.empty();
-  var postHtml = template (post);
+//renders to page
+function render() {
+  $post.empty();
+  var postHtml = template ({post: allPosts});
   $post.append(postHtml);
 }
 
-function onSuccess(posts){
+
+function onSuccess(json){
   console.log("all posts displayed");
-  posts.forEach(function (post) {
-    render(post)
-  });
-  // allPosts = json;
-  // render();
+  allPosts = json;
+  render();
 }
 
 function onError(json){
   console.log("error");
+}
+
+function deletePostSuccess(json) {
+  console.log("delete success");
+  var postId = json._id;
+  for (var i=0; i<allPosts.length; i++) {
+    if (allPosts[i]._id === postId) {
+      allPosts.splice(i, 1);
+      break;
+    }
+  }
+  render();
+}
+
+function deletePostError() {
+  console.log("delete error");
 }
