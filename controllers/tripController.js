@@ -42,14 +42,11 @@ function update(req, res) {
   var tripId = req.params.trip_id;
   console.log(tripId);
 
-  db.Post.findById(postId)
+  db.Post.findById(postId) //find the post that needs to be updated
     .exec (function (err, foundPost) {
-      // var editTrip = foundPost.trips.id(tripId);
-      //
-      // editTrip = req.body
 
       var foundPostTrips = foundPost.trips.id(tripId);
-      console.log(foundPostTrips)
+      console.log(foundPostTrips);
 
       foundPostTrips.city = req.body.city;
       foundPostTrips.country = req.body.country;
@@ -59,38 +56,14 @@ function update(req, res) {
         if (err) {
           console.log("saving edited trip failed");
         }
-        res.json(foundPostTrips);
-        console.log(foundPostTrips);
+        console.log(foundPostTrips);  //only saves the one edited trip
+      });
+      foundPost.save(function(err) { //saves the entire pose with the edited trip
+        res.json(foundPost);
+        console.log(foundPost);
       });
     });
   }
-
-  //     foundPostTrips.forEach(function (trip) {
-  //       if (foundPostTrips._id === tripId) {
-  //         foundPostTrips = req.body;
-  //         foundPostTrips.save(function(editedTrip) {
-  //           res.json(editedTrip);
-  //           console.log(editedTrip);
-  //         });
-  //       }
-  //     });
-  //   });
-  // }
-      // for(var i = 0; i < foundPostTrips.length; i++){
-//         if (foundPostTrips[i]._id === tripId) {
-//           foundPostTrips[i] = req.body;
-//           return foundPostTrips;
-//         }
-//       }
-//       foundPostTrips.save(function(err){
-//         if (err) {
-//           console.log("edit failed");
-//         }
-//         console.log("edit trip saved", foundPostTrips);
-//         res.json(foundPostTrips);
-//       });
-//     });
-// }
 
 
 

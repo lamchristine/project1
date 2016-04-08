@@ -53,6 +53,7 @@ $post.on('click', '.add_trip', function () {
   var addTripId = $(this).closest('.add_trip').data('post-Id');
   console.log(addTripId);
 
+  // $(this).parents('.post').remove(); //removing clicked on album
   $('#tripModal').attr('data-post-Id', addTripId);
   $('#tripModal').modal('show');
 
@@ -72,7 +73,7 @@ $post.on('click', '.add_trip', function () {
     });
 });
 
-//edot a new trip
+//edit a new trip
 $post.on('click', '.edit_trip', function () {
   $('#trip_form input').val(''); //emptying fields everytime modal is open
   $('#trip_form textarea').val(''); //emptying fields everytime modal is open
@@ -80,6 +81,7 @@ $post.on('click', '.edit_trip', function () {
   var editTripId = $(this).data('trip-Id');
   console.log(editTripId);
 
+  // $(this).parents('.post').remove(); //removing clicked on album
   $('#tripModal').attr('data-post-Id', editTripId);
   $('#tripModal').modal('show');
 
@@ -178,6 +180,7 @@ function tripEditSuccss(json) {
   for (var i=0;i<allPosts.length; i++) {
     if (allPosts[i]._id === tripId) {
       allPosts[i] = trip;
+      console.log(trip)
       break;
     }
   }
