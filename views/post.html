@@ -62,15 +62,16 @@
     </div>
     <div id="post">
       <!-- handlebars template -->
+
       <script id="post-template" type="text/x-handlebars-template">
-        {{#each post}}
+  
         <div class="container">
           <div class="row post">
             <div class="col-md-4">
               <h3>Traveler: {{name}} <br> Age: {{age}} </h3>
               <img src={{image}}>
               <div class="row">
-                <button class='btn btn-primary'>Delete Traveler</button>
+                <button class="btn btn-primary delete_post" data-postId={{_id}}>Delete Traveler</button>
               </div>
             </div>
             <div class="col-md-8">

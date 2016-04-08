@@ -10,7 +10,12 @@ function index(req, res) {
   });
 }
 
+// function destroy(req, res) {
+//   var deletedId = req.params.id
+// }
+
 //export public methods
 module.exports = {
   index: index,
+  // destroy: destroy,
 };

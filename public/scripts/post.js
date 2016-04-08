@@ -20,18 +20,28 @@ $(document).ready(function() {
     success: onSuccess,
     error: onError,
   });
+
+  $post.on('click', '.delete_post', function (e) {
+    var deleteId = $(this).closest('.post').data('postId');
+    console.log( deleteId );
+  });
+
+
 }); //closes document ready
 
-function render() {
-  $post.empty();
-  var postHtml = template ({post: allPosts});
+function render(post) {
+  // $post.empty();
+  var postHtml = template (post);
   $post.append(postHtml);
 }
 
-function onSuccess(json){
+function onSuccess(posts){
   console.log("all posts displayed");
-  allPosts = json;
-  render();
+  posts.forEach(function (post) {
+    render(post)
+  });
+  // allPosts = json;
+  // render();
 }
 
 function onError(json){
