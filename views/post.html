@@ -56,13 +56,30 @@
     </div>
   </header>
 
-<!--travel gallery section-->
+<!--view post section-->
     <div class="row section_title">
-      <p>View all posts</p>
+      <p>Search all posts</p>
     </div>
-    <div id="post">
-      <!-- handlebars template -->
 
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form id="search" class="form-inline">
+          <div class="form-group">
+            <label for="searchCity">Search City</label>
+            <input type="text" class="form-control" name="city" id="searchCity" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="searchCountry">Search Country</label>
+            <input type="text" class="form-control" name="country" id="searchCountry" placeholder="">
+          </div>
+          <button type="submit" class="btn btn-default searchbtn">Search</button>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- handlebars template -->
+    <div id="post">
       <script id="post-template" type="text/x-handlebars-template">
         {{#each post}}
         <div class="container">

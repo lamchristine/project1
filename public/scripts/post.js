@@ -104,6 +104,21 @@ $post.on('click', '.edit_trip', function () {
     });
 });
 
+//search for posts
+
+$('#search').on('click', '.searchbtn', function (e) {
+  e.preventDefault();
+  var searchData = $('#search').serialize();
+  var url = '/api/posts/search'// + searchData
+  // console.log( $("input[name = 'city']").val() );
+  // console.log( $(searchData) );
+
+  $.ajax({
+    method: 'GET',
+    url: url,
+    data: searchData
+  });
+});
 
 
 }); //closes document ready

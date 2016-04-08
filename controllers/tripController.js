@@ -66,10 +66,26 @@ function update(req, res) {
   }
 
 
+  //search all posts
+  // function search(req, res) {
+  //   var q = req.query.q;
+  //   console.log(q);
+  //   var qExp = new RegExp(q);
+  //   output = [];
+  //   posts.forEach(function(post) {
+  //     post.trips.forEach(function(td) {
+  //       if(td.city.match(qExp) || td.country.match(qExp)) {
+  //         output.push(td);
+  //       }
+  //     });
+  //   });
+  // }
+
 
 //export public methods
 module.exports = {
   create: create,
   destroy: destroy,
   update: update,
+  // search: search,
 };
