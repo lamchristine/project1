@@ -35,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
   app.delete('/api/posts/:id', controllers.post.destroy);
   app.delete('/api/posts/:post_id/trips/:trip_id', controllers.trip.destroy);
   app.post('/api/posts/:post_id/trips', controllers.trip.create);
+  app.put('/api/posts/:post_id/trips/:trip_id', controllers.trip.update);
 
 
   /**********

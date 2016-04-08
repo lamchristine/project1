@@ -85,9 +85,9 @@
               </div>
               {{#each trips}}
                 <div class="row tripList">
-                    <button class='btn btn-primary add-song pull-right'>Edit Trip</button>
+                    <button class="btn btn-primary add-song pull-right edit_trip" data-trip-Id={{_id}} data-post-Id={{../_id}}>Edit Trip</button>
                     <button class="btn btn-primary add-song pull-right delete_trip" data-trip-Id={{_id}} data-post-Id={{../_id}}>Delete Trip</button>
-                    <p><h3>{{country}} , {{city}}<br></h3></p>
+                    <p><h3>{{city}} , {{country}}<br></h3></p>
                     <p>{{description}}</p>
                     <hr>
                 </div>

@@ -72,6 +72,34 @@ $post.on('click', '.add_trip', function () {
     });
 });
 
+//edot a new trip
+$post.on('click', '.edit_trip', function () {
+  $('#trip_form input').val(''); //emptying fields everytime modal is open
+  $('#trip_form textarea').val(''); //emptying fields everytime modal is open
+  var editPostId = $(this).closest('.edit_trip').data('post-Id');
+  var editTripId = $(this).data('trip-Id');
+  console.log(editTripId);
+
+  $('#tripModal').attr('data-post-Id', editTripId);
+  $('#tripModal').modal('show');
+
+    $('#saveTrip').on('click', function(e){
+      e.preventDefault();
+      $('#tripModal').modal('hide');
+      var modalData = $('#trip_form').serialize();
+      console.log(modalData);
+
+        $.ajax({
+          method: 'PUT',
+          url: '/api/posts/' + editPostId +  '/trips/' + editTripId,
+          data: modalData,
+          success: tripEditSuccss,
+          error: tripEditError,
+        });
+    });
+});
+
+
 
 }); //closes document ready
 
@@ -141,4 +169,21 @@ function tripAddSuccss(json){
 
 function tripAddError () {
   console.log("error in adding new trip");
+}
+
+function tripEditSuccss(json) {
+  var trip = json;
+  console.log("updated trip", json);
+  var tripId = trip._id;
+  for (var i=0;i<allPosts.length; i++) {
+    if (allPosts[i]._id === tripId) {
+      allPosts[i] = trip;
+      break;
+    }
+  }
+  render();
+}
+
+function tripEditError() {
+  console.log("error in updating");
 }
