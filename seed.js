@@ -15,11 +15,50 @@ sampleTrips.push({ country: "United States",
                    city: "San Francisco",
                    description: "Hope it's not too foggy."
 });
-sampleTrips.push({ country: "Australia",
-                   city: "Arlie Beach",
-                   description: "Relaxing and surfing on the beach!"
+sampleTrips.push({ country: "Denmark",
+                   city: "Copenhagen",
+                   description: "Dining at Noma!"
 });
-
+sampleTrips.push({ country: "Austria",
+                   city: "Vienna",
+                   description: "Beautiful city"
+});
+sampleTrips.push({ country: "Norway",
+                   city: "Oslo",
+                   description: "This is way more expensive than Stockholm!"
+});
+sampleTrips.push({ country: "Sweden",
+                   city: "Stockholm",
+                   description: "Can this country get any more expensive?"
+});
+sampleTrips.push({ country: "Peru",
+                   city: "Cusco",
+                   description: "Hate the altitude but love the llamas"
+});
+sampleTrips.push({ country: "Chile",
+                   city: "Santiago",
+                   description: "Colorful houses"
+});
+sampleTrips.push({ country: "Brazil",
+                   city: "Sao Paulo",
+                   description: "Caiprivodka's rock!"
+});
+sampleTrips.push({ country: "Ecuador",
+                   city: "Quito",
+                   description: "So much to see for such a small country"
+});
+sampleTrips.push({ country: "Canada",
+                   city: "Toronto",
+                   description: "Best City in the world!"
+});
+sampleTrips.push({ country: "Cambodia",
+                   city: "Siem Reap",
+                   description: "Let's go explore Ankor Wat...Tomb Raider style"
+});
+sampleTrips.push({ country: "Vietnam",
+                   city: "Hanoi",
+                   description: "Cruising along Ha Long Bay!"
+});
 
 
 var postsList = [];
@@ -53,9 +92,25 @@ postsList.push({ name: 'Doe',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-9.jpg"
 });
 
+
+
 postsList.forEach(function (post) {
-  post.trips = sampleTrips;
+  //randomize samplelist
+  function shuffleArray(sampleTrips) {
+    for (var i = sampleTrips.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = sampleTrips[i];
+        sampleTrips[i] = sampleTrips[j];
+        sampleTrips[j] = temp;
+    }
+    console.log(sampleTrips[0].name);
+    return sampleTrips;
+  } shuffleArray(sampleTrips);
+
+  var removedTrips = sampleTrips.slice(0,2);
+  post.trips = removedTrips;
 });
+
 
 db.Post.remove({}, function(err, posts){
   db.Post.create(postsList, function (err, posts){

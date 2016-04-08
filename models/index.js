@@ -6,3 +6,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
 
 
 module.exports.Post = require("./post");
+module.exports.Trip = require("./trip");

@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
 
 //deletes a post
-  $post.on('click', '.delete_post', function (e) {
+  $post.on('click', '.delete_post', function () {
     var deleteId = $(this).data('post-Id');
     console.log( deleteId );
     $.ajax({
@@ -32,6 +32,20 @@ $(document).ready(function() {
       error: deletePostError,
     });
   });
+
+//deletes a trip
+$post.on('click', '.delete_trip', function () {
+  var deleteTripId = $(this).data('trip-Id');
+  console.log( '/api/posts/' + $(this).data('post-Id') + '/trips/' + deleteTripId );
+  $.ajax({
+    method: 'DELETE',
+    url: '/api/posts/' + $(this).data('post-Id') + '/trips/' + deleteTripId,
+    success: deleteTripSuccess,
+    error: deleteTripError,
+  });
+});
+
+
 }); //closes document ready
 
 //renders to page
@@ -66,4 +80,20 @@ function deletePostSuccess(json) {
 
 function deletePostError() {
   console.log("delete error");
+}
+
+function deleteTripSuccess(json) {
+  var post = json;
+  var postId = post._id;
+  for (var i=0; i<allPosts.length; i++) {
+    if (allPosts[i]._id === postId) {
+      allPosts[i] = post;
+      break;
+    }
+  }
+  render();
+}
+
+function deleteTripError(){
+  console.log("error in deleting trip");
 }

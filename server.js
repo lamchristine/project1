@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
   app.get('/api', controllers.api.index);
   app.get('/api/posts', controllers.post.index);
   app.delete('/api/posts/:id', controllers.post.destroy);
-
+  app.delete('/api/posts/:post_id/trips/:trip_id', controllers.trip.destroy);
 
   /**********
  * SERVER *
