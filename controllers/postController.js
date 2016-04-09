@@ -33,38 +33,18 @@ function search(req, res) {
         { "trips.country": country },
     ]
   }, function (err, foundPosts){
-      // console.log(foundPost);
-
-      // var postTrip = foundPost.trips;
-      console.log("posttrip length", foundPosts.length);
-
-      // var output = [];
-      // var newTrip=[];
-
-
       for (var j=0; j<foundPosts.length; j++) {
-        var arr = foundPosts[j].trips
-        console.log("trips in 1st found post", arr )
-
+        var arr = foundPosts[j].trips;
         for (var i=0; i<arr.length; i++) {
           if ( (arr[i].city === city) || (arr[i].country === country) ) {
-            arr = arr[i]
-          // newTrip.push(arr)
-          console.log('found trip', arr) }
-        } foundPosts[j].trips = arr
-
-      } console.log(foundPosts)
-      res.json(foundPosts);
-      // for (var i=0; i<foundPosts.length; i++) {
-      //   for (var j=0; j<foundPosts[i].trips.length; j++) {
-      //     if (foundPosts[i].trips[j].city === city) {
-      //       // output.push( foundPosts[i].trips[j] )
-      //       foundPosts[i].trips.slice(j,1)
-            // console.log('found posts', foundPosts);
-
+            arr = arr[i];
+          } foundPosts[j].trips = arr;
         }
-      ) //closes db.post
-    } //closes search function
+      }
+      res.json(foundPosts);
+    }
+  ) //closes db.post
+} //closes search function
 
 
 

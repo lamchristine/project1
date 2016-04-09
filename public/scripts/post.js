@@ -109,9 +109,7 @@ $post.on('click', '.edit_trip', function () {
 $('#search').on('click', '.searchbtn', function (e) {
   e.preventDefault();
   var searchData = $('#search').serialize();
-  var url = '/api/posts/search'// + searchData
-  // console.log( $("input[name = 'city']").val() );
-  // console.log( $(searchData) );
+  var url = '/api/posts/search';
 
   $.ajax({
     method: 'GET',
@@ -120,6 +118,7 @@ $('#search').on('click', '.searchbtn', function (e) {
     success: searchSuccess,
     error: searchError,
   });
+  $('#search input').val('');
 });
 
 
@@ -213,7 +212,7 @@ function tripEditError() {
 
 function searchSuccess(json) {
   console.log(json);
-  var post = json
+  var post = json;
   allPosts = post;
   render();
   console.log(allPosts);

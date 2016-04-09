@@ -37,7 +37,6 @@ app.use(bodyParser.urlencoded({ extended: true}));
   app.post('/api/posts/:post_id/trips', controllers.trip.create);
   app.put('/api/posts/:post_id/trips/:trip_id', controllers.trip.update);
   app.get('/api/posts/search', controllers.post.search);
-  // app.get('/api/posts/search', controllers.trip.search);
 
 
   /**********
