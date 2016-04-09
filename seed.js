@@ -7,6 +7,14 @@ sampleTrips.push({ country: "Germany",
                    city: "Berlin",
                    description: "Let's go visit all the biergardens!"
 });
+sampleTrips.push({ country: "Germany",
+                   city: "Berlin",
+                   description: "Can't wait to see the Berlin Wall!"
+});
+sampleTrips.push({ country: "Germany",
+                   city: "Berlin",
+                   description: "Anyone up to drink beer?!"
+});
 sampleTrips.push({ country: "Australia",
                    city: "Sydney",
                    description: "Can't wait to eat some meat pies and listen to some opera!"
@@ -15,25 +23,13 @@ sampleTrips.push({ country: "United States",
                    city: "San Francisco",
                    description: "Hope it's not too foggy."
 });
-sampleTrips.push({ country: "Denmark",
-                   city: "Copenhagen",
-                   description: "Dining at Noma!"
-});
 sampleTrips.push({ country: "Germany",
                    city: "Munich",
                    description: "Beautiful city"
 });
-sampleTrips.push({ country: "Norway",
-                   city: "Oslo",
-                   description: "This is way more expensive than Stockholm!"
-});
 sampleTrips.push({ country: "Brazil",
                    city: "Rio",
                    description: "Super hot"
-});
-sampleTrips.push({ country: "Peru",
-                   city: "Cusco",
-                   description: "Hate the altitude but love the llamas"
 });
 sampleTrips.push({ country: "Chile",
                    city: "Santiago",
@@ -51,9 +47,13 @@ sampleTrips.push({ country: "Canada",
                    city: "Toronto",
                    description: "Best City in the world!"
 });
-sampleTrips.push({ country: "Cambodia",
-                   city: "Siem Reap",
-                   description: "Let's go explore Ankor Wat...Tomb Raider style"
+sampleTrips.push({ country: "Canada",
+                   city: "Toronto",
+                   description: "Let's go Blue JAYS!!"
+});
+sampleTrips.push({ country: "Canada",
+                   city: "Toronto",
+                   description: "Go Leafs GO!!! Wahoo!"
 });
 sampleTrips.push({ country: "Canada",
                    city: "Vancouver",

@@ -36,23 +36,36 @@ function search(req, res) {
       // console.log(foundPost);
 
       // var postTrip = foundPost.trips;
-      // console.log("posttrip length", foundPosts.length);
-      //
+      console.log("posttrip length", foundPosts.length);
+
+      // var output = [];
+      // var newTrip=[];
+
+
+      for (var j=0; j<foundPosts.length; j++) {
+        var arr = foundPosts[j].trips
+        console.log("trips in 1st found post", arr )
+
+        for (var i=0; i<arr.length; i++) {
+          if ( (arr[i].city === city) || (arr[i].country === country) ) {
+            arr = arr[i]
+          // newTrip.push(arr)
+          console.log('found trip', arr) }
+        } foundPosts[j].trips = arr
+
+      } console.log(foundPosts)
+      res.json(foundPosts);
       // for (var i=0; i<foundPosts.length; i++) {
       //   for (var j=0; j<foundPosts[i].trips.length; j++) {
       //     if (foundPosts[i].trips[j].city === city) {
-      //       foundPosts[i].trips.splice(j,1);
-      //       console.log('found posts', foundPosts);
-      //     }
-      //   }
-      // }
-      res.json(foundPosts);
-      console.log("found post", foundPosts);
-    // }
-  // );
-  }
-);
-}
+      //       // output.push( foundPosts[i].trips[j] )
+      //       foundPosts[i].trips.slice(j,1)
+            // console.log('found posts', foundPosts);
+
+        }
+      ) //closes db.post
+    } //closes search function
+
 
 
 
