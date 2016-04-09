@@ -19,17 +19,17 @@ sampleTrips.push({ country: "Denmark",
                    city: "Copenhagen",
                    description: "Dining at Noma!"
 });
-sampleTrips.push({ country: "Austria",
-                   city: "Vienna",
+sampleTrips.push({ country: "Germany",
+                   city: "Munich",
                    description: "Beautiful city"
 });
 sampleTrips.push({ country: "Norway",
                    city: "Oslo",
                    description: "This is way more expensive than Stockholm!"
 });
-sampleTrips.push({ country: "Sweden",
-                   city: "Stockholm",
-                   description: "Can this country get any more expensive?"
+sampleTrips.push({ country: "Brazil",
+                   city: "Rio",
+                   description: "Super hot"
 });
 sampleTrips.push({ country: "Peru",
                    city: "Cusco",
@@ -55,9 +55,9 @@ sampleTrips.push({ country: "Cambodia",
                    city: "Siem Reap",
                    description: "Let's go explore Ankor Wat...Tomb Raider style"
 });
-sampleTrips.push({ country: "Vietnam",
-                   city: "Hanoi",
-                   description: "Cruising along Ha Long Bay!"
+sampleTrips.push({ country: "Canada",
+                   city: "Vancouver",
+                   description: "Skiing and boarding"
 });
 
 
@@ -107,7 +107,7 @@ postsList.forEach(function (post) {
     return sampleTrips;
   } shuffleArray(sampleTrips);
 
-  var removedTrips = sampleTrips.slice(0,2);
+  var removedTrips = sampleTrips.slice(0,3);
   post.trips = removedTrips;
 });
 

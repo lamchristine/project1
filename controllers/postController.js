@@ -19,23 +19,42 @@ function destroy(req, res) {
   });
 }
 
+//search for all posts
 function search(req, res) {
-  var q = req.query;
-  console.log(q);
-  var qExp = new RegExp(q);
-  console.log("qexpression", qExp);
-  output = [];
-  db.Post.findOne( {"trip.city": qExp.city, "trip.country": qExp.country }, function (err, foundPost){
-    res.json(foundPost);
-    console.log("found post", foundPost);
-    // res.sendStatus(200)
-  });
+  var city = req.query.city;
+  var country = req.query.country;
+  // var cityExp = new RegExp(city, 'i');
+  // console.log(cityExp);
+  // var countryExp = new RegExp(country, 'i')
+
+  db.Post.find ({
+    $or:[
+        { "trips.city": city },
+        { "trips.country": country },
+    ]
+  }, function (err, foundPosts){
+      // console.log(foundPost);
+
+      // var postTrip = foundPost.trips;
+      // console.log("posttrip length", foundPosts.length);
+      //
+      // for (var i=0; i<foundPosts.length; i++) {
+      //   for (var j=0; j<foundPosts[i].trips.length; j++) {
+      //     if (foundPosts[i].trips[j].city === city) {
+      //       foundPosts[i].trips.splice(j,1);
+      //       console.log('found posts', foundPosts);
+      //     }
+      //   }
+      // }
+      res.json(foundPosts);
+      console.log("found post", foundPosts);
+    // }
+  // );
+  }
+);
 }
-  // posts.forEach(function(td) {
-  //     if(td.city.match(qExp) || td.country.match(qExp)) {
-  //       output.push(td);
-  //     }
-  //   });
+
+
 
 
 

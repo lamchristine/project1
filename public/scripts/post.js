@@ -116,7 +116,9 @@ $('#search').on('click', '.searchbtn', function (e) {
   $.ajax({
     method: 'GET',
     url: url,
-    data: searchData
+    data: searchData,
+    success: searchSuccess,
+    error: searchError,
   });
 });
 
@@ -198,7 +200,7 @@ function tripEditSuccss(json) {
   for (var i=0;i<allPosts.length; i++) {
     if (allPosts[i]._id === tripId) {
       allPosts[i] = trip;
-      console.log(trip)
+      console.log(trip);
       break;
     }
   }
@@ -207,4 +209,16 @@ function tripEditSuccss(json) {
 
 function tripEditError() {
   console.log("error in updating");
+}
+
+function searchSuccess(json) {
+  console.log(json);
+  var post = json
+  allPosts = post;
+  render();
+  console.log(allPosts);
+}
+
+function searchError(json) {
+  console.log("Error searching");
 }
