@@ -28,6 +28,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
@@ -60,8 +61,8 @@ app.set('view engine', 'hbs');
      res.render('index', {user: JSON.stringify(req.user) + " || null"});
  });
 
- app.get('/posts', function (req, res) {
-     res.render('post', {user: JSON.stringify(req.user) + " || null"});
+ app.get('/users', function (req, res) {
+     res.render('user', {user: JSON.stringify(req.user) + " || null"});
  });
 
  //signup form
@@ -85,22 +86,22 @@ app.get('/login', function (req, res) {
  * AUTH ROUTES
  */
 
+ // sign up new user, then log them in , hashes and salts password, saves new user to db
+ app.post('/signup', function singup (req, res) {
+   db.User.register(new User({ username: req.body.username }), req.body.password,
+     function (err, newUser) {
+       passport.authenticate('local')(req, res, function() {
+         // res.send('signed up!!!');
+         res.redirect('/');
+       });
+     }
+   );
+ });
 
-// sign up new user, then log them in , hashes and salts password, saves new user to db
-app.post('/signup', function (req, res) {
-  User.register(new User({ username: req.body.username }), req.body.password,
-    function (err, newUser) {
-      passport.authenticate('local')(req, res, function() {
-        // res.send('signed up!!!');
-        res.redirect('/');
-      });
-    }
-  );
-});
 
 // log in user
 app.post('/login', passport.authenticate('local'), function (req, res) {
-  console.log("asfasf", req.user);
+  console.log( req.user);
   // res.send('logged in!!!'); // sanity check
   res.redirect('/'); // preferred!
 });
@@ -119,13 +120,15 @@ app.get('/logout', function (req, res) {
   */
 
   app.get('/api', controllers.api.index);
-  app.get('/api/posts', controllers.post.index);
-  app.delete('/api/posts/:id', controllers.post.destroy);
-  app.delete('/api/posts/:post_id/trips/:trip_id', controllers.trip.destroy);
-  app.post('/api/posts/:post_id/trips', controllers.trip.create);
-  app.put('/api/posts/:post_id/trips/:trip_id', controllers.trip.update);
-  app.get('/api/posts/search', controllers.post.search);
-  // app.post('/signup', controllers.user.create);
+  app.get('/api/users', controllers.user.index);
+  app.delete('/api/users/:id', controllers.user.destroy);
+  app.delete('/api/users/:user_id/trips/:trip_id', controllers.trip.destroy);
+  app.post('/api/users/:user_id/trips', controllers.trip.create);
+  app.put('/api/users/:user_id/trips/:trip_id', controllers.trip.update);
+  app.get('/api/users/search', controllers.user.search);
+  // app.post('/signup', controllers.user.signup);
+
+
 
   /**********
  * SERVER *

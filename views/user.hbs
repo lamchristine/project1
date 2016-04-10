@@ -9,7 +9,7 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/post.css">
+    <link rel="stylesheet" href="styles/user.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="vendor/jQuery/dist/jquery.min.js"></script>
@@ -17,7 +17,7 @@
     <script src="vendor/handlebars/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="scripts/post.js"></script>
+    <script src="scripts/user.js"></script>
 
     <script type="text/javascript">
       window.user = {{{user}}};
@@ -44,7 +44,7 @@
         <!--dropdown menu if user is logged in -->
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span id="user"></span>
+            <span id="p"></span>
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -100,16 +100,16 @@
     </div>
 
     <!-- handlebars template -->
-    <div id="post">
-      <script id="post-template" type="text/x-handlebars-template">
-        \{{#each post}}
+    <div id="user">
+      <script id="user-template" type="text/x-handlebars-template">
+        \{{#each user}}
         <div class="container">
-          <div class="row post">
+          <div class="row user">
             <div class="col-md-4">
-              <h3>Traveler: \{{name}} <br> Age: \{{age}} </h3>
+              <h3>Traveler: \{{username}} </h3>
               <img src={{image}}>
               <div class="row">
-                <button class="btn btn-primary delete_post" data-post-Id=\{{_id}}>Delete Traveler</button>
+                <button class="btn btn-primary delete_user" data-user-Id=\{{_id}}>Delete Traveler</button>
               </div>
             </div>
             <div class="col-md-8">
@@ -118,13 +118,13 @@
                   <p><h2>Upcoming trips:</h2></p>
                 </div>
                 <div class="col-md-2">
-                  <button class="btn btn-primary add_trip" data-post-Id=\{{_id}} data-trip-Id=\{{trips._id}} ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Trip</button>
+                  <button class="btn btn-primary add_trip" data-user-Id=\{{_id}} data-trip-Id=\{{trips._id}} ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Trip</button>
                 </div>
               </div>
               \{{#each trips}}
                 <div class="row tripList">
-                    <button class="btn btn-primary add-song pull-right edit_trip" data-trip-Id=\{{_id}} data-post-Id=\{{../_id}}>Edit Trip</button>
-                    <button class="btn btn-primary add-song pull-right delete_trip" data-trip-Id=\{{_id}} data-post-Id=\{{../_id}}>Delete Trip</button>
+                    <button class="btn btn-primary add-song pull-right edit_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}>Edit Trip</button>
+                    <button class="btn btn-primary add-song pull-right delete_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}>Delete Trip</button>
                     <p><h3>\{{city}} , \{{country}}<br></h3></p>
                     <p>\{{description}}</p>
                     <hr>

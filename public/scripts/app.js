@@ -33,7 +33,7 @@ $(document).ready(function() {
       $('#logInBtn').remove();
       $('.dropdown').show();
 
-      $('#user').text( user.username );
+      $('#p').text( user.username );
       // $('ul.right').append('<ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider"><li>Profile</li><li role="separator" class="divider"></li><li>Log Out</li>');
     }
   } loggedIn();

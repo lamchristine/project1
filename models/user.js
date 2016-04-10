@@ -3,11 +3,13 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     passportLocalMongoose = require('passport-local-mongoose');
 
+var Trip = require('./trip');
 
 //define user schema
 var UserSchema = new Schema({
   username: String,
-  password: String
+  password: String,
+  trips: [Trip.schema]
 });
 
 //plugin takes care of hashing and salting the user's plain text password

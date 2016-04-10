@@ -1,23 +1,23 @@
 console.log("Sanity Check!")
 var template;
 
-var post = [];
-var $post;
-var allPosts = [];
+var user = [];
+var $user;
+var allUsers = [];
 
 
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-  $post = $('#post');
-  var source = $('#post-template').html();
+  $user = $('#user');
+  var source = $('#user-template').html();
   template = Handlebars.compile(source);
 
 
   //shows all posts
     $.ajax({
       method:'GET',
-      url:'/api/posts',
+      url:'/api/users',
       success: onSuccess,
       error: onError,
     });
@@ -54,7 +54,7 @@ $(document).ready(function() {
       $('#logInBtn').remove();
       $('.dropdown').show();
 
-      $('#user').text( user.username );
+      $('#p').text( user.username );
       // $('ul.right').append('<ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider"><li>Profile</li><li role="separator" class="divider"></li><li>Log Out</li>');
     }
   } loggedIn();
@@ -65,39 +65,39 @@ $(document).ready(function() {
 
 
   //deletes a post
-    $post.on('click', '.delete_post', function () {
-      var deleteId = $(this).data('post-Id');
+    $user.on('click', '.delete_user', function () {
+      var deleteId = $(this).data('user-Id');
       console.log( deleteId );
       $.ajax({
         method: 'DELETE',
-        url: '/api/posts/' + deleteId,
-        success: deletePostSuccess,
-        error: deletePostError,
+        url: '/api/users/' + deleteId,
+        success: deleteUserSuccess,
+        error: deleteUserError,
       });
     });
 
   //deletes a trip
-  $post.on('click', '.delete_trip', function () {
+  $user.on('click', '.delete_trip', function () {
     var deleteTripId = $(this).data('trip-Id');
-    console.log( '/api/posts/' + $(this).data('post-Id') + '/trips/' + deleteTripId );
+    console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
     $.ajax({
       method: 'DELETE',
-      url: '/api/posts/' + $(this).data('post-Id') + '/trips/' + deleteTripId,
+      url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
       success: deleteTripSuccess,
       error: deleteTripError,
     });
   });
 
   //create a new trip
-  $post.on('click', '.add_trip', function () {
+  $user.on('click', '.add_trip', function () {
 
     $('#trip_form input').val(''); //emptying fields everytime modal is open
     $('#trip_form textarea').val(''); //emptying fields everytime modal is open
-    var addTripId = $(this).closest('.add_trip').data('post-Id');
+    var addTripId = $(this).closest('.add_trip').data('user-Id');
     console.log(addTripId);
 
     // $(this).parents('.post').remove(); //removing clicked on album
-    $('#tripModal').attr('data-post-Id', addTripId);
+    $('#tripModal').attr('data-user-Id', addTripId);
     $('#tripModal').modal('show');
 
       $('#saveTrip').on('click', function(e){
@@ -109,7 +109,7 @@ $(document).ready(function() {
 
           $.ajax({
             method: 'POST',
-            url: '/api/posts/' + addTripId +  '/trips',
+            url: '/api/users/' + addTripId +  '/trips',
             data: modalData,
             success: tripAddSuccss,
             error: tripAddError,
@@ -118,28 +118,28 @@ $(document).ready(function() {
   });
 
   //edit a new trip
-  $post.on('click', '.edit_trip', function () {
+  $user.on('click', '.edit_trip', function () {
     $('#trip_form input').val(''); //emptying fields everytime modal is open
     $('#trip_form textarea').val(''); //emptying fields everytime modal is open
-    var editPostId = $(this).closest('.edit_trip').data('post-Id');
+    var editUserId = $(this).closest('.edit_trip').data('user-Id');
     var editTripId = $(this).data('trip-Id');
     // console.log(editTripId);
 
     // $(this).parents('.post').remove(); //removing clicked on album
-    $('#tripModal').attr('data-post-Id', editTripId);
+    $('#tripModal').attr('data-user-Id', editTripId);
     $('#tripModal').modal('show');
 
       $('#saveTrip').on('click', function(e){
         e.preventDefault();
         $(this).off('click');
-        console.log(editTripId, editPostId);
+        console.log(editTripId, editUserId);
         $('#tripModal').modal('hide');
         var modalData = $('#trip_form').serialize();
         // console.log(modalData);
 
           $.ajax({
             method: 'PUT',
-            url: '/api/posts/' + editPostId +  '/trips/' + editTripId,
+            url: '/api/users/' + editUserId +  '/trips/' + editTripId,
             data: modalData,
             success: tripEditSuccss,
             error: tripEditError,
@@ -151,7 +151,7 @@ $(document).ready(function() {
   $('#search').on('click', '.searchbtn', function (e) {
     e.preventDefault();
     var searchData = $('#search').serialize();
-    var url = '/api/posts/search';
+    var url = '/api/users/search';
 
     $.ajax({
       method: 'GET',
@@ -169,15 +169,15 @@ $(document).ready(function() {
 
 //renders to page
 function render() {
-  $post.empty();
-  var postHtml = template ({post: allPosts});
-  $post.append(postHtml);
+  $user.empty();
+  var userHtml = template ({user: allUsers});
+  $user.append(userHtml);
 }
 
 
 function onSuccess(json){
-  console.log("all posts displayed");
-  allPosts = json;
+  console.log("all users displayed");
+  allUsers = json;
   render();
 }
 
@@ -185,28 +185,28 @@ function onError(json){
   console.log("error");
 }
 
-function deletePostSuccess(json) {
+function deleteUserSuccess(json) {
   console.log("delete success");
-  var postId = json._id;
-  for (var i=0; i<allPosts.length; i++) {
-    if (allPosts[i]._id === postId) {
-      allPosts.splice(i, 1);
+  var userId = json._id;
+  for (var i=0; i<allUsers.length; i++) {
+    if (allUsers[i]._id === userId) {
+      allUsers.splice(i, 1);
       break;
     }
   }
   render();
 }
 
-function deletePostError() {
+function deleteUserError() {
   console.log("delete error");
 }
 
 function deleteTripSuccess(json) {
-  var post = json;
-  var postId = post._id;
-  for (var i=0; i<allPosts.length; i++) {
-    if (allPosts[i]._id === postId) {
-      allPosts[i] = post;
+  var user = json;
+  var userId = user._id;
+  for (var i=0; i<allUsers.length; i++) {
+    if (allUsers[i]._id === userId) {
+      allUsers[i] = user;
       break;
     }
   }
@@ -219,12 +219,12 @@ function deleteTripError(){
 
 function tripAddSuccss(json){
   console.log(json);
-  var newPost = json;
-  var newPostId= newPost._id;
+  var newUser = json;
+  var newUserId= newUser._id;
 
-  for(var i=0;i<allPosts.length;i++) {
-    if (allPosts[i]._id === newPostId) {
-      allPosts[i] = newPost;
+  for(var i=0;i<allUsers.length;i++) {
+    if (allUsers[i]._id === newUserId) {
+      allUsers[i] = newUser;
       break;
     }
   }
@@ -239,9 +239,9 @@ function tripEditSuccss(json) {
   var trip = json;
   console.log("updated trip", json);
   var tripId = trip._id;
-  for (var i=0;i<allPosts.length; i++) {
-    if (allPosts[i]._id === tripId) {
-      allPosts[i] = trip;
+  for (var i=0;i<allUsers.length; i++) {
+    if (allUsers[i]._id === tripId) {
+      allUsers[i] = trip;
       console.log(trip);
       break;
     }
@@ -255,10 +255,10 @@ function tripEditError() {
 
 function searchSuccess(json) {
   console.log(json);
-  var post = json;
-  allPosts = post;
+  var user = json;
+  allUsers = user;
   render();
-  console.log(allPosts);
+  console.log(allUsers);
 }
 
 function searchError(json) {

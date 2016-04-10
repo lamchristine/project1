@@ -1,6 +1,15 @@
 var db = require('../models');
 
 
+
+
+
+
+
+
+
+
+
 // GET all posts
 function index(req, res) {
   db.User.find(function(err, users) {
@@ -32,16 +41,16 @@ function search(req, res) {
         { "trips.city": city },
         { "trips.country": country },
     ]
-  }, function (err, foundPosts){
-      for (var j=0; j<foundPosts.length; j++) {
-        var arr = foundPosts[j].trips;
+  }, function (err, foundUsers){
+      for (var j=0; j<foundUsers.length; j++) {
+        var arr = foundUsers[j].trips;
         for (var i=0; i<arr.length; i++) {
           if ( (arr[i].city === city) || (arr[i].country === country) ) {
             arr = arr[i];
-          } foundPosts[j].trips = arr;
+          } foundUsers[j].trips = arr;
         }
       }
-      res.json(foundPosts);
+      res.json(foundUsers);
     }
   ) //closes db.post
 } //closes search function
@@ -58,4 +67,5 @@ module.exports = {
   index: index,
   search: search,
   destroy: destroy,
+  // signup: signup
 };

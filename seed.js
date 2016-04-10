@@ -61,40 +61,40 @@ sampleTrips.push({ country: "Canada",
 });
 
 
-var postsList = [];
+var usersList = [];
 
-postsList.push({ name: 'Jack',
-                  age: 34,
-                image: "http://lorempixel.com/image_output/animals-q-c-200-200-6.jpg"
+usersList.push({ username: 'Jack',
+                 password: 'abc',
+                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-6.jpg"
 });
-postsList.push({ name: "Jim",
-                   age: 34,
+usersList.push({ username: "Jim",
+                   password: 'abc',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-1.jpg"
 });
-postsList.push({ name: 'Henry',
-                   age: 23,
+usersList.push({ username: 'Henry',
+                   password: 'abc',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-2.jpg"
 });
-postsList.push({ name: 'Bill',
-                   age: 44,
+usersList.push({ username: 'Bill',
+                   pasword: 'abc',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-3.jpg"
 });
-postsList.push({ name: 'Ryan',
-                   age: 25,
+usersList.push({ username: 'Ryan',
+                   password: 'abc',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-5.jpg"
 });
-postsList.push({ name: 'Jane',
-                   age: 63,
+usersList.push({ username: 'Jane',
+                   password: 'abc',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-4.jpg"
 });
-postsList.push({ name: 'Doe',
-                   age: 27,
+usersList.push({ username: 'Doe',
+                   password: 'abc',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-9.jpg"
 });
 
 
 
-postsList.forEach(function (post) {
+usersList.forEach(function (user) {
   //randomize samplelist
   function shuffleArray(sampleTrips) {
     for (var i = sampleTrips.length - 1; i > 0; i--) {
@@ -108,14 +108,14 @@ postsList.forEach(function (post) {
   } shuffleArray(sampleTrips);
 
   var removedTrips = sampleTrips.slice(0,3);
-  post.trips = removedTrips;
+  user.trips = removedTrips;
 });
 
 
-db.Post.remove({}, function(err, posts){
-  db.Post.create(postsList, function (err, posts){
+db.User.remove({}, function(err, users){
+  db.User.create(usersList, function (err, users){
     if (err) {return console.log('Error', err); }
-    console.log("all posts:", posts);
+    console.log("all users:", users);
     process.exit();
   });
 });
