@@ -126,8 +126,7 @@ app.get('/logout', function (req, res) {
   app.post('/api/users/:user_id/trips', controllers.trip.create);
   app.put('/api/users/:user_id/trips/:trip_id', controllers.trip.update);
   app.get('/api/users/search', controllers.user.search);
-  // app.post('/signup', controllers.user.signup);
-
+  app.post('/api/users', controllers.user.create);
 
 
   /**********

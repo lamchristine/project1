@@ -22,7 +22,16 @@ $(document).ready(function() {
       error: onError,
     });
 
-
+  //create a new post
+  $('#newPost').on('click', function(){
+    console.log("new post clicked")
+    $.ajax({
+      method: 'POST',
+      url: '/api/users',
+      success: newPostSuccess,
+      error: newPostError,
+    });
+  });
 
 
 
@@ -268,4 +277,13 @@ function searchSuccess(json) {
 
 function searchError(json) {
   console.log("Error searching");
+}
+
+function newPostSuccess(json) {
+  allUsers.push(json);
+  render();
+}
+
+function newPostError() {
+  console.log("Error posting");
 }

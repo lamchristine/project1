@@ -10,7 +10,7 @@ var db = require('../models');
 
 
 
-// GET all posts
+// GET all users
 function index(req, res) {
   db.User.find(function(err, users) {
     if (err) {
@@ -19,9 +19,38 @@ function index(req, res) {
   });
 }
 
+
+//create user
+function create(req, res) {
+  console.log("new post received");
+  console.log(req.body);
+
+  if (req.user) {
+    var newUser = new db.User(req.body);
+      newUser.save(function (err, savedUser) {
+          if (err) {
+            res.status(500).json({error: err.message});
+          } else {
+            res.json(savedUser);
+          }
+      });
+    } else {
+      res.sendStatus(401);
+    }
+}
+
+
+// delete user
 function destroy(req, res) {
+  console.log(req.user)
+
+  if (!req.user) {
+    return res.sendStatus(401);
+  }
+
   var deletedId = req.params.id;
   console.log(deletedId);
+
   db.User.findOneAndRemove({_id:deletedId}, function (err, deletedUser){
     res.json(deletedUser);
     console.log(deletedUser);
@@ -67,5 +96,5 @@ module.exports = {
   index: index,
   search: search,
   destroy: destroy,
-  // signup: signup
+  create: create,
 };
