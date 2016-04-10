@@ -40,7 +40,7 @@ li {
   color: #54C49F;
 }
 
-#logOutBtn {
+.dropdown {
   display: none;
 }
 

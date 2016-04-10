@@ -52,8 +52,10 @@ $(document).ready(function() {
     if (user.username !== null) {
       $('#signUpBtn').remove();
       $('#logInBtn').remove();
-      $('#logOutBtn').show();
-      $('ul').append('<li>' + user.username + '</li>');
+      $('.dropdown').show();
+
+      $('#user').text( user.username );
+      // $('ul.right').append('<ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider"><li>Profile</li><li role="separator" class="divider"></li><li>Log Out</li>');
     }
   } loggedIn();
 
