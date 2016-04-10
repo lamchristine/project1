@@ -49,27 +49,34 @@ app.set('view engine', 'hbs');
  */
 
 
- app.get('/', function homepage (req, res) {
-   res.sendFile(__dirname + '/views/index.html');
- });
-
+ // app.get('/', function homepage (req, res) {
+ //   res.sendFile(__dirname + '/views/index.html');
+ // });
  app.get('/posts', function homepage (req, res) {
    res.sendFile(__dirname + '/views/post.html');
  });
 
-//signup form
- app.get('/signup', function (req, res) {
-  res.render('signup');
-});
+ app.get('/', function (req, res) {
+     res.render('index', {user: JSON.stringify(req.user) + " || null"});
+ });
+
+ //signup form
+  app.get('/signup', function (req, res) {
+    if (req.user) {
+      return res.redirect('/');
+    }
+    res.render('signup');
+ });
 
 //show login view
 app.get('/login', function (req, res) {
+  if (req.user) {
+    return res.redirect('/');
+  }
   res.render('login'); // you can also use res.sendFile
 });
 
-app.get('/', function (req, res) {
-    res.render('index', {user: JSON.stingify(req.user) + " || null"});
-});
+
 /*
  * AUTH ROUTES
  */
@@ -89,7 +96,7 @@ app.post('/signup', function (req, res) {
 
 // log in user
 app.post('/login', passport.authenticate('local'), function (req, res) {
-  console.log(req.user);
+  console.log("asfasf", req.user);
   // res.send('logged in!!!'); // sanity check
   res.redirect('/'); // preferred!
 });

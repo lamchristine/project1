@@ -4,14 +4,27 @@ $(document).ready(function() {
 
 
   //sign up
-  $('#signUp').on('click', function(){
+  $('#signUpBtn').on('click', function(){
+    $("#signUpForm input").val('');
     $('#signUpModal').modal('show');
   });
 
-  $('#signUpForm').on('click', '.submit', function () {
+  $('#sign').on('click', function () {
     console.log("signed up!")
     console.log ( $("input[name = 'username']").val() );
+    $('#signUpModal').modal('hide');
+  });
 
+  //log in
+  $('#logInBtn').on('click', function(){
+    $("#logInForm input").val('');
+    $('#logInModal').modal('show');
+  });
+
+  $('#log').on('click', function () {
+    console.log("signed up!")
+    console.log ( $("input[name = 'username']").val() );
+    $('#logInModal').modal('hide');
   });
 
   console.log('app.js loaded!');

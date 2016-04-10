@@ -19,7 +19,7 @@
     <script src="scripts/app.js"></script>
 
     <script type="text/javascript">
-      window.user = {{user}};
+      window.user = {{{user}}};
     </script>
   </head>
 
@@ -34,8 +34,8 @@
         </div>
         <div class="col-md-4 col-md-offset-3">
           <ul>
-            <li id="signUp" class="nava"><a href="">Sign Up</li>
-            <li class="nava"><a href="/login">Log In</a></li>
+            <li><button id="signUpBtn" class='btn btn-primary signup'>Signup</button></li>
+            <li><button id="logInBtn" class='btn btn-primary login'>Log In</button></li>
             <li class="nava"><a href="#travels"><span class="glyphicon glyphicon-search"></span></a></li>
           </ul>
         </div>
@@ -91,7 +91,7 @@
         <div class="col-md-4 photo"><img src="http://lorempixel.com/image_output/nature-q-c-400-400-3.jpg" class="img-responsive center-block gallery"><h2 class="img_cap"><span>Hvar</span></h2></div>
       </div>
     </div>
-      <button class="btn btn-default viewTrips" type="submit"><a href="/posts">See all destinations</button>
+      <button class="btn btn-default viewTrips" type="submit"><a href="/posts">See all destinations</a></button>
     </div>
 
     <!-- signup modal -->
@@ -112,7 +112,34 @@
                   <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
-                  <input id="submit" type="submit" class="btn btn-block btn-primary submit" value="Sign Up">
+                  <input id="sign" type="submit" class="btn btn-block btn-primary" value="Log In">
+                </div>
+              </form>
+            </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <!-- login modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="logInModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Log In</h4>
+            </div>
+            <div class="modal-body">
+
+              <form id="logInForm" method="POST" action="/login">
+                <div class="form-group">
+                  <input type="text" name="username" class="form-control" placeholder="Username" autofocus>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input id="log" type="submit" class="btn btn-block btn-primary" value="Sign Up">
                 </div>
               </form>
             </div>
