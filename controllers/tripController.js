@@ -4,18 +4,18 @@ var db = require('../models');
 function destroy(req, res) {
   var tripId = req.params.trip_id;
   console.log("deleted trip id ", tripId);
-  var postId = req.params.post_id;
-  console.log("found post id", postId);
+  var userId = req.params.user_id;
+  console.log("found user id", userId);
 
-  db.Post.findById(postId)
-    .exec(function (err, foundPost) {
+  db.User.findById(userId)
+    .exec(function (err, foundUser) {
       if (err) {
         console.log(err);
       } else {
-        var deletedTrip = foundPost.trips.id(tripId);
+        var deletedTrip = foundUser.trips.id(tripId);
         deletedTrip.remove();
-        foundPost.save();
-        res.json(foundPost);
+        foundUser.save();
+        res.json(foundUser);
       }
     });
 }
@@ -23,14 +23,14 @@ function destroy(req, res) {
 
 //adding a new trip
 function create(req, res) {
-  var postId = req.params.post_id;
-  db.Post.findById(postId)
-    .exec (function (err, foundPost) {
+  var userId = req.params.user_id;
+  db.User.findById(userId)
+    .exec (function (err, foundUser) {
       var newTrip = new db.Trip(req.body);
-      foundPost.trips.push(newTrip);
-        foundPost.save(function (err, foundPost ) {
-          console.log("new trip created", foundPost);
-          res.json(foundPost);
+      foundUser.trips.push(newTrip);
+        foundUser.save(function (err, foundUser ) {
+          console.log("new trip created", foundUser);
+          res.json(foundUser);
         });
     });
 }
@@ -38,29 +38,29 @@ function create(req, res) {
 
 //updating a trip entry
 function update(req, res) {
-  var postId = req.params.post_id;
+  var userId = req.params.user_id;
   var tripId = req.params.trip_id;
   console.log(tripId);
 
-  db.Post.findById(postId) //find the post that needs to be updated
-    .exec (function (err, foundPost) {
+  db.User.findById(userId) //find the post that needs to be updated
+    .exec (function (err, foundUser) {
 
-      var foundPostTrips = foundPost.trips.id(tripId);
-      console.log(foundPostTrips);
+      var foundUserTrips = foundUser.trips.id(tripId);
+      console.log(foundUserTrips);
 
-      foundPostTrips.city = req.body.city;
-      foundPostTrips.country = req.body.country;
-      foundPostTrips.description = req.body.description;
+      foundUserTrips.city = req.body.city;
+      foundUserTrips.country = req.body.country;
+      foundUserTrips.description = req.body.description;
 
-      foundPostTrips.save(function(err) {
+      foundUserTrips.save(function(err) {
         if (err) {
           console.log("saving edited trip failed");
         }
-        console.log(foundPostTrips);  //only saves the one edited trip
+        console.log(foundUserTrips);  //only saves the one edited trip
       });
-      foundPost.save(function(err) { //saves the entire pose with the edited trip
-        res.json(foundPost);
-        console.log(foundPost);
+      foundUser.save(function(err) { //saves the entire pose with the edited trip
+        res.json(foundUser);
+        console.log(foundUser);
       });
     });
   }

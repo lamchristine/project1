@@ -1,22 +1,61 @@
 var db = require('../models');
 
 
-// function create(req, res) {
-//   var new_user = new User({ username: req.body.username });
-//   db.User.register(new_user, req.body.password,
-//     function (err, newUser) {
-//       passport.authenticate('local')(req, res, function() { //attach cookie to user
-//         res.redirect('/'); //redirect to homepage once signed up!!!! do not render
-//       });
-//     }
-//   );
-// }
+// GET all posts
+function index(req, res) {
+  db.User.find(function(err, users) {
+    if (err) {
+      console.log("Error getting all users");
+    } res.json(users);
+  });
+}
+
+function destroy(req, res) {
+  var deletedId = req.params.id;
+  console.log(deletedId);
+  db.User.findOneAndRemove({_id:deletedId}, function (err, deletedUser){
+    res.json(deletedUser);
+    console.log(deletedUser);
+  });
+}
+
+//search for all posts
+function search(req, res) {
+  var city = req.query.city;
+  var country = req.query.country;
+  // var cityExp = new RegExp(city, 'i');
+  // console.log(cityExp);
+  // var countryExp = new RegExp(country, 'i')
+
+  db.User.find ({
+    $or:[
+        { "trips.city": city },
+        { "trips.country": country },
+    ]
+  }, function (err, foundPosts){
+      for (var j=0; j<foundPosts.length; j++) {
+        var arr = foundPosts[j].trips;
+        for (var i=0; i<arr.length; i++) {
+          if ( (arr[i].city === city) || (arr[i].country === country) ) {
+            arr = arr[i];
+          } foundPosts[j].trips = arr;
+        }
+      }
+      res.json(foundPosts);
+    }
+  ) //closes db.post
+} //closes search function
+
+
+
+
+
+
 
 
 //export public methods
 module.exports = {
-  // create: create
-  // index: index,
-  // search: search,
-  // destroy: destroy,
+  index: index,
+  search: search,
+  destroy: destroy,
 };
