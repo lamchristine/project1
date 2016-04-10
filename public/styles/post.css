@@ -40,6 +40,10 @@ li {
   color: #54C49F;
 }
 
+#logOutBtn {
+  display: none;
+}
+
 /*---HEADER---*/
 header {
   background: url('/images/background.jpg');

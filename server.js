@@ -52,12 +52,16 @@ app.set('view engine', 'hbs');
  // app.get('/', function homepage (req, res) {
  //   res.sendFile(__dirname + '/views/index.html');
  // });
- app.get('/posts', function homepage (req, res) {
-   res.sendFile(__dirname + '/views/post.html');
- });
+ // app.get('/posts', function homepage (req, res) {
+ //   res.sendFile(__dirname + '/views/post.html');
+ // });
 
  app.get('/', function (req, res) {
      res.render('index', {user: JSON.stringify(req.user) + " || null"});
+ });
+
+ app.get('/posts', function (req, res) {
+     res.render('post', {user: JSON.stringify(req.user) + " || null"});
  });
 
  //signup form
