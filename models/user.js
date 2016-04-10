@@ -9,6 +9,7 @@ var Trip = require('./trip');
 var UserSchema = new Schema({
   username: String,
   password: String,
+  image: String, 
   trips: [Trip.schema]
 });
 

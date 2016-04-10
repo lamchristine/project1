@@ -61,7 +61,7 @@ app.set('view engine', 'hbs');
      res.render('index', {user: JSON.stringify(req.user) + " || null"});
  });
 
- app.get('/users', function (req, res) {
+ app.get('/posts', function (req, res) {
      res.render('user', {user: JSON.stringify(req.user) + " || null"});
  });
 
