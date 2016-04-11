@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
 
   function loggedIn() {
-    if (user.username !== null) {
+    if (user !== null) {
       $('#signUpBtn').remove();
       $('#logInBtn').remove();
       $('.dropdown').show();

@@ -42,9 +42,10 @@ function create(req, res) {
 
 // delete user
 function destroy(req, res) {
-  console.log(req.user)
+  console.log("req.user: ", req.user.id);
+  console.log("req.params.id: ", req.params.id);
 
-  if (!req.user) {
+  if (req.user.id !== req.params.id) {
     return res.sendStatus(401);
   }
 

@@ -2,6 +2,13 @@ var db = require('../models');
 
 // deleting a trip
 function destroy(req, res) {
+  console.log("req.user.id:", req.user.id)
+  console.log("req.params.user_id", req.params.user_id)
+
+  if (req.user.id !== req.params.user_id){
+    return res.sendStatus(401);
+  }
+
   var tripId = req.params.trip_id;
   console.log("deleted trip id ", tripId);
   var userId = req.params.user_id;
@@ -23,6 +30,13 @@ function destroy(req, res) {
 
 //adding a new trip
 function create(req, res) {
+  console.log("req.user.id:", req.user.id)
+  console.log("req.params.user_id", req.params.user_id)
+
+  if (req.user.id !== req.params.user_id){
+    return res.sendStatus(401);
+  }
+
   var userId = req.params.user_id;
   db.User.findById(userId)
     .exec (function (err, foundUser) {
@@ -38,6 +52,14 @@ function create(req, res) {
 
 //updating a trip entry
 function update(req, res) {
+
+  console.log("req.user.id:", req.user.id)
+  console.log("req.params.user_id", req.params.user_id)
+
+  if (req.user.id !== req.params.user_id){
+    return res.sendStatus(401);
+  }
+  
   var userId = req.params.user_id;
   var tripId = req.params.trip_id;
   console.log(tripId);

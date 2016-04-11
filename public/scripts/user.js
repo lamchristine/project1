@@ -37,6 +37,13 @@ $(document).ready(function() {
 
   //deletes a post
     $user.on('click', '.delete_user', function () {
+
+      if (user === null) {
+        alert("Please log in ");
+      } else if ( user._id !== $(this).data('user-Id') ) {
+        alert("You're not owner so can't edit");
+      } else {
+
       var deleteId = $(this).data('user-Id');
       console.log( deleteId );
       $.ajax({
@@ -45,10 +52,18 @@ $(document).ready(function() {
         success: deleteUserSuccess,
         error: deleteUserError,
       });
-    });
+    }
+  });
 
   //deletes a trip
   $user.on('click', '.delete_trip', function () {
+
+    if (user === null) {
+      alert("Please log in ");
+    } else if ( user._id !== $(this).data('user-Id') ) {
+      alert("You're not owner so can't edit");
+    } else {
+
     var deleteTripId = $(this).data('trip-Id');
     console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
     $.ajax({
@@ -57,15 +72,25 @@ $(document).ready(function() {
       success: deleteTripSuccess,
       error: deleteTripError,
     });
-  });
+  }
+});
 
   //create a new trip
   $user.on('click', '.add_trip', function () {
 
+    var addTripId = $(this).closest('.add_trip').data('user-Id');
+    console.log("add trip id:", addTripId);
+
+    if (user === null) {
+      alert("Please log in ");
+    } else if (user._id !== addTripId) {
+      alert("You're not owner so can't edit");
+    } else {
+
+
     $('#trip_form input').val(''); //emptying fields everytime modal is open
     $('#trip_form textarea').val(''); //emptying fields everytime modal is open
-    var addTripId = $(this).closest('.add_trip').data('user-Id');
-    console.log(addTripId);
+
 
     // $(this).parents('.post').remove(); //removing clicked on album
     $('#tripModal').attr('data-user-Id', addTripId);
@@ -86,15 +111,27 @@ $(document).ready(function() {
             error: tripAddError,
           });
       });
+    }
   });
 
   //edit a new trip
   $user.on('click', '.edit_trip', function () {
-    $('#trip_form input').val(''); //emptying fields everytime modal is open
-    $('#trip_form textarea').val(''); //emptying fields everytime modal is open
     var editUserId = $(this).closest('.edit_trip').data('user-Id');
     var editTripId = $(this).data('trip-Id');
+
+    if (user === null) {
+      alert("Please log in ");
+    } else if (user._id !==editUserId) {
+      alert("You're not owner so can't edit");
+    } else {
+
+
+    $('#trip_form input').val(''); //emptying fields everytime modal is open
+    $('#trip_form textarea').val(''); //emptying fields everytime modal is open
+    // var editUserId = $(this).closest('.edit_trip').data('user-Id');
+    // var editTripId = $(this).data('trip-Id');
     // console.log(editTripId);
+
 
     // $(this).parents('.post').remove(); //removing clicked on album
     $('#tripModal').attr('data-user-Id', editTripId);
@@ -116,6 +153,7 @@ $(document).ready(function() {
             error: tripEditError,
           });
       });
+    }
   });
 
   //search for posts
@@ -162,20 +200,14 @@ $(document).ready(function() {
 
 
   function loggedIn() {
-    if (user.username !== null) {
+    if (user !== null) {
       $('#signUpBtn').remove();
       $('#logInBtn').remove();
       $('.dropdown').show();
 
       $('#p').text( user.username );
-      // $('ul.right').append('<ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider"><li>Profile</li><li role="separator" class="divider"></li><li>Log Out</li>');
     }
   } loggedIn();
-
-
-
-
-
 
 
 }); //closes document ready
@@ -213,6 +245,7 @@ function deleteUserSuccess(json) {
 
 function deleteUserError() {
   console.log("delete error");
+  // alert("You must be owner to delete user")
 }
 
 function deleteTripSuccess(json) {
@@ -229,6 +262,7 @@ function deleteTripSuccess(json) {
 
 function deleteTripError(){
   console.log("error in deleting trip");
+  // alert("You must be owner to delete trip.")
 }
 
 function tripAddSuccss(json){
@@ -247,6 +281,7 @@ function tripAddSuccss(json){
 
 function tripAddError () {
   console.log("error in adding new trip");
+  // alert("You must be owner to add trip")
 }
 
 function tripEditSuccss(json) {
@@ -265,6 +300,7 @@ function tripEditSuccss(json) {
 
 function tripEditError() {
   console.log("error in updating");
+  // alert("You must be owner in other to edit trip.")
 }
 
 function searchSuccess(json) {
@@ -286,4 +322,5 @@ function newPostSuccess(json) {
 
 function newPostError() {
   console.log("Error posting");
+  // alert("Can not create new post. Please log in first.")
 }
