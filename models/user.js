@@ -10,7 +10,7 @@ var UserSchema = new Schema({
   username: String,
   password: String,
   image: String,
-  age: String,
+  age: Number,
   blurb: String,
   trips: [Trip.schema]
 });

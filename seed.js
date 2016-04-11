@@ -65,30 +65,44 @@ var usersList = [];
 
 usersList.push({ username: 'Jack',
                  password: 'abc',
+                      age: '22',
+                    blurb: 'I am young wild and free!',
                     image: "http://lorempixel.com/image_output/animals-q-c-200-200-6.jpg"
 });
 usersList.push({ username: "Jim",
                    password: 'abc',
+                       age: '45',
+                     blurb: 'Love to travel!',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-1.jpg"
 });
 usersList.push({ username: 'Henry',
                    password: 'abc',
+                   age: '67',
+                 blurb: 'Eating and traveling is my life',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-2.jpg"
 });
 usersList.push({ username: 'Bill',
                    pasword: 'abc',
+                   age: '35',
+                 blurb: 'Can not stop traveling',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-3.jpg"
 });
 usersList.push({ username: 'Ryan',
                    password: 'abc',
+                   age: '41',
+                 blurb: 'Forever young!',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-5.jpg"
 });
 usersList.push({ username: 'Jane',
                    password: 'abc',
+                   age: '25',
+                 blurb: "Let's party!",
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-4.jpg"
 });
 usersList.push({ username: 'Doe',
                    password: 'abc',
+                   age: '28',
+                 blurb: 'Still got the travel bug',
                    image: "http://lorempixel.com/image_output/animals-q-c-200-200-9.jpg"
 });
 

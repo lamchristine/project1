@@ -88,7 +88,7 @@ app.get('/login', function (req, res) {
 
  // sign up new user, then log them in , hashes and salts password, saves new user to db
  app.post('/signup', function singup (req, res) {
-   db.User.register(new User({ username: req.body.username }), req.body.password,
+   db.User.register(new User({ username: req.body.username, age: req.body.age, blurb: req.body.blurb, image: req.body.image}), req.body.password,
      function (err, newUser) {
        passport.authenticate('local')(req, res, function() {
          // res.send('signed up!!!');

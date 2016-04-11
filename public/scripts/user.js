@@ -347,10 +347,12 @@ function viewUserSuccess(json) {
   console.log(user);
   var username = user.username;
   var image = user.image;
+  var age = user.age;
+  var blurb = user.blurb;
 
   $('#profile').empty();
   $('#profileModal').modal('show');
-  $('#profile').append("<p><ul><li>Username: " + username + "</li><li><img src=" + "'" + image + "'" + "</li></ul></p>");
+  $('#profile').append("<p><ul><li>Username: " + username + "</li><li><img src=" + "'" + image + "'" + "</li><li>Age:" + age + "</li><li>About me: " + blurb + "</li></ul></p>");
 }
 
 function viewUserError () {
