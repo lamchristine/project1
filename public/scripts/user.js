@@ -33,23 +33,7 @@ $(document).ready(function() {
     });
   });
 
-//view user profile
-  $user.on('click', '.view_user', function () {
 
-    if (user === null) {
-      alert("Please log in ");
-    // } else if ( user._id !== $(this).data('user-Id') ) {
-    //   alert("You're not owner so can't edit");
-    } else {
-
-    $.ajax({
-      method: 'GET',
-      url: '/api/users/' + $(this).data('user-Id'),
-      success: viewUserSuccess,
-      error: viewUserError,
-    });
-  }
-});
 
 
   //deletes a post
@@ -236,6 +220,25 @@ function render() {
   $user.empty();
   var userHtml = template ({user: allUsers});
   $user.append(userHtml);
+
+
+  //view user profile
+    $('.view_user').on('click', '#view_profile', function () {
+      console.log($(this).data('user-Id'))
+      if (user === null) {
+        alert("Please log in ");
+      // } else if ( user._id !== $(this).data('user-Id') ) {
+      //   alert("You're not owner so can't edit");
+      } else {
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/users/' + $(this).data('user-Id'),
+        success: viewUserSuccess,
+        error: viewUserError,
+      });
+    }
+  });
 }
 
 

@@ -41,10 +41,10 @@
 
         <!--dropdown menu if user is logged in -->
         <div id="dropdown" class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <!-- <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> -->
             <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="p"> </span> </span>
-            <span class="caret"></span>
-          </button>
+            <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
+          <!-- </button> -->
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li id="dropdown-menu"><a href="javascript:void(0)">Profile</a></li>
             <li id="dropdown-menu"><a href="javascript:void(0)">Messages</a></li>
@@ -133,14 +133,28 @@
               <div id="postSection" class="row">
                 <div class="col-md-2">
                   <img id="pic" src=\{{image}} class="img-circle">
-                  <h3> \{{username}} </h3>
+
+                  <div id="profileCaret" class="dropdown">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="a"> \{{username}} </span> </span>
+                    <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
+
+                    <!-- </button> -->
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li class="view_user"><a id="view_profile" href="javascript:void(0)" data-user-Id=\{{_id}}>View Profile</a></li>
+                      <li id="dropdown-menu" ><a href="javascript:void(0)">Settings</a></li>
+                      <li><hr></li>
+                      <li id="dropdown-menu"><a href="javascript:void(0)">Delete User</a></li>
+                    </ul>
+                  </div>
+
+
 
                   <div class="row">
                     <button class="btn btn-primary delete_user" data-user-Id=\{{_id}}>Delete User</button>
                   </div>
-                  <div class="row">
+                  <!-- <div class="row">
                     <button class="btn btn-primary view_user" data-user-Id=\{{_id}}>View Profile</button>
-                  </div>
+                  </div> -->
                   <div class="col-md-2">
                     <button class="btn btn-primary add_trip" data-user-Id=\{{_id}} data-trip-Id=\{{trips._id}} ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Trip</button>
                   </div>
