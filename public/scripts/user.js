@@ -73,7 +73,7 @@ $(document).ready(function() {
   });
 
   //deletes a trip
-  $user.on('click', '.delete_trip', function () {
+  $user.on('click', '#delete_trip', function () {
 
     if (user === null) {
       alert("Please log in ");
@@ -132,8 +132,8 @@ $(document).ready(function() {
   });
 
   //edit a new trip
-  $user.on('click', '.edit_trip', function () {
-    var editUserId = $(this).closest('.edit_trip').data('user-Id');
+  $user.on('click', '#edit_trip', function () {
+    var editUserId = $(this).closest('#edit_trip').data('user-Id');
     var editTripId = $(this).data('trip-Id');
 
     if (user === null) {
@@ -223,8 +223,7 @@ $(document).ready(function() {
       $('#signUpBtn').remove();
       $('#logInBtn').remove();
       $('.dropdown').show();
-
-      $('#p').text( user.username );
+      $('#p').text(" " + user.username );
     }
   } loggedIn();
 

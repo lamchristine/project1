@@ -4,7 +4,10 @@ body{
   margin: 0;
   padding: 0;
   color: #595959;
-  background: #F5F7F7
+  background: #F5F7F7;
+  max-width: 100%;
+  overflow-x: hidden;
+  /*position: relative;*/
 }
 
 a {
@@ -21,6 +24,7 @@ ul {
   padding-right: 20px;
   vertical-align: middle;
   margin-bottom: -5px;
+
 }
 
 li {
@@ -40,9 +44,17 @@ li {
   color: #54C49F;
 }
 
-.dropdown {
+#dropdown {
   display: none;
+  margin-top: -25px;
 }
+
+#dropdown-menu {
+  color: blue;
+  font-size: 15px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
 
 /*---HEADER---*/
 header {
@@ -101,10 +113,80 @@ header {
 }
 
 /*---BODY---*/
-.section_title {
-  font-size: 50px;
-  margin-top: 30px;
+
+#allPost{
+  margin-top: 70px;
+}
+
+#postSection{
+  /*margin-top: 40px;*/
+  padding-left: 30px;
+  padding-top: 20px;
+  /*padding-right: -50px;*/
+  background: white;
   margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+
+}
+
+#upcomingTrips{
+  font-size: 25px;
+  /*text-align: left;*/
+  margin-left: -60px;
+}
+
+#pic {
+  border: 3px solid #403D3D;
+}
+
+#pic:hover {
+  cursor: pointer;
+  border: 5px solid #FA6B32;
+}
+
+/*#tripCity {
+  margin-left: -30px;
+}*/
+
+#delete_trip:hover{
+  color: blue;
+  cursor: pointer;
+}
+
+#edit_trip:hover{
+  color: blue;
+  cursor: pointer;
+}
+#galleryPanel{
+  background: #D1DEE3;
+  margin-top: 70px;
+  /*position: fixed;
+  left: 900px;
+  bottom: -430px;*/
+  border-radius: 5px;
+}
+
+#allPost{
+  /*background: red;*/
+}
+
+#galleryTitle {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+#tripPost {
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: -50px;
+}
+
+#section_title {
+  font-size: 40px;
+  margin-top: 30px;
+  margin-bottom: -20px;
 }
 
 .post {
@@ -117,4 +199,46 @@ header {
 
 .adTrip {
   margin-top: 20px;
+}
+
+/*---END--*/
+
+button{
+  background:#5c8a8a;
+  width:130px;
+  height: 40px;
+  margin-bottom: 50px;
+  border-radius: 5%;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+}
+
+button:hover{
+  opacity: .7;
+  color: white;
+}
+
+
+.bottom{
+  background: #404040;
+  height:150px;
+  border:0 solid red;
+  }
+
+.footer{
+  text-align: center;
+  padding-top:65px;
+
+}
+
+.footer_line{
+  margin: 0 30px 0 30px;
+  color: white;
+  border: 0 solid none;
+}
+
+.footer_line:hover{
+  border-bottom: 3px solid #5c8a8a;
+  color: white;
 }
