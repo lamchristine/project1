@@ -33,6 +33,23 @@ $(document).ready(function() {
     });
   });
 
+//view user profile
+  $user.on('click', '.view_user', function () {
+
+    if (user === null) {
+      alert("Please log in ");
+    // } else if ( user._id !== $(this).data('user-Id') ) {
+    //   alert("You're not owner so can't edit");
+    } else {
+
+    $.ajax({
+      method: 'GET',
+      url: '/api/users/' + $(this).data('user-Id'),
+      success: viewUserSuccess,
+      error: viewUserError,
+    });
+  }
+});
 
 
   //deletes a post
@@ -323,4 +340,19 @@ function newPostSuccess(json) {
 function newPostError() {
   console.log("Error posting");
   // alert("Can not create new post. Please log in first.")
+}
+
+function viewUserSuccess(json) {
+  var user = json;
+  console.log(user);
+  var username = user.username;
+  var image = user.image;
+
+  $('#profile').empty();
+  $('#profileModal').modal('show');
+  $('#profile').append("<p><ul><li>Username: " + username + "</li><li><img src=" + "'" + image + "'" + "</li></ul></p>");
+}
+
+function viewUserError () {
+  console.log("error viewing")
 }

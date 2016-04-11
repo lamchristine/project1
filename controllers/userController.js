@@ -20,6 +20,18 @@ function index(req, res) {
 }
 
 
+//show user profile
+function show(req, res) {
+  var userId = req.params.id;
+  console.log("req.params.id,", req.params.id);
+  db.User.findById( {_id:userId},function (err, user) {
+    if (err) {
+      console.log("Error finding user profile");
+    } res.json(user);
+  });
+}
+
+
 //create user
 function create(req, res) {
   console.log("new post received");
@@ -98,4 +110,5 @@ module.exports = {
   search: search,
   destroy: destroy,
   create: create,
+  show: show,
 };
