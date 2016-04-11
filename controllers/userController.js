@@ -35,7 +35,7 @@ function show(req, res) {
 //create user
 function create(req, res) {
   console.log("new post received");
-  console.log(req.body);
+  console.log(req.body.image);
 
   if (req.user) {
     var newUser = new db.User(req.body);

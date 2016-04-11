@@ -251,14 +251,20 @@ function render() {
 
     var deleteTripId = $(this).data('trip-Id');
     console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
-      success: deleteTripSuccess,
-      error: deleteTripError,
-    });
-  }
-});
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
+        success: deleteTripSuccess,
+        error: deleteTripError,
+      });
+    }
+  });
+
+// for (vari=0; i<allUsers.length; i++){
+//   if (allPosts[i].image === null) {
+//     allPosts[i].image = "/images/icon.png"
+//   }
+// }
 
 }
 
@@ -358,6 +364,7 @@ function searchError(json) {
 }
 
 function newPostSuccess(json) {
+  console.log(json)
   allUsers.push(json);
   render();
 }

@@ -148,16 +148,13 @@
                     </ul>
                   </div>
 
-                  <div class="col-md-2">
-                    <button class="btn btn-primary add_trip" data-user-Id=\{{_id}} data-trip-Id=\{{trips._id}} ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Trip</button>
-                  </div>
-                </div>
-                <div class="col-md-9">
 
+                </div>
+                <div class="col-md-9" id="posting">
                   \{{#each trips}}
                       <div class="row">
                         <ul id="tripPost">
-                          <li id="tripCity"><strong>\{{city}}</strong>, \{{country}}
+                          <li id="tripCity"><span id="postTitle"><strong>\{{city}}</strong>, \{{country}}</span>
                             <div class="pull-right">
                               <a href="javascript:void(0)" id="edit_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                               <a href="javascript:void(0)" id="delete_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
@@ -165,11 +162,14 @@
                           </li>
                           <li id="description">
                             <p><h4>\{{description}}</h4></p>
-                            <hr>
+                            <hr id="postdivider">
                           </li>
                         </ul>
                       </div>
                   \{{/each}}
+                  <div id="addTripBtn">
+                    <a href="javascript:void(0)" class="add_trip" data-user-Id=\{{_id}} data-trip-Id=\{{trips._id}}><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Trip</a>
+                  </div>
                 </div>
               </div>
             <!-- </div> -->
@@ -199,12 +199,13 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Sign Up</h4>
+              <h4 class="modal-title">Create A New Account</h4>
             </div>
             <div class="modal-body">
 
               <form id="signUpForm" method="POST" action="/signup">
                 <div class="form-group">
+                  <label >asfsdf</label> 
                   <input type="text" name="username" class="form-control" placeholder="Username" required="true" autofocus>
                 </div>
                 <div class="form-group">
@@ -220,7 +221,7 @@
                   <input type="text" name="image" class="form-control" placeholder="Profile Pic">
                 </div>
                 <div class="form-group">
-                  <input id="sign" type="submit" class="btn btn-block btn-primary" value="Log In">
+                  <button id="sign" type="submit" class="btn btn-block btn-primary" value="Log In">Log In</button>
                 </div>
               </form>
             </div>
