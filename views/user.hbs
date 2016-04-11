@@ -197,32 +197,57 @@
     <div class="modal fade" tabindex="-1" role="dialog" id="signUpModal">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div id="modal-header" class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Create A New Account</h4>
+              <h4 id="modal-title" class="modal-title">Create A New Account</h4>
             </div>
             <div class="modal-body">
 
               <form id="signUpForm" method="POST" action="/signup">
-                <div class="form-group">
-                  <label >asfsdf</label> 
-                  <input type="text" name="username" class="form-control" placeholder="Username" required="true" autofocus>
-                </div>
-                <div class="form-group">
-                  <input type="password" name="password" class="form-control" placeholder="Password" required="true">
-                </div>
-                <div class="form-group">
-                  <input type="text" name="age" class="form-control" placeholder="Age">
-                </div>
-                <div class="form-group">
-                  <input type="text" name="blurb" class="form-control" placeholder="Describe youself!">
-                </div>
-                <div class="form-group">
-                  <input type="text" name="image" class="form-control" placeholder="Profile Pic">
-                </div>
-                <div class="form-group">
-                  <button id="sign" type="submit" class="btn btn-block btn-primary" value="Log In">Log In</button>
-                </div>
+                <!-- <div class="form-group row pull-left"> -->
+                  <!-- Fill out the following: -->
+                  <!-- <label for="inputEmail" class="col-sm-1 col-sm-offset-1 form-control-label">Email</label>
+                  <div class="col-sm-7 col-sm-offset-2">
+                    <input type="text" name="username" class="form-control" placeholder="Username"required="true" autofocus> -->
+                  <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-10 col-sm-offset-1"> -->
+                  <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-1 col-sm-offset-1 form-control-label">Email</label>
+                    <div class="col-sm-7 col-sm-offset-2">
+                      <input type="text" name="username" class="form-control" placeholder="Username" required="true">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-1 col-sm-offset-1 form-control-label">Password</label>
+                    <div class="col-sm-7 col-sm-offset-2">
+                      <input type="password" name="password" class="form-control" placeholder="Password" required="true">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputAge" class="col-sm-1 col-sm-offset-1  form-control-label">Age</label>
+                    <div class="col-sm-7 col-sm-offset-2">
+                      <input type="text" name="age" class="form-control" placeholder="Age">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputDescription" class="col-sm-1 col-sm-offset-1  form-control-label">About Me</label>
+                    <div class="col-sm-7 col-sm-offset-2">
+                      <textarea type="text" name="blurb" rows="3" class="form-control" placeholder="Describe youself!"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPic" class="col-sm-1 col-sm-offset-1  form-control-label">Profile Photo</label>
+                    <div class="col-sm-7 col-sm-offset-2">
+                      <input type="text" name="image" class="form-control" placeholder="Profile Pic">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-md-offset-5">
+                    <div class="form-group row">
+                      <button id="sign" type="submit" class="btn btn-block btn-primary" value="Log In">Log In</button>
+                    </div>
+                  </div>
+                <!-- </div> -->
               </form>
             </div>
         </div><!-- /.modal-content -->
