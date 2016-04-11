@@ -288,6 +288,15 @@ a.add_trip{
 .modalTitle{
   text-align: center;
 }
+
+#sign{
+  margin-top: 5px;
+}
+
+
+#modal-body-login{
+  height: 180px;
+}
 /*---END--*/
 
 button{
