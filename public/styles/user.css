@@ -27,12 +27,13 @@ ul {
 
 }
 
-li {
+li.nava {
   display: inline;
   font-size: 20px;
   padding: 0 15px 0 15px;
   color: #595959;
 }
+
 
 
 .nav_home {
@@ -44,14 +45,25 @@ li {
   color: #54C49F;
 }
 
+#tripPost {
+  list-style-type: none;
+}
 #dropdown {
   display: none;
-  margin-top: -25px;
+  margin-top: 10px;
 }
 
 #dropdown-menu {
+  /*position: relative;*/
+  /*margin-left: 200px;*/
+  /*margin-right: 200px;*/
   color: blue;
   font-size: 15px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#p{
+  font-size: 20px;
   font-family: 'PT Sans Narrow', sans-serif;
 }
 
@@ -59,6 +71,7 @@ li {
   font-size: 20px;
   font-family: 'PT Sans Narrow', sans-serif;
 }
+
 
 
 /*---HEADER---*/

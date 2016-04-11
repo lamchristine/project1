@@ -239,6 +239,27 @@ function render() {
       });
     }
   });
+
+  //deletes a trip
+  $('.delete_user').on('click', '#delete_user', function () {
+
+    if (user === null) {
+      alert("Please log in ");
+    } else if ( user._id !== $(this).data('user-Id') ) {
+      alert("You're not owner so can't edit");
+    } else {
+
+    var deleteTripId = $(this).data('trip-Id');
+    console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
+      success: deleteTripSuccess,
+      error: deleteTripError,
+    });
+  }
+});
+
 }
 
 
