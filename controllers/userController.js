@@ -72,22 +72,24 @@ function destroy(req, res) {
 
 //search for all posts
 function search(req, res) {
-  var city = req.query.city;
-  var country = req.query.country;
+  var q = req.query.search;
+  console.log(q);
+  // var city = req.query.city;
+  // var country = req.query.country;
   // var cityExp = new RegExp(city, 'i');
   // console.log(cityExp);
   // var countryExp = new RegExp(country, 'i')
 
   db.User.find ({
     $or:[
-        { "trips.city": city },
-        { "trips.country": country },
+        { "trips.city": q },
+        { "trips.country": q },
     ]
   }, function (err, foundUsers){
       for (var j=0; j<foundUsers.length; j++) {
         var arr = foundUsers[j].trips;
         for (var i=0; i<arr.length; i++) {
-          if ( (arr[i].city === city) || (arr[i].country === country) ) {
+          if ( (arr[i].city === q) || (arr[i].country === q) ) {
             arr = arr[i];
           } foundUsers[j].trips = arr;
         }

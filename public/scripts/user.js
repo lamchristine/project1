@@ -177,6 +177,8 @@ $(document).ready(function() {
   $('#search').on('click', '.searchbtn', function (e) {
     e.preventDefault();
     var searchData = $('#search').serialize();
+    console.log ( $("input[name = 'search']").val() );
+    console.log("searchData", searchData) //search=Berlin
     var url = '/api/users/search';
 
     $.ajax({

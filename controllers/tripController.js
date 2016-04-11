@@ -1,5 +1,7 @@
 var db = require('../models');
 
+
+
 // deleting a trip
 function destroy(req, res) {
   console.log("req.user.id:", req.user.id)
@@ -59,7 +61,7 @@ function update(req, res) {
   if (req.user.id !== req.params.user_id){
     return res.sendStatus(401);
   }
-  
+
   var userId = req.params.user_id;
   var tripId = req.params.trip_id;
   console.log(tripId);

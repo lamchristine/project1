@@ -60,10 +60,11 @@
 
 
   <!--header-->
+  <!--header-->
   <header>
     <div class="row">
       <div class="col-md-4 col-md-offset-4 caption_title">
-        <p class="nav_title">View Posts</p>
+        <p class="nav_title">Hello Friend!</p>
       </div>
     </div>
     <div class="row">
@@ -73,10 +74,25 @@
            a successful marketing strategy across the board.</p>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <form id="search" class="form-inline search">
+          <div class="form-group">
+            <label for="place"></label>
+            <input type="text" name="search" class="form-control" id="place" placeholder="Where do you want to go? Search by City or Country...">
+          </div>
+          <button type="submit" class="btn btn-default searchbtn"><a href="/posts">Find Buddy</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-default post"><a href="/posts">View all posts</a></button>
+    </div>
   </header>
 
+<!--****************-->
 <!--view post section-->
-    <div class="row section_title">
+    <!-- <div class="row section_title">
       <p>Search all posts</p>
     </div>
 
@@ -94,10 +110,11 @@
           <button type="submit" class="btn btn-default searchbtn">Search</button>
         </form>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="row">
         <button id="newPost" type="submit" class="btn btn-default newPost">Create A New Post</button>
     </div> -->
+<!--**************************-->
 
     <!-- handlebars template -->
     <div id="user">
