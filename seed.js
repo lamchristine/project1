@@ -67,43 +67,43 @@ usersList.push({ username: 'Jack',
                  password: 'abc',
                       age: '22',
                     blurb: 'I am young wild and free!',
-                    image: "https://lorempixel.com/image_output/animals-q-c-100-100-6.jpg"
+                    image: "/images/sports-3.jpg"
 });
 usersList.push({ username: "Jim",
                    password: 'abc',
                        age: '45',
                      blurb: 'Love to travel!',
-                   image: "https://lorempixel.com/image_output/animals-q-c-100-100-1.jpg"
+                   image: "/images/sports-1.jpg"
 });
 usersList.push({ username: 'Henry',
                    password: 'abc',
                    age: '67',
                  blurb: 'Eating and traveling is my life',
-                   image: "https://lorempixel.com/image_output/animals-q-c-100-100-2.jpg"
+                   image: "/images/people-9.jpg"
 });
 usersList.push({ username: 'Bill',
                    pasword: 'abc',
                    age: '35',
                  blurb: 'Can not stop traveling',
-                   image: "https://lorempixel.com/image_output/animals-q-c-100-100-3.jpg"
+                   image: "/images/people-8.jpg"
 });
 usersList.push({ username: 'Ryan',
                    password: 'abc',
                    age: '41',
                  blurb: 'Forever young!',
-                   image: "https://lorempixel.com/image_output/animals-q-c-100-100-5.jpg"
+                   image: "/images/people-7.jpg"
 });
 usersList.push({ username: 'Jane',
                    password: 'abc',
                    age: '25',
                  blurb: "Let's party!",
-                   image: "https://lorempixel.com/image_output/animals-q-c-100-100-4.jpg"
+                   image: "/images/people-6.jpg"
 });
 usersList.push({ username: 'Doe',
                    password: 'abc',
                    age: '28',
                  blurb: 'Still got the travel bug',
-                   image: "https://lorempixel.com/image_output/animals-q-c-100-100-1.jpg"
+                   image: "/images/people-5.jpg"
 });
 
 
