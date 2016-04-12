@@ -91,7 +91,7 @@
 
   <!--view post section-->
       <div id="section_title" class="row">
-        <p><h1><span>Checkout upcoming trips!</span></h1></p>
+        <p><h1><span>Checkout Upcoming Trips!</span></h1></p>
       </div>
 
     <div class="row">
@@ -119,6 +119,7 @@
                         <ul id="tripPost">
                           <li id="tripCity"><span id="postTitle"><strong>\{{city}}</strong>, \{{country}}</span>
                             <div class="pull-right">
+                              <a href="javascript:void(0)" id="edit_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
                               <a href="javascript:void(0)" id="edit_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                               <a href="javascript:void(0)" id="delete_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                             </div>
@@ -140,17 +141,27 @@
         </div>
         </div>
         <div id="galleryPanel" class="col-md-2">
-          <p id="galleryTitle"> Top Travel Destinations</p>
-            <div class="col-md-6 photo"><img src="images/city-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Toronto</span></p></div>
-            <div class="col-md-6 photo"><img src="images/city-8.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Berlin</span></p></div>
-            <div class="col-md-6 photo"><img src="images/city-9.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Quito</span></p></div>
-            <div class="col-md-6 photo"><img src="images/nature-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Australia</span></p></div>
-            <div class="col-md-6 photo"><img src="images/nature-5.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Munich</span></p></div>
-            <div class="col-md-6 photo"><img src="images/nature-3.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Rio</span></p></div>
-            <div class="col-md-6 photo"><img src="images/nightlife-7.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Santiago</span></p></div>
-            <div class="col-md-6 photo"><img src="images/transport-1.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Vancouver</span></p></div>
-            <div class="col-md-6 photo"><img src="images/transport-7.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Sao Paulo</span></p></div>
+          <div>
+            <p id="galleryTitle"> Top Travel Destinations</p>
+            <hr class='ruler'>
+              <div class="col-md-6 photo"><img src="images/city-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Toronto</span></p></div>
+              <div class="col-md-6 photo"><img src="images/city-8.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Berlin</span></p></div>
+              <div class="col-md-6 photo"><img src="images/city-9.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Quito</span></p></div>
+              <div class="col-md-6 photo"><img src="images/nature-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Australia</span></p></div>
+              <div class="col-md-6 photo"><img src="images/nature-5.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Munich</span></p></div>
+              <div class="col-md-6 photo"><img src="images/nature-3.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Rio</span></p></div>
+              <div class="col-md-6 photo"><img src="images/nightlife-7.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Santiago</span></p></div>
+              <div class="col-md-6 photo"><img src="images/transport-1.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Vancouver</span></p></div>
+              <div class="col-md-6 photo"><img src="images/transport-7.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Sao Paulo</span></p></div>
+              <div class="col-md-6 photo"><img src="images/city-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Vienna</span></p></div>
+            <p id="galleryTitle2"> Let's Chat</p>
+            <hr class='ruler'>
+            <div><span class="col-md-4 glyphicon glyphicon-envelope"></span></div>
+            <div><span class="col-md-4 glyphicon glyphicon-phone"></span></div>
+            <div><span class="col-md-4 glyphicon glyphicon-earphone"></span></div>
+          </div>
         </div>
+
     </div>
 
 
@@ -334,7 +345,7 @@
           <li class="footer_line"><a href="#photos">Log In</a></li>
           <li class="footer_line"><a href="#contact">Contact</a></span></li>
       </ul>
-      <p style="color:#737373;padding-top: 5px;">CHRISTINE LAM | christine.lam.06@gmail.com</p>
+      <p id="footer">CHRISTINE LAM | christine.lam.06@gmail.com</p>
     </div>
 
 

@@ -205,12 +205,12 @@ header {
 
 
 #delete_trip:hover{
-  color: blue;
+  color: #54C49F;
   cursor: pointer;
 }
 
 #edit_trip:hover{
-  color: blue;
+  color: #54C49F;
   cursor: pointer;
 }
 
@@ -236,11 +236,13 @@ header {
   margin-top: 30px;
   margin-left: -450px;
   margin-bottom: 10px;
-
 }
 
 a.add_trip{
     text-decoration: none;
+    color: #54C49F;
+    font-size: 18px;
+    font-family: 'Londrina Solid';
 }
 
 #galleryPanel{
@@ -257,9 +259,31 @@ a.add_trip{
 }
 
 #galleryTitle {
-  font-family: 'PT Sans Narrow', sans-serif;
-  font-size: 25px;
+  font-family: 'Londrina Solid';
+  font-size: 40px;
   margin-top: 20px;
+}
+
+hr.ruler {
+  border-bottom: 10px solid #3296B8;
+  margin-bottom: 30px;
+}
+
+#galleryTitle2{
+  font-family: 'Londrina Solid';
+  font-size: 40px;
+  padding-top: 550px;
+}
+
+span.glyphicon-envelope {
+    font-size: 2.2em;
+}
+span.glyphicon-phone {
+    font-size: 2.2em;
+}
+span.glyphicon-earphone {
+    font-size: 2.2em;
+    margin-bottom: 30px;
 }
 
 #tripPost {
@@ -275,7 +299,7 @@ a.add_trip{
 }
 
 #section_title span{
-  font-size: 30px;
+  font-size: 60px;
   font-family: 'Londrina Solid';
 }
 .post {
@@ -303,10 +327,12 @@ a.add_trip{
   font-size: 40px;
   margin-left: 100px;
   color: white;
+  font-family: 'Londrina Solid';
 }
 
 .modal-content{
   background: #E8E8E8;
+
   width: 100%;
   height: 100%;
 }
@@ -371,6 +397,11 @@ button:hover{
   color: white;
 }
 
+#footer{
+  color:#737373;
+  padding-top: 5px;
+  margin-top: 110px;
+}
 
 .bottom{
   background: #404040;
