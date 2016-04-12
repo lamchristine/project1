@@ -39,30 +39,26 @@
           <li class="nava"><button id="signUpBtn" class='btn btn-primary signup'>Signup</button></li>
           <li class="nava"><button id="logInBtn" class='btn btn-primary login'>Log In</button></li>
 
-        <!--dropdown menu if user is logged in -->
-        <div class="col-md-4 col-md-offset-4">
-        <div id="dropdown" class="dropdown">
-          <!-- <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> -->
-            <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="p"> </span> </span>
-            <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
-          <!-- </button> -->
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li id="dropdown-menu"><a href="javascript:void(0)">Profile</a></li>
-            <li id="dropdown-menu"><a href="javascript:void(0)">Messages</a></li>
-            <li id="dropdown-menu"><a href="javascript:void(0)">Settings</a></li>
-            <li><hr></li>
-            <li id="dropdown-menu"><a href="/logout">Log Out</a></li>
-          </ul>
+          <!--dropdown menu if user is logged in -->
+          <div class="col-md-4 col-md-offset-4">
+          <div id="dropdown" class="dropdown">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="p"> </span> </span>
+              <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li id="dropdown-menu"><a href="javascript:void(0)">Profile</a></li>
+              <li id="dropdown-menu"><a href="javascript:void(0)">Messages</a></li>
+              <li id="dropdown-menu"><a href="javascript:void(0)">Settings</a></li>
+              <li><hr></li>
+              <li id="dropdown-menu"><a href="/logout">Log Out</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
         <!--end of drop down menu-->
         </ul>
       </div>
     </div>
   </div>
 
-
-  <!--header-->
   <!--header-->
   <header>
     <div class="row">
@@ -93,32 +89,6 @@
     </div>
   </header>
 
-<!--****************-->
-<!--view post section-->
-    <!-- <div class="row section_title">
-      <p>Search all posts</p>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <form id="search" class="form-inline">
-          <div class="form-group">
-            <label for="searchCity">Search City</label>
-            <input type="text" class="form-control" name="city" id="searchCity" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="searchCountry">Search Country</label>
-            <input type="text" class="form-control" name="country" id="searchCountry" placeholder="">
-          </div>
-          <button type="submit" class="btn btn-default searchbtn">Search</button>
-        </form>
-      </div>
-    </div> -->
-    <!-- <div class="row">
-        <button id="newPost" type="submit" class="btn btn-default newPost">Create A New Post</button>
-    </div> -->
-<!--**************************-->
-  <!-- <div class="container"> -->
 
   <!--view post section-->
       <div id="section_title" class="row">
@@ -131,24 +101,18 @@
         <div id="user">
           <script id="user-template" type="text/x-handlebars-template">
             \{{#each user}}
-            <!-- <div class="container"> -->
               <div id="postSection" class="row">
                 <div class="col-md-2">
                   <img id="pic" src=\{{image}} class="img-circle">
-
-                  <div id="profileCare`t" class="dropdown">
+                  <div id="profileCaret" class="dropdown">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="a"> \{{username}} </span> </span>
                     <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
-
-                    <!-- </button> -->
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                       <li class="view_user"><a id="view_profile" href="javascript:void(0)" data-user-Id=\{{_id}}>View Profile</a></li>
                       <li><hr></li>
                       <li class="delete_user"><a id="delete_user" href="javascript:void(0)" data-user-Id=\{{_id}}>Delete User</a></li>
                     </ul>
                   </div>
-
-
                 </div>
                 <div class="col-md-9" id="posting">
                   \{{#each trips}}
@@ -172,11 +136,10 @@
                   </div>
                 </div>
               </div>
-            <!-- </div> -->
             \{{/each}}
           </script>
         </div>
-        </div><!--closes post col-->
+        </div>
         <div id="galleryPanel" class="col-md-2">
           <p id="galleryTitle"> Top Travel Destinations</p>
             <div class="col-md-6 photo"><img src="images/city-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Toronto</span></p></div>
@@ -189,9 +152,8 @@
             <div class="col-md-6 photo"><img src="images/transport-1.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Vancouver</span></p></div>
             <div class="col-md-6 photo"><img src="images/transport-7.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Sao Paulo</span></p></div>
         </div>
+    </div>
 
-    </div> <!--closes row-->
-  <!-- </div> <!closes container-->
 
     <!-- signup modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="signUpModal">
@@ -202,9 +164,7 @@
               <h4 id="modal-title" class="modal-title">Create A New Account</h4>
             </div>
             <div class="modal-body">
-
               <form id="signUpForm" method="POST" action="/signup">
-
                   <div class="form-group row text-left">
                     <label for="inputEmail" class="col-sm-2 col-sm-offset-1 form-control-label">Email</label>
                     <div class="col-sm-8">
@@ -240,14 +200,11 @@
                       <button id="sign" type="submit" class="btn btn-block btn-primary" value="Log In">Sign Up Now</button>
                     </div>
                   </div>
-
-                <!-- </div> -->
               </form>
             </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
 
     <!-- login modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="logInModal">
@@ -259,7 +216,6 @@
             </div>
             <div id="modal-body-login"class="modal-body">
               <form id="logInForm" method="POST" action="/login">
-
                 <div class="form-group row text-left">
                   <label for="inputEmail" class="col-sm-2 col-sm-offset-2 form-control-label">Email</label>
                   <div class="col-sm-6">
@@ -308,7 +264,6 @@
           </div>
           <div class="modal-footer">
             <button id="closeprofile" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -325,9 +280,7 @@
           </div>
           <div class="modal-body">
             <form id="trip_form" class="form-inline">
-
               <div class="row">
-                <!-- <label for="city" class="col-sm-1 form-control-label">City</label> -->
                 <div class="col-sm-4 col-sm-offset-1 text-left">
                   <label for="city">City</label><br>
                   <input id="city" type="text" name="city" class="form-control input-md" placeholder="" required="true">
@@ -337,8 +290,6 @@
                   <input id="country" type="text" name="country" class="form-control input-md" placeholder="" required="true">
                 </div>
               </div>
-
-              <!-- <div class="col-md-10 col-md-offset-1"> -->
                 <div id="descriptionBox" class="row">
                   <label for="description" class="col-sm-1 col-sm-offset-1 form-control-label">Description</label>
                   <div class="col-sm-10 col-sm-offset-1">
@@ -347,33 +298,6 @@
                 </div>
               </form>
             </div>
-              <!-- </div> -->
-
-              <!--
-              <div class="row">
-                <div class="form-group">
-                  <label class="col-md-2 control-label" for="city">City</label>
-                  <div class="col-md-4">
-                    <input id="city" name="city" type="text" placeholder="" class="form-control input-md" required="">
-                  </div>
-                </div> -->
-                <!-- <div class="form-group">
-                  <label class="col-md-2 control-label" for="country">Country</label>
-                  <div class="col-md-4">
-                    <input id="country" name="country" type="text" placeholder="" class="form-control input-md">
-                  </div>
-                </div> -->
-              <!-- </div> -->
-              <!-- <div class="row">
-                <div class="form-group">
-                  <label class="control-label" for="description">Describe your trip</label>
-                  <div>
-                    <textarea id="description" class="form-control" rows="5" name="description" placeholder=""></textarea>
-                  </div>
-                </div>
-              </div> -->
-
-
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" id="saveTrip">Save changes</button>
@@ -404,18 +328,15 @@
     </div><!-- /.modal -->
 
 
-
-
-
 <!--bottom footer-->
-  <div class="bottom">
-    <ul class="footer">
-        <li class="footer_line"><a href="#about">Sign Up</a></li>
-        <li class="footer_line"><a href="#photos">Log In</a></li>
-        <li class="footer_line"><a href="#contact">Contact</a></span></li>
-    </ul>
-    <p style="color:#737373;padding-top: 5px;">CHRISTINE LAM | christine.lam.06@gmail.com</p>
-  </div>
+    <div class="bottom">
+      <ul class="footer">
+          <li class="footer_line"><a href="#about">Sign Up</a></li>
+          <li class="footer_line"><a href="#photos">Log In</a></li>
+          <li class="footer_line"><a href="#contact">Contact</a></span></li>
+      </ul>
+      <p style="color:#737373;padding-top: 5px;">CHRISTINE LAM | christine.lam.06@gmail.com</p>
+    </div>
 
 
   </body>

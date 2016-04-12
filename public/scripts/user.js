@@ -1,4 +1,3 @@
-console.log("Sanity Check!")
 var template;
 var template1;
 
@@ -8,8 +7,6 @@ var allUsers = [];
 
 
 $(document).ready(function() {
-  console.log('app.js loaded!');
-
   $user = $('#user');
   var source = $('#user-template').html();
   template = Handlebars.compile(source);
@@ -17,17 +14,16 @@ $(document).ready(function() {
   var sourceq = $('#modal-template').html();
   template1 = Handlebars.compile(sourceq);
 
-  //shows all posts
-    $.ajax({
-      method:'GET',
-      url:'/api/users',
-      success: onSuccess,
-      error: onError,
-    });
+  //show all users' post
+  $.ajax({
+    method:'GET',
+    url:'/api/users',
+    success: onSuccess,
+    error: onError,
+  });
 
-  //create a new post
+  //create a new user post
   $('#newPost').on('click', function(){
-    console.log("new post clicked")
     $.ajax({
       method: 'POST',
       url: '/api/users',
@@ -36,114 +32,67 @@ $(document).ready(function() {
     });
   });
 
-
-
-
-  //deletes a post
-  //   $user.on('click', '.delete_user', function () {
-  //
-  //     if (user === null) {
-  //       alert("Please log in ");
-  //     } else if ( user._id !== $(this).data('user-Id') ) {
-  //       alert("You're not owner so can't edit");
-  //     } else {
-  //
-  //     var deleteId = $(this).data('user-Id');
-  //     console.log( deleteId );
-  //     $.ajax({
-  //       method: 'DELETE',
-  //       url: '/api/users/' + deleteId,
-  //       success: deleteUserSuccess,
-  //       error: deleteUserError,
-  //     });
-  //   }
-  // });
-
-  //deletes a trip
+  //delete a trip
   $user.on('click', '#delete_trip', function () {
-
+    //user authorization
     if (user === null) {
       alert("Please log in ");
     } else if ( user._id !== $(this).data('user-Id') ) {
       alert("You're not owner so can't edit");
     } else {
-
-    var deleteTripId = $(this).data('trip-Id');
-    console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
-      success: deleteTripSuccess,
-      error: deleteTripError,
-    });
-  }
-});
+      var deleteTripId = $(this).data('trip-Id');
+      //make ajax call
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
+        success: deleteTripSuccess,
+        error: deleteTripError,
+      });
+    }
+  });
 
   //create a new trip
   $user.on('click', '.add_trip', function () {
-
     var addTripId = $(this).closest('.add_trip').data('user-Id');
-    console.log("add trip id:", addTripId);
-
+    //user authorization
     if (user === null) {
       alert("Please log in ");
     } else if (user._id !== addTripId) {
       alert("You're not owner so can't edit");
     } else {
-
-
-    $('#trip_form input').val(''); //emptying fields everytime modal is open
-    $('#trip_form textarea').val(''); //emptying fields everytime modal is open
-
-
-    // $(this).parents('.post').remove(); //removing clicked on album
-    $('#tripModal').attr('data-user-Id', addTripId);
-    $('#tripModal').modal('show');
-
+      //modal opens
+      $('#trip_form input').val('');
+      $('#trip_form textarea').val('');
+      $('#tripModal').attr('data-user-Id', addTripId);
+      $('#tripModal').modal('show');
       $('#saveTrip').on('click', function(e){
         e.preventDefault();
         $(this).off('click');
         $('#tripModal').modal('hide');
         var modalData = $('#trip_form').serialize();
-        console.log(modalData);
-
-          $.ajax({
-            method: 'POST',
-            url: '/api/users/' + addTripId +  '/trips',
-            data: modalData,
-            success: tripAddSuccss,
-            error: tripAddError,
-          });
+        //make ajax call to db
+        $.ajax({
+          method: 'POST',
+          url: '/api/users/' + addTripId +  '/trips',
+          data: modalData,
+          success: tripAddSuccss,
+          error: tripAddError,
+        });
       });
     }
   });
 
-  //edit a new trip
+  //edit a trip
   $user.on('click', '#edit_trip', function () {
     var editUserId = $(this).closest('#edit_trip').data('user-Id');
     var editTripId = $(this).data('trip-Id');
-
+    //user authorization
     if (user === null) {
       alert("Please log in ");
     } else if (user._id !==editUserId) {
       alert("You're not owner so can't edit");
     } else {
-
-
-
-    // $('#trip_form input').val(''); //emptying fields everytime modal is open
-    // $('#trip_form textarea').val(''); //emptying fields everytime modal is open
-    // var editUserId = $(this).closest('.edit_trip').data('user-Id');
-    // var editTripId = $(this).data('trip-Id');
-    // console.log(editTripId);
-
-
-    // $(this).parents('.post').remove(); //removing clicked on album
-
-
-    // console.log( $("input[name = 'city']").val() )
-    // $('#city').val( $(this).)
-
+      //prepopulating modal with existing data
       allUsers.forEach(function(user) {
         if (editUserId === user._id) {
           user.trips.forEach(function(trip) {
@@ -155,39 +104,32 @@ $(document).ready(function() {
           });
         }
       });
-
+      //modal opens
       $('#tripModal').attr('data-user-Id', editTripId);
       $('#tripModal').modal('show');
-
-
-
       $('#saveTrip').on('click', function(e){
         e.preventDefault();
         $(this).off('click');
-        console.log(editTripId, editUserId);
         $('#tripModal').modal('hide');
         var modalData = $('#trip_form').serialize();
-        console.log('edit modal data', modalData);
-
-          $.ajax({
-            method: 'PUT',
-            url: '/api/users/' + editUserId +  '/trips/' + editTripId,
-            data: modalData,
-            success: tripEditSuccss,
-            error: tripEditError,
-          });
+        //make ajax call
+        $.ajax({
+          method: 'PUT',
+          url: '/api/users/' + editUserId +  '/trips/' + editTripId,
+          data: modalData,
+          success: tripEditSuccss,
+          error: tripEditError,
+        });
       });
     }
   });
 
-  //search for posts
+  //search posts
   $('#search').on('click', '.searchbtn', function (e) {
     e.preventDefault();
     var searchData = $('#search').serialize();
-    console.log ( $("input[name = 'search']").val() );
-    console.log("searchData", searchData) //search=Berlin
     var url = '/api/users/search';
-
+    //make ajax call
     $.ajax({
       method: 'GET',
       url: url,
@@ -198,8 +140,7 @@ $(document).ready(function() {
     $('#search input').val('');
   });
 
-
-  //sign up
+  //user sign up
   $('#signUpBtn').on('click', function(){
     $("#signUpForm input").val('');
     $('#signUpModal').modal('show');
@@ -211,7 +152,7 @@ $(document).ready(function() {
     $('#signUpModal').modal('hide');
   });
 
-  //log in
+  //user log in
   $('#logInBtn').on('click', function(){
     $("#logInForm input").val('');
     $('#logInModal').modal('show');
@@ -223,8 +164,7 @@ $(document).ready(function() {
     $('#logInModal').modal('hide');
   });
 
-
-
+  //checking to see if there is a user logged in
   function loggedIn() {
     if (user !== null) {
       $('#signUpBtn').remove();
@@ -233,10 +173,7 @@ $(document).ready(function() {
       $('#p').text(" " + user.username );
     }
   } loggedIn();
-
-
-}); //closes document ready
-
+});
 
 //renders to page
 function render() {
@@ -244,20 +181,12 @@ function render() {
   var userHtml = template ({user: allUsers});
   $user.append(userHtml);
 
-
   //view user profile
-    $('.view_user').on('click', '#view_profile', function () {
-      console.log($(this).data('user-Id'))
-        // $('#modaluser').empty();
-        // $('#modalage').empty();
-        // $('#modalabout').empty();
-        // $('#pic_modal').removeAttr('src');
-      if (user === null) {
-        alert("Please log in ");
-      // } else if ( user._id !== $(this).data('user-Id') ) {
-      //   alert("You're not owner so can't edit");
-      } else {
-
+  $('.view_user').on('click', '#view_profile', function () {
+    //user authorization (all signed in users can view profile)
+    if (user === null) {
+      alert("Please log in ");
+    } else {
       $.ajax({
         method: 'GET',
         url: '/api/users/' + $(this).data('user-Id'),
@@ -267,18 +196,16 @@ function render() {
     }
   });
 
-  //deletes a user
-
-    $('.delete_user').on('click', '#delete_user', function () {
-
-      if (user === null) {
-        alert("Please log in ");
-      } else if ( user._id !== $(this).data('user-Id') ) {
-        alert("You're not owner so can't edit");
-      } else {
-
+  //delete a user
+  $('.delete_user').on('click', '#delete_user', function () {
+    //user authorization
+    if (user === null) {
+      alert("Please log in ");
+    } else if ( user._id !== $(this).data('user-Id') ) {
+      alert("You're not owner so can't edit");
+    } else {
       var deleteId = $(this).data('user-Id');
-      console.log( deleteId );
+      //make ajax call
       $.ajax({
         method: 'DELETE',
         url: '/api/users/' + deleteId,
@@ -287,24 +214,6 @@ function render() {
       });
     }
   });
-  // $('.delete_user').on('click', '#delete_user', function () {
-  //   console.log( $(this).data('user-Id') )
-  //   if (user === null) {
-  //     alert("Please log in ");
-  //   } else if ( user._id !== $(this).data('user-Id') ) {
-  //     alert("You're not owner so can't edit");
-  //   } else {
-  //
-  //   var deleteTripId = $(this).data('trip-Id');
-  //   console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
-  //     $.ajax({
-  //       method: 'DELETE',
-  //       url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
-  //       success: deleteTripSuccess,
-  //       error: deleteTripError,
-  //     });
-  //   }
-  // });
 }
 
 
@@ -332,7 +241,6 @@ function deleteUserSuccess(json) {
 
 function deleteUserError() {
   console.log("delete error");
-  // alert("You must be owner to delete user")
 }
 
 function deleteTripSuccess(json) {
@@ -349,14 +257,11 @@ function deleteTripSuccess(json) {
 
 function deleteTripError(){
   console.log("error in deleting trip");
-  // alert("You must be owner to delete trip.")
 }
 
 function tripAddSuccss(json){
-  console.log(json);
   var newUser = json;
   var newUserId= newUser._id;
-
   for(var i=0;i<allUsers.length;i++) {
     if (allUsers[i]._id === newUserId) {
       allUsers[i] = newUser;
@@ -368,17 +273,14 @@ function tripAddSuccss(json){
 
 function tripAddError () {
   console.log("error in adding new trip");
-  // alert("You must be owner to add trip")
 }
 
 function tripEditSuccss(json) {
   var trip = json;
-  console.log("updated trip", json);
   var tripId = trip._id;
   for (var i=0;i<allUsers.length; i++) {
     if (allUsers[i]._id === tripId) {
       allUsers[i] = trip;
-      console.log(trip);
       break;
     }
   }
@@ -387,15 +289,12 @@ function tripEditSuccss(json) {
 
 function tripEditError() {
   console.log("error in updating");
-  // alert("You must be owner in other to edit trip.")
 }
 
 function searchSuccess(json) {
-  console.log(json);
   var user = json;
   allUsers = user;
   render();
-  console.log(allUsers);
 }
 
 function searchError(json) {
@@ -403,59 +302,27 @@ function searchError(json) {
 }
 
 function newPostSuccess(json) {
-  console.log(json)
   allUsers.push(json);
   render();
 }
 
 function newPostError() {
   console.log("Error posting");
-  // alert("Can not create new post. Please log in first.")
 }
 
 function viewUserSuccess(json) {
   var user = json;
-  allUsers = json
-  console.log(user);
-  var username = user.username;
-  var image = user.image;
-  var age = user.age;
-  var blurb = user.blurb;
-
-  // $('#modaluser').empty();
-  // $('#modalage').empty();
-  // $('#modalabout').empty();
-  // $('#pic_modal').removeAttr('src');
-
+  allUsers = json;
   renderToModal();
 }
 
-  // $('#profileModal').modal('show');
-  //
-  //   $('#closeprofile').on ('click', function(){
-  //     alert("clicked")
-  //     $('#modaluser').empty();
-  //     $('#modalage').empty();
-  //     $('#modalabout').empty();
-  //     $('#pic_modal').removeAttr('src');
-  //   });
-
-
 function renderToModal(user) {
-
-
   $('#profile').empty();
-  // $('#modaluser').empty();
-  // $('#modalage').empty();
-  // $('#modalabout').empty();
-  // $('#pic_modal').removeAttr('src');
-
   var test = template1({user:allUsers});
   $('#profile.modal-body').append(test);
   $('#profileModal').modal('show');
-  // $('#profile.modal-body').append(test);
 }
 
 function viewUserError () {
-  console.log("error viewing")
+  console.log("error viewing");
 }

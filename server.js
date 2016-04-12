@@ -22,16 +22,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 // passport config
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
-
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
 // configure bodyParser (for receiving form data)
@@ -48,14 +45,6 @@ app.set('view engine', 'hbs');
 /*
  * HTML Endpoints
  */
-
-
- // app.get('/', function homepage (req, res) {
- //   res.sendFile(__dirname + '/views/index.html');
- // });
- // app.get('/posts', function homepage (req, res) {
- //   res.sendFile(__dirname + '/views/post.html');
- // });
 
  app.get('/', function (req, res) {
      res.render('index', {user: JSON.stringify(req.user) + " || null"});
@@ -86,12 +75,11 @@ app.get('/login', function (req, res) {
  * AUTH ROUTES
  */
 
- // sign up new user, then log them in , hashes and salts password, saves new user to db
+ // sign up new user
  app.post('/signup', function singup (req, res) {
    db.User.register(new User({ username: req.body.username, age: req.body.age, blurb: req.body.blurb, image: req.body.image}), req.body.password,
      function (err, newUser) {
        passport.authenticate('local')(req, res, function() {
-         // res.send('signed up!!!');
          res.redirect('/posts');
        });
      }
@@ -102,8 +90,7 @@ app.get('/login', function (req, res) {
 // log in user
 app.post('/login', passport.authenticate('local'), function (req, res) {
   console.log( req.user);
-  // res.send('logged in!!!'); // sanity check
-  res.redirect('/posts'); // preferred!
+  res.redirect('/posts');
 });
 
 // log out user

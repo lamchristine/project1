@@ -117,7 +117,6 @@ usersList.forEach(function (user) {
         sampleTrips[i] = sampleTrips[j];
         sampleTrips[j] = temp;
     }
-    console.log(sampleTrips[0].name);
     return sampleTrips;
   } shuffleArray(sampleTrips);
 
@@ -129,7 +128,6 @@ usersList.forEach(function (user) {
 db.User.remove({}, function(err, users){
   db.User.create(usersList, function (err, users){
     if (err) {return console.log('Error', err); }
-    console.log("all users:", users);
     process.exit();
   });
 });

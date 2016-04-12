@@ -315,8 +315,7 @@ a.add_trip{
 #pic_modal {
   margin-top: 20px;
 }
-/* 1: Try doing a fixed height of that div. Then do overflow: hidden;
-   2: Jquery select a "view more" that changes the css to overflow: show; */
+
 /*---END--*/
 
 button{
@@ -345,7 +344,6 @@ button:hover{
 .footer{
   text-align: center;
   padding-top:65px;
-
 }
 
 .footer_line{
@@ -353,6 +351,7 @@ button:hover{
   color: white;
   border: 0 solid none;
   display: inline;
+  font-size: 20px;
 }
 
 .footer_line:hover{
