@@ -66,7 +66,7 @@ var usersList = [];
 usersList.push({ username: 'Jack',
                  password: 'abc',
                       age: '22',
-                    blurb: 'I am young wild and free!',
+                    blurb: 'Most Memorable Travel Experience: Seeing baby sea turtles escape from their eggs and crawl to the see in Florida. Dancing and partying in Old San Juan. Having a tradition Turkish dinner with friends in Istanbul. Staying in a eco lodge directly centered in the cloud rainforest. Salsa dancing in the clubs of Bogota.',
                     image: "/images/sports-3.jpg"
 });
 usersList.push({ username: "Jim",

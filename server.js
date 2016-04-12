@@ -92,7 +92,7 @@ app.get('/login', function (req, res) {
      function (err, newUser) {
        passport.authenticate('local')(req, res, function() {
          // res.send('signed up!!!');
-         res.redirect('/');
+         res.redirect('/posts');
        });
      }
    );
@@ -103,7 +103,7 @@ app.get('/login', function (req, res) {
 app.post('/login', passport.authenticate('local'), function (req, res) {
   console.log( req.user);
   // res.send('logged in!!!'); // sanity check
-  res.redirect('/'); // preferred!
+  res.redirect('/posts'); // preferred!
 });
 
 // log out user
@@ -111,7 +111,7 @@ app.get('/logout', function (req, res) {
   console.log("BEFORE logout", JSON.stringify(req.user));
   req.logout();
   console.log("AFTER logout", JSON.stringify(req.user));
-  res.redirect('/');
+  res.redirect('/posts');
 });
 
 

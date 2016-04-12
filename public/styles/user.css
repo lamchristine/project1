@@ -307,6 +307,14 @@ a.add_trip{
   width: 470px;
 }
 
+
+#profile.modal-body{
+  height: 150px;
+}
+
+#pic_modal {
+  margin-top: 20px;
+}
 /* 1: Try doing a fixed height of that div. Then do overflow: hidden;
    2: Jquery select a "view more" that changes the css to overflow: show; */
 /*---END--*/
