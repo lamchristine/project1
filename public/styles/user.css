@@ -1,3 +1,9 @@
+/*-- fonts --
+
+font-family: 'Bubblegum Sans', cursive;
+font-family: 'Londrina Solid', cursive;
+--*/
+
 body{
   font-family: 'PT Sans Narrow', sans-serif;
   text-align: center;
@@ -16,14 +22,19 @@ a {
 }
 
 /*---NAV BAR---*/
+
+/*#navbar {
+  background: #414445;
+}*/
+
 ul {
   text-align: right;
   margin: 0;
-  padding-top: 25px;
+  padding-top: 20px;
   /*padding-bottom: 5px;*/
   padding-right: 20px;
   vertical-align: middle;
-  margin-bottom: -5px;
+  margin-bottom: -100px;
 
 }
 
@@ -35,15 +46,32 @@ li.nava {
 }
 
 
-
 .nav_home {
-  margin-left: -45px;
+  margin-left: -30px;
 }
 
 .home {
-  font-size: 30px;
+  font-size: 50px;
+  font-family: 'Londrina Solid';
   color: #54C49F;
+  margin-top: -25px;
 }
+
+.home span{
+  font-size: 60px;
+}
+
+
+#signUpBtn{
+  font-size: 20px;
+  font-family: 'Londrina Solid';
+}
+
+#logInBtn{
+  font-size: 20px;
+  font-family: 'Londrina Solid';
+}
+
 
 
 #dropdown {
@@ -82,7 +110,7 @@ header {
 }
 
 .caption_title {
-  margin-top: 200px;
+  margin-top: 150px;
   opacity: 0.9;
   background: #54C49F;
   padding-top: 15px;
@@ -100,15 +128,20 @@ header {
 }
 
 .nav_title  {
-  font-size: 30px;
+  font-size:40px;
   color: white;
   opacity: 1;
+  font-family: 'Londrina Solid';
 }
 
 .excerpt {
   font-size: 18px;
   color: white;
   opacity: 1;
+}
+
+#search {
+  margin-top: 25px;
 }
 
 .search  {
@@ -241,6 +274,10 @@ a.add_trip{
   margin-bottom: -20px;
 }
 
+#section_title span{
+  font-size: 30px;
+  font-family: 'Londrina Solid';
+}
 .post {
   background: white;
 }
