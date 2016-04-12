@@ -1,5 +1,6 @@
 console.log("Sanity Check!")
 var template;
+var template1;
 
 var user = [];
 var $user;
@@ -13,6 +14,8 @@ $(document).ready(function() {
   var source = $('#user-template').html();
   template = Handlebars.compile(source);
 
+  var sourceq = $('#modal-template').html();
+  template1 = Handlebars.compile(sourceq);
 
   //shows all posts
     $.ajax({
@@ -244,10 +247,10 @@ function render() {
   //view user profile
     $('.view_user').on('click', '#view_profile', function () {
       console.log($(this).data('user-Id'))
-      // $('#modaluser').empty();
-      // $('#modalage').empty();
-      // $('#modalabout').empty();
-      // $('#pic_modal').removeAttr('src');
+        // $('#modaluser').empty();
+        // $('#modalage').empty();
+        // $('#modalabout').empty();
+        // $('#pic_modal').removeAttr('src');
       if (user === null) {
         alert("Please log in ");
       // } else if ( user._id !== $(this).data('user-Id') ) {
@@ -264,7 +267,7 @@ function render() {
   });
 
   //deletes a trip
-  $('.delete_user').on('click', '#delete_user', function () {
+  $('#delete_user').on('click', '#delete_user', function () {
 
     if (user === null) {
       alert("Please log in ");
@@ -399,38 +402,45 @@ function newPostError() {
 
 function viewUserSuccess(json) {
   var user = json;
+  allUsers = json
   console.log(user);
   var username = user.username;
   var image = user.image;
   var age = user.age;
   var blurb = user.blurb;
-  // $('#profile.modal-body').empty();
+
   // $('#modaluser').empty();
   // $('#modalage').empty();
   // $('#modalabout').empty();
   // $('#pic_modal').removeAttr('src');
 
-
-  renderToModal(user);
-  $('#profileModal').modal('show');
-
-    $('#closeprofile').on ('click', function(){
-      alert("clicked")
-      $('#modaluser').empty();
-      $('#modalage').empty();
-      $('#modalabout').empty();
-      $('#pic_modal').removeAttr('src');
-    });
+  renderToModal();
 }
 
-function renderToModal(user) {
-  var source = $('#modal-template').html();
-  template = Handlebars.compile(source);
+  // $('#profileModal').modal('show');
+  //
+  //   $('#closeprofile').on ('click', function(){
+  //     alert("clicked")
+  //     $('#modaluser').empty();
+  //     $('#modalage').empty();
+  //     $('#modalabout').empty();
+  //     $('#pic_modal').removeAttr('src');
+  //   });
 
-  console.log("USER", user.username);
-  var test = template(user);
-  console.log(test);
+
+function renderToModal(user) {
+
+
+  $('#profile').empty();
+  // $('#modaluser').empty();
+  // $('#modalage').empty();
+  // $('#modalabout').empty();
+  // $('#pic_modal').removeAttr('src');
+
+  var test = template1({user:allUsers});
   $('#profile.modal-body').append(test);
+  $('#profileModal').modal('show');
+  // $('#profile.modal-body').append(test);
 }
 
 function viewUserError () {

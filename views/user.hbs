@@ -294,19 +294,16 @@
           </div>
           <div id="profile" class="modal-body">
             <script id="modal-template" type="text/x-handlebars-template">
-
-
             <div class="row">
               <div class="col-md-3 col-md-offset-1">
-                <img id="pic_modal" src=\{{image}}>
+                <img id="pic_modal" src=\{{user.image}}>
               </div>
               <div class="col-md-7 text-left">
-                <h1 id="modaluser">\{{username}}</h1>
-                <h4 id="modalage">Age: \{{age}} </h4>
-                <h4 id="modalabout">About me: \{{blurb}} </h4>
+                <h1 id="modaluser">\{{user.username}}</h1>
+                <h4 id="modalage">Age: \{{user.age}} </h4>
+                <h4 id="modalabout">About me: \{{user.blurb}} </h4>
               </div>
             </div>
-
           </script>
           </div>
           <div class="modal-footer">
