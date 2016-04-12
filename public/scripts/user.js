@@ -40,24 +40,24 @@ $(document).ready(function() {
 
 
   //deletes a post
-    $user.on('click', '.delete_user', function () {
-
-      if (user === null) {
-        alert("Please log in ");
-      } else if ( user._id !== $(this).data('user-Id') ) {
-        alert("You're not owner so can't edit");
-      } else {
-
-      var deleteId = $(this).data('user-Id');
-      console.log( deleteId );
-      $.ajax({
-        method: 'DELETE',
-        url: '/api/users/' + deleteId,
-        success: deleteUserSuccess,
-        error: deleteUserError,
-      });
-    }
-  });
+  //   $user.on('click', '.delete_user', function () {
+  //
+  //     if (user === null) {
+  //       alert("Please log in ");
+  //     } else if ( user._id !== $(this).data('user-Id') ) {
+  //       alert("You're not owner so can't edit");
+  //     } else {
+  //
+  //     var deleteId = $(this).data('user-Id');
+  //     console.log( deleteId );
+  //     $.ajax({
+  //       method: 'DELETE',
+  //       url: '/api/users/' + deleteId,
+  //       success: deleteUserSuccess,
+  //       error: deleteUserError,
+  //     });
+  //   }
+  // });
 
   //deletes a trip
   $user.on('click', '#delete_trip', function () {
@@ -139,24 +139,25 @@ $(document).ready(function() {
 
 
     // $(this).parents('.post').remove(); //removing clicked on album
-    $('#tripModal').attr('data-user-Id', editTripId);
-    $('#tripModal').modal('show');
+
 
     // console.log( $("input[name = 'city']").val() )
     // $('#city').val( $(this).)
 
-    allUsers.forEach(function(user) {
-      if (editUserId === user._id) {
-        user.trips.forEach(function(trip) {
-          if(editTripId === trip._id) {
-            $("#city").val(trip.city);
-            $("#country").val(trip.country);
-            $("textarea#description").val(trip.description);
-          }
-        });
-      }
-    });
+      allUsers.forEach(function(user) {
+        if (editUserId === user._id) {
+          user.trips.forEach(function(trip) {
+            if(editTripId === trip._id) {
+              $("#city").val(trip.city);
+              $("#country").val(trip.country);
+              $("textarea#description").val(trip.description);
+            }
+          });
+        }
+      });
 
+      $('#tripModal').attr('data-user-Id', editTripId);
+      $('#tripModal').modal('show');
 
 
 
@@ -166,7 +167,7 @@ $(document).ready(function() {
         console.log(editTripId, editUserId);
         $('#tripModal').modal('hide');
         var modalData = $('#trip_form').serialize();
-        // console.log(modalData);
+        console.log('edit modal data', modalData);
 
           $.ajax({
             method: 'PUT',
@@ -266,32 +267,44 @@ function render() {
     }
   });
 
-  //deletes a trip
-  $('#delete_user').on('click', '#delete_user', function () {
+  //deletes a user
 
-    if (user === null) {
-      alert("Please log in ");
-    } else if ( user._id !== $(this).data('user-Id') ) {
-      alert("You're not owner so can't edit");
-    } else {
+    $('.delete_user').on('click', '#delete_user', function () {
 
-    var deleteTripId = $(this).data('trip-Id');
-    console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
+      if (user === null) {
+        alert("Please log in ");
+      } else if ( user._id !== $(this).data('user-Id') ) {
+        alert("You're not owner so can't edit");
+      } else {
+
+      var deleteId = $(this).data('user-Id');
+      console.log( deleteId );
       $.ajax({
         method: 'DELETE',
-        url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
-        success: deleteTripSuccess,
-        error: deleteTripError,
+        url: '/api/users/' + deleteId,
+        success: deleteUserSuccess,
+        error: deleteUserError,
       });
     }
   });
-
-// for (vari=0; i<allUsers.length; i++){
-//   if (allPosts[i].image === null) {
-//     allPosts[i].image = "/images/icon.png"
-//   }
-// }
-
+  // $('.delete_user').on('click', '#delete_user', function () {
+  //   console.log( $(this).data('user-Id') )
+  //   if (user === null) {
+  //     alert("Please log in ");
+  //   } else if ( user._id !== $(this).data('user-Id') ) {
+  //     alert("You're not owner so can't edit");
+  //   } else {
+  //
+  //   var deleteTripId = $(this).data('trip-Id');
+  //   console.log( '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId );
+  //     $.ajax({
+  //       method: 'DELETE',
+  //       url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
+  //       success: deleteTripSuccess,
+  //       error: deleteTripError,
+  //     });
+  //   }
+  // });
 }
 
 
