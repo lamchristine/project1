@@ -127,8 +127,9 @@ $(document).ready(function() {
     } else {
 
 
-    $('#trip_form input').val(''); //emptying fields everytime modal is open
-    $('#trip_form textarea').val(''); //emptying fields everytime modal is open
+
+    // $('#trip_form input').val(''); //emptying fields everytime modal is open
+    // $('#trip_form textarea').val(''); //emptying fields everytime modal is open
     // var editUserId = $(this).closest('.edit_trip').data('user-Id');
     // var editTripId = $(this).data('trip-Id');
     // console.log(editTripId);
@@ -137,6 +138,24 @@ $(document).ready(function() {
     // $(this).parents('.post').remove(); //removing clicked on album
     $('#tripModal').attr('data-user-Id', editTripId);
     $('#tripModal').modal('show');
+
+    // console.log( $("input[name = 'city']").val() )
+    // $('#city').val( $(this).)
+
+    allUsers.forEach(function(user) {
+      if (editUserId === user._id) {
+        user.trips.forEach(function(trip) {
+          if(editTripId === trip._id) {
+            $("#city").val(trip.city);
+            $("#country").val(trip.country);
+            $("textarea#description").val(trip.description);
+          }
+        });
+      }
+    });
+
+
+
 
       $('#saveTrip').on('click', function(e){
         e.preventDefault();
