@@ -134,8 +134,6 @@ usersList.forEach(function (user) {
 
 
 db.User.remove({}, function(err, users){
-  // db.User.create(usersList, function (err, users){
-  //   if (err) {return console.log('Error', err); }
-  //   process.exit();
-  // });
-});
+    if (err) {return console.log('Error', err); }
+    process.exit();
+  });
