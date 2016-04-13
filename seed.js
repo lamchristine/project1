@@ -124,10 +124,18 @@ usersList.forEach(function (user) {
   user.trips = removedTrips;
 });
 
+//
+// db.User.remove({}, function(err, users){
+//   db.User.create(usersList, function (err, users){
+//     if (err) {return console.log('Error', err); }
+//     process.exit();
+//   });
+// });
+
 
 db.User.remove({}, function(err, users){
-  db.User.create(usersList, function (err, users){
-    if (err) {return console.log('Error', err); }
-    process.exit();
-  });
+  // db.User.create(usersList, function (err, users){
+  //   if (err) {return console.log('Error', err); }
+  //   process.exit();
+  // });
 });
