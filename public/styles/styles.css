@@ -1,10 +1,19 @@
+/*-- fonts --
+
+font-family: 'Bubblegum Sans', cursive;
+font-family: 'Londrina Solid', cursive;
+--*/
+
 body{
   font-family: 'PT Sans Narrow', sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
   color: #595959;
-  background: #F5F7F7
+  background: #F5F7F7;
+  max-width: 100%;
+  overflow-x: hidden;
+  /*position: relative;*/
 }
 
 a {
@@ -13,17 +22,23 @@ a {
 }
 
 /*---NAV BAR---*/
+
+/*#navbar {
+  background: #414445;
+}*/
+
 ul {
   text-align: right;
   margin: 0;
-  padding-top: 25px;
+  padding-top: 20px;
   /*padding-bottom: 5px;*/
   padding-right: 20px;
   vertical-align: middle;
-  margin-bottom: -5px;
+  margin-bottom: -100px;
+
 }
 
-li {
+li.nava {
   display: inline;
   font-size: 20px;
   padding: 0 15px 0 15px;
@@ -32,21 +47,62 @@ li {
 
 
 .nav_home {
-  margin-left: -45px;
+  margin-left: -30px;
 }
 
 .home {
-  font-size: 30px;
+  font-size: 50px;
+  font-family: 'Londrina Solid';
   color: #54C49F;
+  margin-top: -25px;
 }
 
-.dropdown {
-  display: none;
+.home span{
+  font-size: 60px;
 }
+
+
+#signUpBtn{
+  font-size: 20px;
+  font-family: 'Londrina Solid';
+}
+
+#logInBtn{
+  font-size: 20px;
+  font-family: 'Londrina Solid';
+}
+
+
+
+#dropdown {
+  display: none;
+  margin-top: 10px;
+}
+
+#dropdown-menu {
+  /*position: relative;*/
+  /*margin-left: 200px;*/
+  /*margin-right: 200px;*/
+  color: blue;
+  font-size: 15px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#p{
+  font-size: 20px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#a{
+  font-size: 20px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+
 
 /*---HEADER---*/
 header {
-  background: url('/images/background.jpg');
+  background: url('/images/background.JPG');
   background-size: cover;
   height: 550px;
   background-position: center;
@@ -54,7 +110,7 @@ header {
 }
 
 .caption_title {
-  margin-top: 200px;
+  margin-top: 150px;
   opacity: 0.9;
   background: #54C49F;
   padding-top: 15px;
@@ -72,15 +128,20 @@ header {
 }
 
 .nav_title  {
-  font-size: 30px;
+  font-size:40px;
   color: white;
   opacity: 1;
+  font-family: 'Londrina Solid';
 }
 
 .excerpt {
   font-size: 18px;
   color: white;
   opacity: 1;
+}
+
+#search {
+  margin-top: 25px;
 }
 
 .search  {
@@ -101,40 +162,221 @@ header {
 }
 
 /*---BODY---*/
-.section_title {
-  font-size: 50px;
-  margin-top: 30px;
+
+
+
+#allPost{
+  margin-top: 70px;
+}
+
+#postSection{
+  /*margin-top: 40px;*/
+  padding-left: 30px;
+  padding-top: 20px;
+  /*padding-right: -50px;*/
+  background: white;
   margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+
 }
 
-/*img {
-  background: blue;
-}*/
+#upcomingTrips{
+  font-size: 25px;
+  /*text-align: left;*/
+  margin-left: -60px;
+}
 
-.row.second {
+#pic {
+  border: 3px solid #403D3D;
   margin-top: 25px;
+  margin-right: -50px;
 }
 
-.viewTrips {
+#pic:hover {
+  cursor: pointer;
+  border: 5px solid #FA6B32;
+}
+
+#profileCaret{
+  margin-top: 12px;
+  margin-left: 40px;
+}
+
+
+#delete_trip:hover{
+  color: #54C49F;
+  cursor: pointer;
+}
+
+#edit_trip:hover{
+  color: #54C49F;
+  cursor: pointer;
+}
+
+#posting{
+  margin-top:-10px;
+  margin-bottom: 10px;
+}
+
+#tripPost {
+  list-style-type: none;
+  padding-left: 65px;
+}
+
+#postTitle {
+  font-size: 25px;
+}
+
+#postdivider{
+  margin-bottom: 40px;
+}
+
+#addTripBtn {
+  margin-top: 30px;
+  margin-left: -450px;
+  margin-bottom: 10px;
+}
+
+a.add_trip{
+    text-decoration: none;
+    color: #54C49F;
+    font-size: 18px;
+    font-family: 'Londrina Solid';
+}
+
+#galleryPanel{
+  background: #D1DEE3;
+  margin-top: 70px;
+  /*position: fixed;
+  left: 900px;
+  bottom: -430px;*/
+  border-radius: 5px;
+}
+
+#allPost{
+  /*background: red;*/
+}
+
+#galleryTitle {
+  font-family: 'Londrina Solid';
+  font-size: 40px;
   margin-top: 20px;
 }
 
-.photo {
-  position: relative;
+hr.ruler {
+  border-bottom: 10px solid #3296B8;
+  margin-bottom: 30px;
 }
 
-.img_cap {
-  position: absolute;
-  margin-top: -200px;
-  left:0px;
-  bottom: 100px;
-  width: 100%;
-  height: :100%
+#galleryTitle2{
+  font-family: 'Londrina Solid';
+  font-size: 40px;
+  padding-top: 550px;
 }
 
-.img_cap span {
+span.glyphicon-envelope {
+    font-size: 2.2em;
+}
+span.glyphicon-phone {
+    font-size: 2.2em;
+}
+span.glyphicon-earphone {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+#tripPost {
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: -50px;
+}
+
+#section_title {
+  font-size: 40px;
+  margin-top: 30px;
+  margin-bottom: -20px;
+}
+
+#section_title span{
+  font-size: 60px;
+  font-family: 'Londrina Solid';
+}
+.post {
+  background: white;
+}
+
+.tripList {
+  text-align: left;
+}
+
+.adTrip {
+  margin-top: 20px;
+}
+
+
+/*--- MODAL ---*/
+
+#modal-header{
+  background: #6E7273;
+  height: 100px;
+  /*margin: auto;*/
+}
+
+#modal-title{
+  font-size: 40px;
+  margin-left: 100px;
   color: white;
-  font-size: 50px;
+  font-family: 'Londrina Solid';
+}
+
+.modal-content{
+  background: #E8E8E8;
+
+  width: 100%;
+  height: 100%;
+}
+
+.modal-body{
+  height: 380px;
+}
+
+#signUpForm {
+  width: 90%;
+  height: 50%;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.modalTitle{
+  text-align: center;
+}
+
+#sign{
+  margin-top: 5px;
+}
+
+
+#modal-body-login{
+  height: 180px;
+}
+
+
+#descriptionBox{
+  margin-top: 20px;
+}
+#description {
+  width: 470px;
+}
+
+
+#profile.modal-body{
+  height: 150px;
+}
+
+#pic_modal {
+  margin-top: 20px;
 }
 
 /*---END--*/
@@ -155,6 +397,11 @@ button:hover{
   color: white;
 }
 
+#footer{
+  color:#737373;
+  padding-top: 5px;
+  margin-top: 110px;
+}
 
 .bottom{
   background: #404040;
@@ -165,13 +412,14 @@ button:hover{
 .footer{
   text-align: center;
   padding-top:65px;
-
 }
 
 .footer_line{
   margin: 0 30px 0 30px;
   color: white;
   border: 0 solid none;
+  display: inline;
+  font-size: 20px;
 }
 
 .footer_line:hover{
