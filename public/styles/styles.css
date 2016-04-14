@@ -204,12 +204,12 @@ header {
 }
 
 
-#delete_trip:hover{
+#delete_post:hover{
   color: #54C49F;
   cursor: pointer;
 }
 
-#edit_trip:hover{
+#edit_post:hover{
   color: #54C49F;
   cursor: pointer;
 }
@@ -219,7 +219,7 @@ header {
   margin-bottom: 10px;
 }
 
-#tripPost {
+#postPost {
   list-style-type: none;
   padding-left: 65px;
 }
@@ -232,13 +232,13 @@ header {
   margin-bottom: 40px;
 }
 
-#addTripBtn {
+#addPostBtn {
   margin-top: 30px;
   margin-left: -450px;
   margin-bottom: 10px;
 }
 
-a.add_trip{
+a.add_post{
     text-decoration: none;
     color: #54C49F;
     font-size: 18px;
@@ -286,7 +286,7 @@ span.glyphicon-earphone {
     margin-bottom: 30px;
 }
 
-#tripPost {
+#postPost {
   text-align: left;
   margin-left: 10px;
   margin-bottom: -50px;
@@ -306,11 +306,11 @@ span.glyphicon-earphone {
   background: white;
 }
 
-.tripList {
+.postList {
   text-align: left;
 }
 
-.adTrip {
+.adPost {
   margin-top: 20px;
 }
 

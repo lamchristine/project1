@@ -1,12 +1,12 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var TripSchema = new Schema ({
+var PostSchema = new Schema ({
   country: String,
   city: String,
   description: String,
 });
 
-var Trip = mongoose.model('Trip', TripSchema);
+var Post = mongoose.model('Post', PostSchema);
 
-module.exports = Trip;
+module.exports = Post;

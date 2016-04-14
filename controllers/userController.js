@@ -49,22 +49,22 @@ function search(req, res) {
   var q = req.query.search;
   db.User.find ({
     $or:[
-        { "trips.city": q },
-        { "trips.country": q },
+        { "posts.city": q },
+        { "posts.country": q },
     ]
   }, function (err, foundUsers){
       for (var j=0; j<foundUsers.length; j++) {
-        var arr = foundUsers[j].trips;
+        var arr = foundUsers[j].posts;
         for (var i=0; i<arr.length; i++) {
           if ( (arr[i].city === q) || (arr[i].country === q) ) {
             arr = arr[i];
-          } foundUsers[j].trips = arr;
+          } foundUsers[j].posts = arr;
         }
       }
       res.json(foundUsers);
     }
   );
-} 
+}
 
 //export public methods
 module.exports = {

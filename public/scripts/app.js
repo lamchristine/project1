@@ -22,7 +22,7 @@ $(document).ready(function() {
     error: onError,
   });
 
-  //create a new user post
+  //create a new post
   $('#newPost').on('click', function(){
     $.ajax({
       method: 'POST',
@@ -32,60 +32,60 @@ $(document).ready(function() {
     });
   });
 
-  //delete a trip
-  $user.on('click', '#delete_trip', function () {
+  //delete a post
+  $user.on('click', '#delete_post', function () {
     //user authorization
     if (user === null) {
       alert("Please log in ");
     } else if ( user._id !== $(this).data('user-Id') ) {
       alert("You're not owner so can't edit");
     } else {
-      var deleteTripId = $(this).data('trip-Id');
+      var deletePostId = $(this).data('post-Id');
       //make ajax call
       $.ajax({
         method: 'DELETE',
-        url: '/api/users/' + $(this).data('user-Id') + '/trips/' + deleteTripId,
-        success: deleteTripSuccess,
-        error: deleteTripError,
+        url: '/api/users/' + $(this).data('user-Id') + '/posts/' + deletePostId,
+        success: deletePostSuccess,
+        error: deletePostError,
       });
     }
   });
 
-  //create a new trip
-  $user.on('click', '.add_trip', function () {
-    var addTripId = $(this).closest('.add_trip').data('user-Id');
+  //create a new post
+  $user.on('click', '.add_post', function () {
+    var addPostId = $(this).closest('.add_post').data('user-Id');
     //user authorization
     if (user === null) {
       alert("Please log in ");
-    } else if (user._id !== addTripId) {
+    } else if (user._id !== addPostId) {
       alert("You're not owner so can't edit");
     } else {
       //modal opens
-      $('#trip_form input').val('');
-      $('#trip_form textarea').val('');
-      $('#tripModal').attr('data-user-Id', addTripId);
-      $('#tripModal').modal('show');
-      $('#saveTrip').on('click', function(e){
+      $('#post_form input').val('');
+      $('#post_form textarea').val('');
+      $('#postModal').attr('data-user-Id', addPostId);
+      $('#postModal').modal('show');
+      $('#savePost').on('click', function(e){
         e.preventDefault();
         $(this).off('click');
-        $('#tripModal').modal('hide');
-        var modalData = $('#trip_form').serialize();
+        $('#postModal').modal('hide');
+        var modalData = $('#post_form').serialize();
         //make ajax call to db
         $.ajax({
           method: 'POST',
-          url: '/api/users/' + addTripId +  '/trips',
+          url: '/api/users/' + addPostId +  '/posts',
           data: modalData,
-          success: tripAddSuccss,
-          error: tripAddError,
+          success: postAddSuccss,
+          error: postAddError,
         });
       });
     }
   });
 
-  //edit a trip
-  $user.on('click', '#edit_trip', function () {
-    var editUserId = $(this).closest('#edit_trip').data('user-Id');
-    var editTripId = $(this).data('trip-Id');
+  //edit a post
+  $user.on('click', '#edit_post', function () {
+    var editUserId = $(this).closest('#edit_post').data('user-Id');
+    var editPostId = $(this).data('post-Id');
     //user authorization
     if (user === null) {
       alert("Please log in ");
@@ -95,30 +95,30 @@ $(document).ready(function() {
       //prepopulating modal with existing data
       allUsers.forEach(function(user) {
         if (editUserId === user._id) {
-          user.trips.forEach(function(trip) {
-            if(editTripId === trip._id) {
-              $("#city").val(trip.city);
-              $("#country").val(trip.country);
-              $("textarea#description").val(trip.description);
+          user.posts.forEach(function(post) {
+            if(editPostId === post._id) {
+              $("#city").val(post.city);
+              $("#country").val(post.country);
+              $("textarea#description").val(post.description);
             }
           });
         }
       });
       //modal opens
-      $('#tripModal').attr('data-user-Id', editTripId);
-      $('#tripModal').modal('show');
-      $('#saveTrip').on('click', function(e){
+      $('#postModal').attr('data-user-Id', editPostId);
+      $('#postModal').modal('show');
+      $('#savePost').on('click', function(e){
         e.preventDefault();
         $(this).off('click');
-        $('#tripModal').modal('hide');
-        var modalData = $('#trip_form').serialize();
+        $('#postModal').modal('hide');
+        var modalData = $('#post_form').serialize();
         //make ajax call
         $.ajax({
           method: 'PUT',
-          url: '/api/users/' + editUserId +  '/trips/' + editTripId,
+          url: '/api/users/' + editUserId +  '/posts/' + editPostId,
           data: modalData,
-          success: tripEditSuccss,
-          error: tripEditError,
+          success: postEditSuccss,
+          error: postEditError,
         });
       });
     }
@@ -243,7 +243,7 @@ function deleteUserError() {
   console.log("delete error");
 }
 
-function deleteTripSuccess(json) {
+function deletePostSuccess(json) {
   var user = json;
   var userId = user._id;
   for (var i=0; i<allUsers.length; i++) {
@@ -255,11 +255,11 @@ function deleteTripSuccess(json) {
   render();
 }
 
-function deleteTripError(){
-  console.log("error in deleting trip");
+function deletePostError(){
+  console.log("error in deleting post");
 }
 
-function tripAddSuccss(json){
+function postAddSuccss(json){
   var newUser = json;
   var newUserId= newUser._id;
   for(var i=0;i<allUsers.length;i++) {
@@ -271,23 +271,23 @@ function tripAddSuccss(json){
   render();
 }
 
-function tripAddError () {
+function postAddError () {
   console.log("error in adding new trip");
 }
 
-function tripEditSuccss(json) {
-  var trip = json;
-  var tripId = trip._id;
+function postEditSuccss(json) {
+  var post = json;
+  var postId = post._id;
   for (var i=0;i<allUsers.length; i++) {
-    if (allUsers[i]._id === tripId) {
-      allUsers[i] = trip;
+    if (allUsers[i]._id === postId) {
+      allUsers[i] = post;
       break;
     }
   }
   render();
 }
 
-function tripEditError() {
+function postEditError() {
   console.log("error in updating");
 }
 

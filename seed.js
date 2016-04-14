@@ -31,35 +31,35 @@ sampleTrips.push({ country: "Brazil",
                    city: "Rio",
                    description: "Hi folks! I'm a 19 year old girl living in the Netherlands (cap. Amsterdam) studying interactive design. I really like to get to know new people even though i'm a little shy (i like to go out at night tho). I'm planning to travel to Mexico and stay for 2 weeks in Playa Del Carmen. I plan to visit cenotes, temples, enjoy the nightlife, do fun activities and chill at the beach. I just want to see new things and have fun with someone.. My friends don't have the money to come with me, but that won't stop me from going!"
 });
-sampleTrips.push({ country: "Chile",
-                   city: "Santiago",
-                   description: "Hey folks! This will be my first time traveling alone (I have been through Peru and Chile now but in company). I have many questions and I'd really like to meet people for the way - everything is nicer if you can share it with someone. Also I feel better traveling with others in long distances, it's more entertained and save."
-});
-sampleTrips.push({ country: "Brazil",
-                   city: "Sao Paulo",
-                   description: "hey guys I'm looking for a someone to share in an adventure. setting out from Christchurch and ending in Auckland. I've rented a car and I've got a rough draft of my route but I'm open to everything. I wanna do a mix of hiking, camping, sightseeing and a little adrenaline seeking."
-});
-sampleTrips.push({ country: "Ecuador",
-                   city: "Quito",
-                   description: "My name is Samantha and I'm 18 years old. I recently got back from backpacking through Europe and I'm already planning my next trip. I used this website to find my last travel partner and we became great friends! I thought I would try again. I'm planning on going to Ireland, Scotland, and England this coming September for a month or two. If anyone is interested, please let me know!"
-});
-sampleTrips.push({ country: "Canada",
-                   city: "Toronto",
-                   description: "Hi all ! I'm a Spanish student that is searching a mate for summer, I would to improve my English. I'm 17 years old. It's like a swap. I will teach Spanish and who wants to come to Spain will teach me English. I don't want any money, I only want to have fun for a month or something like that. I live in Valencia, a very very very beatiful city. We also can go to Madrid or Barcelona, eat a lot and watch football or go to the best beaches. I will be waiting for an answer. "
-});
-sampleTrips.push({ country: "Canada",
-                   city: "Toronto",
-                   description: "My name is Armando, I’m a 26 year old Mexican living in France. I’m about to finish my masters so I thought it’d be a good idea to travel for a while before deciding what to do next. I haven’t planned anything but I’d like to leave in the beginning of September and stay there about 6 weeks. I want to visit Thailand, Cambodia? and Vietnam but am open to anything. I reckon the basic shouteast asia loop would be a good starting point."
-});
-sampleTrips.push({ country: "Canada",
-                   city: "Toronto",
-                   description: "Hi All! I just purchased my tickets to Australia - so excited! This is my first time. 28/female from Chicago here. I'm flying in and out of Sydney, but anything that happens in between there is up in the air. Would love to find some people to join for adventures. Interested in heading up to Cairns - there has been some debate about whether or not the Great Barrier Reef will continue to be preserved and I'd like to see it."
-});
-sampleTrips.push({ country: "Canada",
-                   city: "Vancouver",
-                   description: "Hi everyone, I've booked my flight to Bangkok & land 20th September & would like to have some travel buddies. I wouldn't want to stay in Bangkok long, just a day & then head off elsewhere. This route I have not planned yet so any advice would be great. I'm looking to travel Cambodia, Vietnam, Chiang rai & Chiang mai then heading to southern Thailand making my way to Singapore & fly to oz where I have my working visa. Looking to be in oz December time."
-});
-
+// sampleTrips.push({ country: "Chile",
+//                    city: "Santiago",
+//                    description: "Hey folks! This will be my first time traveling alone (I have been through Peru and Chile now but in company). I have many questions and I'd really like to meet people for the way - everything is nicer if you can share it with someone. Also I feel better traveling with others in long distances, it's more entertained and save."
+// });
+// sampleTrips.push({ country: "Brazil",
+//                    city: "Sao Paulo",
+//                    description: "hey guys I'm looking for a someone to share in an adventure. setting out from Christchurch and ending in Auckland. I've rented a car and I've got a rough draft of my route but I'm open to everything. I wanna do a mix of hiking, camping, sightseeing and a little adrenaline seeking."
+// });
+// sampleTrips.push({ country: "Ecuador",
+//                    city: "Quito",
+//                    description: "My name is Samantha and I'm 18 years old. I recently got back from backpacking through Europe and I'm already planning my next trip. I used this website to find my last travel partner and we became great friends! I thought I would try again. I'm planning on going to Ireland, Scotland, and England this coming September for a month or two. If anyone is interested, please let me know!"
+// });
+// sampleTrips.push({ country: "Canada",
+//                    city: "Toronto",
+//                    description: "Hi all ! I'm a Spanish student that is searching a mate for summer, I would to improve my English. I'm 17 years old. It's like a swap. I will teach Spanish and who wants to come to Spain will teach me English. I don't want any money, I only want to have fun for a month or something like that. I live in Valencia, a very very very beatiful city. We also can go to Madrid or Barcelona, eat a lot and watch football or go to the best beaches. I will be waiting for an answer. "
+// });
+// sampleTrips.push({ country: "Canada",
+//                    city: "Toronto",
+//                    description: "My name is Armando, I’m a 26 year old Mexican living in France. I’m about to finish my masters so I thought it’d be a good idea to travel for a while before deciding what to do next. I haven’t planned anything but I’d like to leave in the beginning of September and stay there about 6 weeks. I want to visit Thailand, Cambodia? and Vietnam but am open to anything. I reckon the basic shouteast asia loop would be a good starting point."
+// });
+// sampleTrips.push({ country: "Canada",
+//                    city: "Toronto",
+//                    description: "Hi All! I just purchased my tickets to Australia - so excited! This is my first time. 28/female from Chicago here. I'm flying in and out of Sydney, but anything that happens in between there is up in the air. Would love to find some people to join for adventures. Interested in heading up to Cairns - there has been some debate about whether or not the Great Barrier Reef will continue to be preserved and I'd like to see it."
+// });
+// sampleTrips.push({ country: "Canada",
+//                    city: "Vancouver",
+//                    description: "Hi everyone, I've booked my flight to Bangkok & land 20th September & would like to have some travel buddies. I wouldn't want to stay in Bangkok long, just a day & then head off elsewhere. This route I have not planned yet so any advice would be great. I'm looking to travel Cambodia, Vietnam, Chiang rai & Chiang mai then heading to southern Thailand making my way to Singapore & fly to oz where I have my working visa. Looking to be in oz December time."
+// });
+//
 
 var usersList = [];
 
@@ -108,29 +108,46 @@ usersList.push({ username: 'Doe',
 
 
 
-usersList.forEach(function (user) {
-  //randomize samplelist
-  function shuffleArray(sampleTrips) {
-    for (var i = sampleTrips.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = sampleTrips[i];
-        sampleTrips[i] = sampleTrips[j];
-        sampleTrips[j] = temp;
+  // usersList.forEach(function (user) {
+    for(var i = 0; i < usersList.length; i++) {
+      usersList[i].posts = sampleTrips[i];
+      console.log("AAAAAAAAAAAAA", usersList);
     }
-    return sampleTrips;
-  } shuffleArray(sampleTrips);
+  // });
 
-  var removedTrips = sampleTrips.slice(0,3);
-  user.trips = removedTrips;
-});
-
-
-db.User.remove({}, function(err, users){
-  db.User.create(usersList, function (err, users){
-    if (err) {return console.log('Error', err); }
-    process.exit();
+  db.User.remove({}, function (err,users) {
+    db.User.create(usersList, function(err,users){
+      if (err) { return console.log("ERROR", err); }
+      // console.log("all users:", users);
+      // console.log("created", users.length, "users");
+      process.exit();
+    });
   });
-});
+
+
+// usersList.forEach(function (user) {
+//   //randomize samplelist
+//   function shuffleArray(sampleTrips) {
+//     for (var i = sampleTrips.length - 1; i > 0; i--) {
+//         var j = Math.floor(Math.random() * (i + 1));
+//         var temp = sampleTrips[i];
+//         sampleTrips[i] = sampleTrips[j];
+//         sampleTrips[j] = temp;
+//     }
+//     return sampleTrips;
+//   } shuffleArray(sampleTrips);
+//
+//   var removedPosts = sampleTrips.slice(0,2);
+//   user.posts = removedPosts;
+// });
+//
+//
+// db.User.remove({}, function(err, users){
+//   db.User.create(usersList, function (err, users){
+//     if (err) {return console.log('Error', err); }
+//     process.exit();
+//   });
+// });
 
 
 // db.User.remove({}, function(err, users){

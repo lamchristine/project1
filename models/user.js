@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     passportLocalMongoose = require('passport-local-mongoose');
 
-var Trip = require('./trip');
+var Post = require('./post');
 
 //define user schema
 var UserSchema = new Schema({
@@ -12,7 +12,7 @@ var UserSchema = new Schema({
   image: String,
   age: Number,
   blurb: String,
-  trips: [Trip.schema]
+  posts: [Post.schema]
 });
 
 //plugin takes care of hashing and salting the user's plain text password
