@@ -191,6 +191,8 @@ header {
   border: 3px solid #403D3D;
   margin-top: 25px;
   margin-right: -50px;
+  height: 100px;
+  width: 100px;
 }
 
 #pic:hover {

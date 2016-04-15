@@ -22,15 +22,15 @@ $(document).ready(function() {
     error: onError,
   });
 
-  //create a new post
-  $('#newPost').on('click', function(){
-    $.ajax({
-      method: 'POST',
-      url: '/api/users',
-      success: newPostSuccess,
-      error: newPostError,
-    });
-  });
+  //create a new user
+  // $('#newPost').on('click', function(){
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: '/api/users',
+  //     success: newPostSuccess,
+  //     error: newPostError,
+  //   });
+  // });
 
   //delete a post
   $user.on('click', '#delete_post', function () {
@@ -302,8 +302,13 @@ function searchError(json) {
 }
 
 function newPostSuccess(json) {
-  allUsers.push(json);
-  render();
+  // var newPost = json;
+  //   if (newPost.image === null) {
+  //     newPost.image = "http://lorempixel.com/image_output/cats-q-c-300-300-4.jpg";
+  //   }
+  // }
+  // allUsers.push(newPost);
+  // render();
 }
 
 function newPostError() {
