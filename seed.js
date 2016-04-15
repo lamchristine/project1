@@ -63,43 +63,57 @@ sampleTrips.push({ country: "Brazil",
 
 var usersList = [];
 
-usersList.push({ username: 'Jack',
+usersList.push({ username: 'jjack',
+                  email: 'jjack@jack.com',
                  password: 'abc',
+                 fullname: 'Jack McJack',
                       age: '22',
                     blurb: 'Most Memorable Travel Experience: Seeing baby sea turtles escape from their eggs and crawl to the see in Florida. Dancing and partying in Old San Juan. Having a tradition Turkish dinner with friends in Istanbul. Staying in a eco lodge directly centered in the cloud rainforest. Salsa dancing in the clubs of Bogota.',
                     image: "/images/sports-3.jpg"
 });
-usersList.push({ username: "Jim",
-                   password: 'abc',
+usersList.push({ username: "jajimz",
+                    email: 'jjimmy@jim.com',
+                 password: 'abc',
+                  fullname: 'Jimmy J.',
                        age: '45',
                      blurb: 'Love to travel!',
                    image: "/images/sports-1.jpg"
 });
-usersList.push({ username: 'Henry',
+usersList.push({ username: 'bbenny',
+                    email: 'bbenny@b.com',
+                  fullname: 'Benny Zee',
                    password: 'abc',
                    age: '67',
                  blurb: 'Eating and traveling is my life',
                    image: "/images/people-9.jpg"
 });
-usersList.push({ username: 'Bill',
+usersList.push({ username: 'bubbill',
+                  email: 'billyb@billy.com',
+                    fullname: 'Billy Smith',
                    pasword: 'abc',
                    age: '35',
                  blurb: 'Can not stop traveling',
                    image: "/images/people-8.jpg"
 });
-usersList.push({ username: 'Ryan',
+usersList.push({ username: 'rayray',
+                  email: 'ray@ray.com',
+                  fullname: 'Ryan Q.',
                    password: 'abc',
                    age: '41',
                  blurb: 'Forever young!',
                    image: "/images/people-7.jpg"
 });
-usersList.push({ username: 'Jane',
+usersList.push({ username: 'jdoe',
+                    email: 'jane@doe.com',
+                    fullname: 'Jane Doe',
                    password: 'abc',
                    age: '25',
                  blurb: "Let's party!",
                    image: "/images/people-6.jpg"
 });
-usersList.push({ username: 'Doe',
+usersList.push({ username: 'ddoedoe',
+                  email: 'd@doedoe.com',
+                  fullname: 'Klean K.',
                    password: 'abc',
                    age: '28',
                  blurb: 'Still got the travel bug',
