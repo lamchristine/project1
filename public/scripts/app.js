@@ -53,17 +53,17 @@ $(document).ready(function() {
 
   //create a new post
   $user.on('click', '.add_post', function () {
-    var addPostId = $(this).closest('.add_post').data('user-Id');
+    var userId = $(this).closest('.add_post').data('user-Id');
     //user authorization
     if (user === null) {
       alert("Please log in ");
-    } else if (user._id !== addPostId) {
+    } else if (user._id !== userId) {
       alert("You're not owner so can't edit");
     } else {
       //modal opens
       $('#post_form input').val('');
       $('#post_form textarea').val('');
-      $('#postModal').attr('data-user-Id', addPostId);
+      $('#postModal').attr('data-user-Id', userId);
       $('#postModal').modal('show');
       $('#savePost').on('click', function(e){
         e.preventDefault();
@@ -73,7 +73,7 @@ $(document).ready(function() {
         //make ajax call to db
         $.ajax({
           method: 'POST',
-          url: '/api/users/' + addPostId +  '/posts',
+          url: '/api/users/' + userId + '/posts/  ',
           data: modalData,
           success: postAddSuccss,
           error: postAddError,

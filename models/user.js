@@ -8,7 +8,9 @@ var Post = require('./post');
 //define user schema
 var UserSchema = new Schema({
   username: String,
+  emal: String,
   password: String,
+  fullname: String, 
   image: String,
   age: Number,
   blurb: String,

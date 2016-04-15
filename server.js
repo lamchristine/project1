@@ -109,9 +109,9 @@ app.get('/logout', function (req, res) {
   app.get('/api', controllers.api.index);
   app.get('/api/users', controllers.user.index);
   app.delete('/api/users/:id', controllers.user.destroy);
-  app.delete('/api/users/:user_id/trips/:trip_id', controllers.post.destroy);
-  app.post('/api/users/:user_id/trips', controllers.post.create);
-  app.put('/api/users/:user_id/trips/:trip_id', controllers.post.update);
+  app.delete('/api/users/:user_id/posts/:post_id', controllers.post.destroy);
+  app.post('/api/users/:user_id/posts', controllers.post.create);
+  app.put('/api/users/:user_id/posts/:post_id', controllers.post.update);
   app.get('/api/users/search', controllers.user.search);
   app.post('/api/users', controllers.user.create);
   app.get('/api/users/:id', controllers.user.show);
