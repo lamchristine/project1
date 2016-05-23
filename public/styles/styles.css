@@ -28,18 +28,18 @@ a {
 }*/
 
 ul {
-  text-align: right;
-  margin: 0;
-  padding-top: 20px;
+  /*text-align: right;*/
+  /*margin: 0;*/
+  /*padding-top: 20px;*/
   /*padding-bottom: 5px;*/
-  padding-right: 20px;
-  vertical-align: middle;
-  margin-bottom: -100px;
+  /*padding-right: 20px;*/
+  /*vertical-align: middle;*/
+  /*margin-bottom: -100px;*/
 
 }
 
 li.nava {
-  display: inline;
+  /*display: inline;*/
   font-size: 20px;
   padding: 0 15px 0 15px;
   color: #595959;
@@ -47,14 +47,14 @@ li.nava {
 
 
 .nav_home {
-  margin-left: -30px;
+  /*margin-left: -30px;*/
 }
 
 .home {
   font-size: 50px;
   font-family: 'Londrina Solid';
   color: #54C49F;
-  margin-top: -25px;
+  /*margin-top: -25px;*/
 }
 
 .home span{
@@ -76,7 +76,7 @@ li.nava {
 
 #dropdown {
   display: none;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
 }
 
 #dropdown-menu {
