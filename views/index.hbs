@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Project1</title>
+    <title>Who's Trippin'?</title>
 
     <!-- STYLESHEETS -->
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -40,8 +40,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand home" href="#">APP TITLE</a>
+          <a class="navbar-brand home" href="#">Who's Trippin'?</a>
         </div>
+
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -103,40 +105,56 @@
     </div>
   </nav> -->
   <!--header-->
-  <header>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3 caption_title">
-        <p class="nav_title">New Travels, New Experiences, New Friendships!</p>
+  <div id="header" class="container">
+    <div class="row title">
+      <div class="col-md-12">
+        <h2><strong>Welcome to Who's Trippin'?</strong></h2>
+        <h3>Planning a trip? Interested in meeting fellow travelers or locals? Find out who's tripping and connect with like-minded travelers!</h3>
+        <hr>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 caption_excerpt">
-        <p>Planning a trip? Interested in meeting fellow travelers or locals? Find out who's tripping and connect with like-minded travelers!</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
-        <form id="search" class="form-inline search">
-          <div class="form-group">
-            <!-- <label for="place" class="sr-only"></label> -->
-            <input type="text" name="search" class="form-control" id="place" placeholder="Where do you want to go? Search by City or Country...">
-            <button type="submit" class="btn btn-default searchbtn"><a href="/posts"><span class="glyphicon glyphicon-search"></span></a></button>
-
+      <div class="col-md-8">
+        <header>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2 caption_title">
+              <p class="nav_title">New Travels, New Experiences, New Friendships!</p>
+            </div>
           </div>
-        </form>
+        </header>
+      </div>
+      <div class="col-md-4 top">
+        <div id="top" class="row">
+          <h2><strong>Top Cities</stong></h2>
+          <hr>
+          <h2><strong>1.</strong> Berlin</h2>
+          <h2><strong>2.</strong> Toronto</h2>
+          <h2><strong>3.</strong> Sydney</h2>
+        </div>
+        <div class="row">
+          <form id="search" class="form-inline search pull-left">
+            <input type="text" name="search" class="form-control" id="place" placeholder="Search by City or Country...">
+            <button type="submit" class="btn btn-default searchbtn"><a href="/posts"><span class="glyphicon glyphicon-search"></span></a></button>
+          </form>
+          <button type="submit" class="btn btn-default post"><a href="/">View all posts</a></button>
+        </div>
       </div>
     </div>
     <div class="row">
-      <button type="submit" class="btn btn-default post"><a href="/">View all posts</a></button>
+      <div class="col-md-12 top">
+        <h2><strong>Check Out Upcoming Trips</strong></h2>
+          <hr>
+      </div>
     </div>
-  </header>
+
+
+
+
+
+  </div>
 
 
   <!--view post section-->
-      <div id="section_title" class="row">
-        <p><h1><span>Checkout Upcoming Trips!</span></h1></p>
-      </div>
-
     <div class="row">
     <!-- handlebars template -->
       <div id="allPost" class="col-md-8 col-md-offset-1">
@@ -183,27 +201,7 @@
           </script>
         </div>
         </div>
-        <div id="galleryPanel" class="col-md-2">
-          <div>
-            <p id="galleryTitle"> Top Travel Destinations</p>
-            <hr class='ruler'>
-              <div class="col-md-6 photo"><img src="images/city-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Toronto</span></p></div>
-              <div class="col-md-6 photo"><img src="images/city-8.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Berlin</span></p></div>
-              <div class="col-md-6 photo"><img src="images/city-9.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Quito</span></p></div>
-              <div class="col-md-6 photo"><img src="images/nature-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Australia</span></p></div>
-              <div class="col-md-6 photo"><img src="images/nature-5.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Munich</span></p></div>
-              <div class="col-md-6 photo"><img src="images/nature-3.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Rio</span></p></div>
-              <div class="col-md-6 photo"><img src="images/nightlife-7.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Santiago</span></p></div>
-              <div class="col-md-6 photo"><img src="images/transport-1.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Vancouver</span></p></div>
-              <div class="col-md-6 photo"><img src="images/transport-7.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Sao Paulo</span></p></div>
-              <div class="col-md-6 photo"><img src="images/city-4.jpg" class="img-responsive center-block gallery"><p class="img_cap"><span>Vienna</span></p></div>
-            <p id="galleryTitle2"> Let's Chat</p>
-            <hr class='ruler'>
-            <div><span class="col-md-4 glyphicon glyphicon-envelope"></span></div>
-            <div><span class="col-md-4 glyphicon glyphicon-phone"></span></div>
-            <div><span class="col-md-4 glyphicon glyphicon-earphone"></span></div>
-          </div>
-        </div>
+
 
     </div>
 
