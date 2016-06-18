@@ -154,8 +154,8 @@ $(document).ready(function() {
 
   //user log in
   $('#logInBtn').on('click', function(){
-    $("#logInForm input").val('');
-    $('#logInModal').modal('show');
+    $("#logInForm input").val(''); //emptying login form
+    $('#logInModal').modal('show'); //shows login modal
   });
 
   $('#log').on('click', function () {
