@@ -10,10 +10,9 @@ body{
   margin: 0;
   padding: 0;
   color: #595959;
-  background: #F5F7F7;
+  background: #f3f3f3;
   max-width: 100%;
   overflow-x: hidden;
-  /*position: relative;*/
 }
 
 a {
@@ -21,47 +20,44 @@ a {
   color:inherit;
 }
 
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 /*---NAV BAR---*/
+
+.navbar-default {
+  background-color: #242424;
+}
+
+.navbar-default .navbar-nav li a {
+  color: white;
+  padding: 15px 0px;
+}
+
+.navbar-default .navbar-nav li a:hover {
+  color: #54C49F;
+}
 
 .navbar-default .navbar-brand {
   font-size:30px;
+  color: white;
+}
+.navbar-default .navbar-brand:hover {
+  color: white;
 }
 
-
-ul {
-  /*text-align: right;*/
-  /*margin: 0;*/
-  /*padding-top: 20px;*/
-  /*padding-bottom: 5px;*/
-  /*padding-right: 20px;*/
-  /*vertical-align: middle;*/
-  /*margin-bottom: -100px;*/
-
-}
 
 li.nava {
-  /*display: inline;*/
-  font-size: 20px;
   padding: 0 15px 0 15px;
-  color: #595959;
 }
 
-
-.nav_home {
-  /*margin-left: -30px;*/
-}
 
 .home {
   font-size: 50px;
   font-family: 'Londrina Solid';
   color: #54C49F;
-  /*margin-top: -25px;*/
 }
-
-.home span{
-  font-size: 60px;
-}
-
 
 #signUpBtn{
   font-size: 20px;
@@ -73,17 +69,12 @@ li.nava {
   font-family: 'Londrina Solid';
 }
 
-
-
 #dropdown {
   display: none;
   /*margin-top: 10px;*/
 }
 
 #dropdown-menu {
-  /*position: relative;*/
-  /*margin-left: 200px;*/
-  /*margin-right: 200px;*/
   color: blue;
   font-size: 15px;
   font-family: 'PT Sans Narrow', sans-serif;
@@ -106,7 +97,7 @@ li.nava {
 #header .title {
   margin-top: 62px;
 }
-#header .row h2 {
+#header .row h1 {
   text-align:left;
 }
 #header .row h3 {
@@ -132,7 +123,7 @@ header .caption_title {
 }
 
 header .caption_title p  {
-  font-size:15px;
+  font-size:20px;
   color: white;
   opacity: 1;
   font-family: 'Londrina Solid';
@@ -144,32 +135,66 @@ header .caption_title p  {
   padding-right: 15px;
 }
 
+#top .city {
+  text-align: left;
+}
+#top .city h2{
+  font-size: 25px;
+}
+#top .city h2:hover{
+  color: #FA6B32;
+  cursor: pointer;
+}
+
 #header .top hr {
   border: 1px solid black;
 }
+#header .top h2 {
+  text-align: left;
+}
+
 
 
 @media(min-width:768px) {
+  .navbar-default .navbar-nav li a:hover {
+    padding-bottom: 3px;
+    border-bottom:3px solid #54C49F;
+    color: #cac9c9;
+  }
     header {
         height: 350px;
     }
-
     #header .row h3 {
       font-size: 24px;
     }
-
     header .caption_title p {
       font-size:35px;
     }
-
     .post {
       margin-top: 20px;
+    }
+    #top .city h2 {
+      font-size: 30px;
     }
   }
 
 #search input {
   height: 40px;
 }
+#search .btn {
+  border-radius: 0px 4px 4px 0px;
+  color: white;
+  background-color: #242424;
+}
+
+.center form {
+  display: inline-block;
+}
+
+.form-control {
+  border-radius: 4px 0px 0px 4px;
+}
+
 
 button.searchbtn  {
   margin-top: 10px;
@@ -193,34 +218,26 @@ button.searchbtn  {
 
 /*---BODY---*/
 
-
-
-#allPost{
-  margin-top: 70px;
-}
-
 #postSection{
-  margin-top: -40px;
-  padding-left: 30px;
-  padding-top: 20px;
-  /*padding-right: -50px;*/
   background: white;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  border-radius: 5px;
-
 }
+
+#postSection.row:first-child{
+  padding-top: 15px;
+}
+
+#postSection.row:last-child{
+  margin-bottom: 15px;
+}
+
 
 #upcomingTrips{
   font-size: 25px;
-  /*text-align: left;*/
   margin-left: -60px;
 }
 
 #pic {
   border: 3px solid #403D3D;
-  margin-top: 25px;
-  margin-right: -50px;
   height: 100px;
   width: 100px;
 }
@@ -232,7 +249,9 @@ button.searchbtn  {
 
 #profileCaret{
   margin-top: 12px;
-  margin-left: 40px;
+}
+.pull-right {
+  margin-top: 10px
 }
 
 
@@ -246,28 +265,20 @@ button.searchbtn  {
   cursor: pointer;
 }
 
-#posting{
-  margin-top:-10px;
-  margin-bottom: 10px;
+#posting h4 {
+  text-align: left;
 }
 
-#postPost {
-  list-style-type: none;
-  padding-left: 65px;
+#postCity {
+  text-align: left;
 }
 
 #postTitle {
   font-size: 25px;
 }
 
-#postdivider{
-  margin-bottom: 40px;
-}
-
-#addPostBtn {
-  margin-top: 30px;
-  margin-left: -450px;
-  margin-bottom: 10px;
+#addPostBtn{
+  text-align: left;
 }
 
 a.add_post{
@@ -275,53 +286,6 @@ a.add_post{
     color: #54C49F;
     font-size: 18px;
     font-family: 'Londrina Solid';
-}
-
-#galleryPanel{
-  background: #D1DEE3;
-  margin-top: 70px;
-  /*position: fixed;
-  left: 900px;
-  bottom: -430px;*/
-  border-radius: 5px;
-}
-
-#allPost{
-  /*background: red;*/
-}
-
-#galleryTitle {
-  font-family: 'Londrina Solid';
-  font-size: 40px;
-  margin-top: 20px;
-}
-
-hr.ruler {
-  border-bottom: 10px solid #3296B8;
-  margin-bottom: 30px;
-}
-
-#galleryTitle2{
-  font-family: 'Londrina Solid';
-  font-size: 40px;
-  padding-top: 550px;
-}
-
-span.glyphicon-envelope {
-    font-size: 2.2em;
-}
-span.glyphicon-phone {
-    font-size: 2.2em;
-}
-span.glyphicon-earphone {
-    font-size: 2.2em;
-    margin-bottom: 30px;
-}
-
-#postPost {
-  text-align: left;
-  margin-left: 10px;
-  margin-bottom: -50px;
 }
 
 #section_title {
@@ -352,25 +316,31 @@ span.glyphicon-earphone {
 #modal-header{
   background: #6E7273;
   height: 100px;
-  /*margin: auto;*/
 }
 
 #modal-title{
-  font-size: 40px;
-  margin-left: 100px;
+  font-size: 30px;
   color: white;
   font-family: 'Londrina Solid';
 }
 
 .modal-content{
   background: #E8E8E8;
-
   width: 100%;
   height: 100%;
 }
 
 .modal-body{
-  height: 460px;
+  height: 650px;
+}
+
+@media(min-width:768px) {
+  .modal-body{
+    height: 460px;
+  }
+  #modal-title{
+    font-size: 40px;
+  }
 }
 
 #signUpForm {
@@ -389,11 +359,14 @@ span.glyphicon-earphone {
   margin-top: 5px;
 }
 
-
 #modal-body-login{
-  height: 180px;
+  height: 220px;
 }
 
+@media(min-width:768px) {
+  #modal-body-login{
+    height: 180px;
+  }
 
 #descriptionBox{
   margin-top: 20px;
@@ -429,31 +402,35 @@ button:hover{
 }
 
 #footer{
-  color:#737373;
-  padding-top: 5px;
-  margin-top: 110px;
+  color:white;
+  font-size: 20px;
 }
 
 .bottom{
   background: #404040;
   height:150px;
   border:0 solid red;
+  padding-top: 75px;
   }
 
-.footer{
-  text-align: center;
-  padding-top:65px;
-}
-
 .footer_line{
-  margin: 0 30px 0 30px;
   color: white;
   border: 0 solid none;
   display: inline;
   font-size: 20px;
 }
 
-.footer_line:hover{
+.log {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.footer_line a{
+  text-decoration: none;
+  color: #737373;
+}
+
+.footer_line a:hover{
   border-bottom: 3px solid #5c8a8a;
-  color: white;
+  color: #737373;
 }

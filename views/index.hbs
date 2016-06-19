@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand home" href="#">Who's Trippin'?</a>
+          <a class="navbar-brand home" href="javascript:void(0)">Who's Trippin'?</a>
         </div>
 
 
@@ -49,7 +49,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li id="signUpBtn" class="nava"><a href="javascript:void(0)">Sign Up</a></li>
-            <li id="logInBtn" class="nava"><a href="javascript:void(0)">Login</a></li>
+            <li id="logInBtn" class="nava"><a href="javascript:void(0)">Log In</a></li>
 
             <!--dropdown menu if user is logged in -->
             <li id="dropdown" class="dropdown">
@@ -71,44 +71,11 @@
     </nav><!-- / .navbar-->
   </div><!-- / .mainNav-->
 
-
-    <!-- <div id="navbar" class="navbar">
-      <div class="row">
-        <div class="col-md-4 nav_home">
-          <ul>
-            <li class="home"><span>W</span>hO'S <span>T</span>riPpiN'<span>?</span></a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 col-md-offset-3">
-          <ul class="right">
-            <li class="nava"><button id="signUpBtn" class='btn btn-primary signup'>Signup</button></li>
-            <li class="nava"><button id="logInBtn" class='btn btn-primary login'>Log In</button></li> -->
-
-            <!--dropdown menu if user is logged in -->
-            <!-- <div class="col-md-4 col-md-offset-4">
-            <div id="dropdown" class="dropdown">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="p"> </span> </span>
-                <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li id="dropdown-menu"><a href="javascript:void(0)">Profile</a></li>
-                <li id="dropdown-menu"><a href="javascript:void(0)">Messages</a></li>
-                <li id="dropdown-menu"><a href="javascript:void(0)">Settings</a></li>
-                <li><hr></li>
-                <li id="dropdown-menu"><a href="/logout">Log Out</a></li>
-              </ul>
-            </div>
-          </div> -->
-          <!--end of drop down menu-->
-          <!-- </ul>
-        </div>
-      </div>
-    </div>
-  </nav> -->
   <!--header-->
   <div id="header" class="container">
     <div class="row title">
       <div class="col-md-12">
-        <h2><strong>Welcome to Who's Trippin'?</strong></h2>
+        <h1><strong>Welcome to Who's Trippin'?</strong></h1>
         <h3>Planning a trip? Interested in meeting fellow travelers or locals? Find out who's tripping and connect with like-minded travelers!</h3>
         <hr>
       </div>
@@ -125,17 +92,21 @@
       </div>
       <div class="col-md-4 top">
         <div id="top" class="row">
-          <h2><strong>Top Cities</stong></h2>
+          <h2><strong>Top Posted Cities</stong></h2>
           <hr>
-          <h2><strong>1.</strong> Berlin</h2>
-          <h2><strong>2.</strong> Toronto</h2>
-          <h2><strong>3.</strong> Sydney</h2>
+          <div class="city">
+            <h2 id="berlin"><strong>1.</strong> Berlin</h2>
+            <h2 id="toronto"><strong>2.</strong> Toronto</h2>
+            <h2 id="sydney"><strong>3.</strong> Sydney</h2>
+          </div>
         </div>
-        <div class="row">
-          <form id="search" class="form-inline search pull-left">
+        <div class="row center">
+          <form id="search" class="input-group search">
             <input type="text" name="search" class="form-control" id="place" placeholder="Search by City or Country...">
             <button type="submit" class="btn btn-default searchbtn"><a href="/posts"><span class="glyphicon glyphicon-search"></span></a></button>
           </form>
+        </div>
+        <div id="view" class="row">
           <button type="submit" class="btn btn-default post"><a href="/">View all posts</a></button>
         </div>
       </div>
@@ -146,65 +117,52 @@
           <hr>
       </div>
     </div>
-
-
-
-
-
   </div>
 
-
   <!--view post section-->
-    <div class="row">
-    <!-- handlebars template -->
-      <div id="allPost" class="col-md-8 col-md-offset-1">
-        <div id="user">
-          <script id="user-template" type="text/x-handlebars-template">
-            \{{#each user}}
-              <div id="postSection" class="row">
-                <div class="col-md-2">
-                  <img id="pic" src=\{{image}} class="img-circle">
-                  <div id="profileCaret" class="dropdown">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="a"> \{{username}} </span> </span>
-                    <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li class="view_user"><a id="view_profile" href="javascript:void(0)" data-user-Id=\{{_id}}>View Profile</a></li>
-                      <li><hr></li>
-                      <li class="delete_user"><a id="delete_user" href="javascript:void(0)" data-user-Id=\{{_id}}>Delete User</a></li>
-                    </ul>
+  <div id="section">
+    <div class="container">
+      <div class="row">
+      <!-- handlebars template -->
+        <div id="allPost" class="col-md-8">
+          <div id="user">
+            <script id="user-template" type="text/x-handlebars-template">
+              \{{#each user}}
+                <div id="postSection" class="row">
+                  <div class="col-md-3">
+                    <img id="pic" src=\{{image}} class="img-circle">
+                    <div id="profileCaret" class="dropdown">
+                      <span class="glyphicon glyphicon-user" aria-hidden="true"><span id="a"> \{{username}} </span> </span>
+                      <a id="caret" href="javascript:void(0)" data-toggle="dropdown"> <span class="caret dropdown-toggle" aria-haspopup="true" aria-expanded="true"></span></a>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="view_user"><a id="view_profile" href="javascript:void(0)" data-user-Id=\{{_id}}>View Profile</a></li>
+                        <li class="delete_user"><a id="delete_user" href="javascript:void(0)" data-user-Id=\{{_id}}>Delete User</a></li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-9" id="posting">
-                  \{{#each posts}}
-                      <div class="row">
-                        <ul id="postPost">
-                          <li id="postCity"><span id="postTitle"><strong>\{{city}}</strong>, \{{country}}</span>
-                            <div class="pull-right">
-                              <a href="javascript:void(0)" id="heart" data-post-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
-                              <a href="javascript:void(0)" id="edit_post" data-post-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                              <a href="javascript:void(0)" id="delete_post" data-post-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                            </div>
-                          </li>
-                          <li id="description">
-                            <p><h4>\{{description}}</h4></p>
-                            <hr id="postdivider">
-                          </li>
-                        </ul>
+                  <div class="col-md-9" id="posting">
+                    \{{#each posts}}
+                      <div id="postCity"><span id="postTitle"><strong>\{{city}}</strong>, \{{country}}</span>
+                        <div class="pull-right">
+                          <a href="javascript:void(0)" id="edit_post" data-post-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                          <a href="javascript:void(0)" id="delete_post" data-post-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                        </div>
+                        <p><h4>\{{description}}</h4></p>
                       </div>
-                  \{{/each}}
-                  <div id="addPostBtn">
-                    <a href="javascript:void(0)" class="add_post" data-user-Id=\{{_id}} data-post-Id=\{{posts._id}}><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Post</a>
+                    \{{/each}}
+                    <div id="addPostBtn">
+                      <a href="javascript:void(0)" class="add_post" data-user-Id=\{{_id}} data-post-Id=\{{posts._id}}><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Post</a>
+                    </div>
+                    <hr>
                   </div>
                 </div>
-              </div>
-            \{{/each}}
-          </script>
+              \{{/each}}
+            </script>
+          </div>
         </div>
-        </div>
-
-
-    </div>
-
+      </div><!--close row-->
+    </div><!--close container-->
+  </div><!--close postSection-->
 
     <!-- signup modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="signUpModal">
@@ -282,13 +240,13 @@
                 <div class="form-group row text-left">
                   <label for="inputEmail" class="col-sm-2 col-sm-offset-2 form-control-label">Username</label>
                   <div class="col-sm-6">
-                    <input type="text" name="username" class="form-control" placeholder="Username" required="true">
+                    <input type="text" name="username" class="form-control" placeholder="" required="true">
                   </div>
                 </div>
                 <div class="form-group row text-left">
                   <label for="inputEmail" class="col-sm-2 col-sm-offset-2 form-control-label">Password</label>
                   <div class="col-sm-6">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required="true">
+                    <input type="password" name="password" class="form-control" placeholder="" required="true">
                   </div>
                 </div>
                 <div class="col-md-2 col-md-offset-5">
@@ -371,13 +329,12 @@
     <!--end of creating post modal -->
 
 <!--bottom footer-->
-    <div class="bottom">
-      <ul class="footer">
-          <li class="footer_line"><a href="#about">Sign Up</a></li>
-          <li class="footer_line"><a href="#photos">Log In</a></li>
-          <li class="footer_line"><a href="#contact">Contact</a></span></li>
-      </ul>
-      <p id="footer">CHRISTINE LAM | christine.lam.06@gmail.com</p>
+    <div class="bottom text-center">
+      <p id="footer">Contact Me</p>
+      <li class="footer_line"><a href="https://github.com/lamchristine/project1">GitHub</a></li>
+      <li class="footer_line log"><a href="https://www.linkedin.com/in/christinelam06">LinkedIn</a></li>
+      <li class="footer_line"><a href="mailto:christine.lam.06@gmail.com">Email</a></li>
+
     </div>
 
 
