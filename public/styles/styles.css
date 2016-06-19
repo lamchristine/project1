@@ -53,15 +53,15 @@ li.nava {
 }
 
 .navbar-default .dropdown-menu li a {
-  color: yellow;
   padding: 3px 20px;
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu> li >a {
-  color: blue;
+  color: #54C49F;
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu> li >a:hover {
+  background-color: #f3f3f3;
 }
 
 .home {
@@ -184,7 +184,6 @@ header .caption_title p  {
   }
 
   .navbar-default .dropdown-menu li a:hover{
-    background-color: #cac9c9;
     border-bottom: 0px;
   }
 
