@@ -121,7 +121,7 @@ usersList.push({ username: 'ddoedoe',
 });
 
 
-
+  
   // usersList.forEach(function (user) {
     for(var i = 0; i < usersList.length; i++) {
       usersList[i].posts = sampleTrips[i];

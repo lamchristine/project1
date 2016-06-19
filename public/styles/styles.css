@@ -276,6 +276,11 @@ button.searchbtn  {
 #profileCaret{
   margin-top: 12px;
 }
+
+#profile img {
+  width: 100px;
+  height: 100px;
+}
 .pull-right {
   margin-top: 10px
 }
