@@ -52,6 +52,17 @@ li.nava {
   padding: 0 15px 0 15px;
 }
 
+.navbar-default .dropdown-menu li a {
+  color: yellow;
+  padding: 3px 20px;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu> li >a {
+  color: blue;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu> li >a:hover {
+}
 
 .home {
   font-size: 50px;
@@ -71,14 +82,24 @@ li.nava {
 
 #dropdown {
   display: none;
-  /*margin-top: 10px;*/
+  font-size: 20px;
+  font-family: 'Londrina Solid';
 }
 
-#dropdown-menu {
+
+/*.navbar-collapse .dropdown-menu li a{
+  padding: 3px 20px;
+}*/
+
+/*.navbar-collapse .dropdown-menu li a:hover{
   color: blue;
-  font-size: 15px;
-  font-family: 'PT Sans Narrow', sans-serif;
-}
+}*/
+
+/*#dropdown-menu {
+  color: white;
+  font-size: 18px;
+  font-family: 'Londrina Solid';
+}*/
 
 #p{
   font-size: 20px;
@@ -161,6 +182,12 @@ header .caption_title p  {
     border-bottom:3px solid #54C49F;
     color: #cac9c9;
   }
+
+  .navbar-default .dropdown-menu li a:hover{
+    background-color: #cac9c9;
+    border-bottom: 0px;
+  }
+
     header {
         height: 350px;
     }
@@ -367,6 +394,7 @@ a.add_post{
   #modal-body-login{
     height: 180px;
   }
+}
 
 #descriptionBox{
   margin-top: 20px;
