@@ -133,7 +133,7 @@ header {
   background: url('/images/background.JPG');
   background-size: cover;
   height: 200px;
-  background-position: center;
+  background-position: bottom;
   position: relative;
 }
 
