@@ -95,30 +95,30 @@ usersList.push({ username: 'bubbill',
                  blurb: 'Can not stop traveling',
                    image: "/images/people-8.jpg"
 });
-usersList.push({ username: 'rayray',
-                  email: 'ray@ray.com',
-                  fullname: 'Ryan Q.',
-                   password: 'abc',
-                   age: '41',
-                 blurb: 'Forever young!',
-                   image: "/images/people-7.jpg"
-});
-usersList.push({ username: 'jdoe',
-                    email: 'jane@doe.com',
-                    fullname: 'Jane Doe',
-                   password: 'abc',
-                   age: '25',
-                 blurb: "Let's party!",
-                   image: "/images/people-6.jpg"
-});
-usersList.push({ username: 'ddoedoe',
-                  email: 'd@doedoe.com',
-                  fullname: 'Klean K.',
-                   password: 'abc',
-                   age: '28',
-                 blurb: 'Still got the travel bug',
-                   image: "/images/people-5.jpg"
-});
+// usersList.push({ username: 'rayray',
+//                   email: 'ray@ray.com',
+//                   fullname: 'Ryan Q.',
+//                    password: 'abc',
+//                    age: '41',
+//                  blurb: 'Forever young!',
+//                    image: "/images/people-7.jpg"
+// });
+// usersList.push({ username: 'jdoe',
+//                     email: 'jane@doe.com',
+//                     fullname: 'Jane Doe',
+//                    password: 'abc',
+//                    age: '25',
+//                  blurb: "Let's party!",
+//                    image: "/images/people-6.jpg"
+// });
+// usersList.push({ username: 'ddoedoe',
+//                   email: 'd@doedoe.com',
+//                   fullname: 'Klean K.',
+//                    password: 'abc',
+//                    age: '28',
+//                  blurb: 'Still got the travel bug',
+//                    image: "/images/people-5.jpg"
+// });
 
 
 
