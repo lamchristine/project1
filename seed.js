@@ -3,33 +3,33 @@ var db = require("./models");
 
 var sampleTrips = [];
 
+sampleTrips.push({ country: "Canada",
+                   city: "Toronto",
+                   description: "looking for travel partners in just those countries. i know my dates. if you're in the area lets hang out or even better EAT! i don't know how i'm not 1000 lbs. also if you happen to know how i could get involved in volunteering in Torono, please message me. (please dont lecture me on the dangers or etc in toronto - just message me about toronto if you know of an org or a contact. thank you)"
+});
 sampleTrips.push({ country: "Germany",
-                   city: "Berlin",
-                   description: "looking for travel partners in just those countries. i know my dates. if you're in the area lets hang out or even better EAT! i don't know how i'm not 1000 lbs. also if you happen to know how i could get involved in volunteering in Greece, please message me. (please dont lecture me on the dangers or etc in greece - just message me about greece if you know of an org or a contact. thank you)"
+                   city: "Munich",
+                   description: "Hi! I'm Sydney, 22 .Will be traveling Europe for 5 months before moving to Australia. I'm arriving in Munich on the 15th of May. I don't have a set plan I usually just go with the flow. I like to dive, hike, get to know the local culture, and enjoy the night life. I love getting to know other people, and learning about other ways of life."
 });
 sampleTrips.push({ country: "Germany",
                    city: "Berlin",
-                   description: "Hi! I'm Sydney, 22 .Will be traveling SE Asia for 5 months before moving to Australia. I'm arriving in Bangkok on the 15th of May. I don't have a set plan I usually just go with the flow. I like to dive, hike, get to know the local culture, and enjoy the night life. I love getting to know other people, and learning about other ways of life."
-});
-sampleTrips.push({ country: "Germany",
-                   city: "Berlin",
-                   description: "Hi my name is Jennifer I'm 19 & currently live in North Carolina ,there is an event in Orlando next week called 'Playlist Live' there you can meet popular youtubers ect and I would like someone to join me on this trip.I would also like to explore Orlando and maybe even go to Disney or Universal."
+                   description: "Hi my name is Jennifer I'm 19 & currently live in North Carolina ,there is an event in Berlin next week called 'Playlist Live' there you can meet popular youtubers ect and I would like someone to join me on this trip.I would also like to explore Berlin."
 });
 sampleTrips.push({ country: "Australia",
                    city: "Sydney",
-                   description: "Hi, My name is Jamues, 24 years old and I am currently a graduate student from University of Cambridge. I will be graduating this August and I will be doing a month long road trip around the west coast of USA. I have already booked my flight from 1st Sep to 29th Sep. Currently, I intend to rent a car and drive around the following places from 6th Sep to 24th Sep."
+                   description: "Hi, My name is Jamues, 24 years old and I am currently a graduate student from University of Cambridge. I will be graduating this August and I will be doing a month long road trip around the east coast of Australia. I have already booked my flight from 1st Sep to 29th Sep. Currently, I intend to rent a car and drive around the following places from 6th Sep to 24th Sep."
 });
 sampleTrips.push({ country: "United States",
                    city: "San Francisco",
                    description: "Although huge in terms of offerings, San Francisco is physically quite compact. It is located on a seven-by-seven mile (11 x 11km) square of land at the tip of a peninsula between the San Francisco Bay and the Pacific coast. It has a population of 812,000 which represents a small fraction of the entire Bay Area population of 7.1 million. San Francisco is just one of the cities which makes up the entire San Francisco Bay Area. San Francisco's neighbors -Oakland and Berkeley east of the Bay Bridge, Marin County north of the Golden Gate Bridge, and the Peninsula south of the city are all part of separate counties, each with their own governments and local public transportation systems."
 });
-sampleTrips.push({ country: "Germany",
-                   city: "Munich",
+sampleTrips.push({ country: "Ecuador",
+                   city: "Amazon",
                    description: "Hi all, I'm a teacher with summers off and I'm always looking for somewhere exciting to go. Upcoming ideas include: Traveling down the Amazon on a local boat (I'd really prefer to do this with someone) from Iquitos, Peru to Manaus, Brazil Backpacking through Guyana, Suriname, and French Guinea. Morocco. Feel free to send me a message so we can get to know one another. I'm 31, from the US, and really easy going."
 });
-sampleTrips.push({ country: "Brazil",
-                   city: "Rio",
-                   description: "Hi folks! I'm a 19 year old girl living in the Netherlands (cap. Amsterdam) studying interactive design. I really like to get to know new people even though i'm a little shy (i like to go out at night tho). I'm planning to travel to Mexico and stay for 2 weeks in Playa Del Carmen. I plan to visit cenotes, temples, enjoy the nightlife, do fun activities and chill at the beach. I just want to see new things and have fun with someone.. My friends don't have the money to come with me, but that won't stop me from going!"
+sampleTrips.push({ country: "Chile",
+                   city: "Patagonia",
+                   description: "Hi folks! I'm a 19 year old girl living in the Netherlands (cap. Amsterdam) studying interactive design. I really like to get to know new people even though i'm a little shy (i like to go out at night tho). I'm planning to travel to Chile and stay for 2 weeks in Patagonia. I plan to hike, camp, but also enjoy the nightlife, do fun activities and chill at the beach. I just want to see new things and have fun with someone.. My friends don't have the money to come with me, but that won't stop me from going!"
 });
 // sampleTrips.push({ country: "Chile",
 //                    city: "Santiago",
@@ -121,7 +121,7 @@ usersList.push({ username: 'ddoedoe',
 });
 
 
-  
+
   // usersList.forEach(function (user) {
     for(var i = 0; i < usersList.length; i++) {
       usersList[i].posts = sampleTrips[i];
