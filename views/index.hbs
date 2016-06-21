@@ -75,7 +75,7 @@
   <div id="header" class="container">
     <div class="row title">
       <div class="col-md-12">
-        <h1><strong>Welcome to Who's Trippin'?</strong></h1>
+        <h1><strong>Welcome to Who's Trippin'?{{{user.username}}}</strong></h1>
         <h3>Planning a trip? Interested in meeting fellow travelers or locals? Find out who's tripping and connect with like-minded travelers!</h3>
         <hr>
       </div>
@@ -149,7 +149,9 @@
                       </div>
                     \{{/each}}
                     <div id="addPostBtn">
+
                       <a href="javascript:void(0)" class="add_post" data-user-Id=\{{_id}} data-post-Id=\{{posts._id}}><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Post</a>
+
                     </div>
                     <hr>
                   </div>
@@ -300,18 +302,18 @@
           <div class="modal-body">
             <form id="post_form" class="form-inline">
               <div class="row">
-                <div class="col-sm-4 col-sm-offset-1 text-left">
+                <div class="col-md-4 col-md-offset-1 text-left">
                   <label for="city">City</label><br>
                   <input id="city" type="text" name="city" class="form-control input-md" placeholder="" required="true">
                 </div>
-                <div class="col-sm-3 text-left">
+                <div class="col-md-4 text-left">
                   <label for="country">Country</label><br>
                   <input id="country" type="text" name="country" class="form-control input-md" placeholder="" required="true">
                 </div>
               </div>
                 <div id="descriptionBox" class="row">
-                  <label for="description" class="col-sm-1 col-sm-offset-1 form-control-label">Description</label>
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <label for="description" class="col-xs-1 col-xs-offset-1 form-control-label">Description</label>
+                  <div class="col-md-12 col-xs-10 col-xs-offset-1">
                     <textarea id="description" name="description" class="form-control" rows="12" placeholder=""></textarea>
                   </div>
                 </div>
