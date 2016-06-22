@@ -1,6 +1,6 @@
 # Who's Trippin'? (Project 1)
 
-#####https://safe-hamlet-29298.herokuapp.com
+#####https://whos-trippin.herokuapp.com/
 
 ##Summary
 #####Who's Trippin'? is a fully CRUD-able posting site for travelers looking for travel companion or to connect with like-minded travelers. All posts are viewable by public; however, to post users will have to create an account and add trips to their post. Trips are editable and deleteable. 
